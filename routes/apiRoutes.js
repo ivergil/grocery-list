@@ -1,12 +1,20 @@
-//define api routes for chef helper routes, api routes like spoonacular will be defined here in the back end through axios and .env to protect the API Key
+//read and set any environment variables
+require("dotenv").config();
 
+//required to import the keys.js file
+var keys = require("../keys");
+
+//get the key data from keys
+var sponacularId = keys.AppKeys.SpoonId;
+var postmatesId = keys.AppKeys.postId
+
+//define api routes for chef helper routes, api routes like spoonacular will be defined here in the back end through axios and .env to protect the API Key
 const axios = require("axios");
 const router = require("express").Router();
 const userController = require("../controllers/userController");
 const groceryListController = require("../controllers/groceryListController");
 const favRecipeController = require("../controllers/favRecipeController");
 const yourOrderController = require("../controllers/yourOrderController");
-
 
 
 ///////--------below routes will be edited to match the routes to be used for the chef helper app --------------------////////
