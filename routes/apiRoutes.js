@@ -22,41 +22,56 @@ const yourOrderController = require("../controllers/yourOrderController");
 
 /////-----edit routes to match sponacular api -------//////
 
-// Matches with "/api/googlebooks"
-router.get("/googlebooks", (req, res) => {
-  var query = req.query;
-  var url="https://www.googleapis.com/books/v1/volumes";
 
-    axios.get(url, {params:{q:query.q}})
+// Matches with "/api/recipesIds"
+router.get("/recipesIds", (req, res) => {
+  var query = req.query;
+  var url="https://api.spoonacular.com/recipes/search?number=6&apiKey=" + spoonacularId ;
+
+    //axios.get(url, {params:{q:query.q}})
+    axios.get(url + "&query=cheese")
       .then (({data}) => {res.json(data); console.log(query)})
       .catch(err => {console.log(err);res.status(422).json(err)});
   });
 
 
-  router.get("/googlebook/:id", (req, res) => {
-    var id = req.params.id
-    var url="https://www.googleapis.com/books/v1/volumes/" + id;
+  // Matches with "/api/recipesIds"
+router.get("/recipesBulk", (req, res) => {
+  var query = req.query;
+  var url="https://api.spoonacular.com/recipes/informationBulk?apiKey=" + spoonacularId + "&";
+
+    //axios.get(url, {params:{q:query.q}})
+    axios.get(url + "ids=215435,116679")
+      .then (({data}) => {res.json(data); console.log(query)})
+      .catch(err => {console.log(err);res.status(422).json(err)});
+  });
   
-      axios.get(url)
-        .then (({data}) => {res.json(data); console.log(url)})
-        .catch(err => {console.log(err);res.status(422).json(err)});
-    });
+
+
+  // router.get("/googlebook/:id", (req, res) => {
+  //   var id = req.params.id
+  //   var url="https://www.googleapis.com/books/v1/volumes/" + id;
+  
+  //     axios.get(url)
+  //       .then (({data}) => {res.json(data); console.log(url)})
+  //       .catch(err => {console.log(err);res.status(422).json(err)});
+  //   });
 
     //////////////////////////////////////////////////////
 
   //// routes to interact with mongo database --------////////
 
 // Matches with "/api/books"
-router.route("/books")
-  .get(bookController.findAll)
-  .post(bookController.create);
+// router.route("/books")
+//   .get(bookController.findAll)
+//   .post(bookController.create);
 
-// Matches with "/api/books/:id"
-router
-  .route("/books/:id")
-  .get(bookController.findById)
-  .put(bookController.update)
-  .delete(bookController.remove);
+// // Matches with "/api/books/:id"
+// router
+//   .route("/books/:id")
+//   .get(bookController.findById)
+//   .put(bookController.update)
+//   .delete(bookController.remove);
 
 
 //exporting routes
