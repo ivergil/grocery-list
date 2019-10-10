@@ -5,7 +5,7 @@ require("dotenv").config();
 var keys = require("../keys");
 
 //get the key data from keys
-var sponacularId = keys.AppKeys.SpoonId;
+var sponacularId = keys.AppKeys.SpoonId; 
 var postmatesId = keys.AppKeys.postId
 
 //define api routes for chef helper routes, api routes like spoonacular will be defined here in the back end through axios and .env to protect the API Key
