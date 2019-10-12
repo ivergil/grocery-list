@@ -3,6 +3,7 @@ import API from "../utils/API";
 import { Container, Box, BoxOne } from "../components/Grid";
 
 import Navbar from "../components/Navbar";
+import Jumbotron from "../components/Jumbotron";
 
 
 
@@ -55,6 +56,10 @@ class Home extends Component {
       <div>
 
           <Navbar></Navbar>
+          <Jumbotron>
+              <h1>Chef Helper</h1>
+              <p>..........................</p>
+          </Jumbotron>
       {/* <Nav
       Home = {this.state.Home} 
       saved = {this.state.saved}/>
