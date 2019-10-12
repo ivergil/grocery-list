@@ -1,29 +1,28 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Jumbotron from "../components/jumbotron";
-import { Container, BoxOne } from "../components/grid";
-import SavedCards from "../components/savedCard"
-import Nav from "../components/navbar"
+import { Container, Box, BoxOne } from "../components/Grid";
 
-class Saved extends Component {
-  state = {
-    books: [],
-    search: false,
-    saved: true
-  };
 
-  componentDidMount() {
-    this.loadSavedBooks();
-  }
 
-  loadSavedBooks = () => {
-    API.getBooks()
-      .then(res => {
-        this.setState({ books: res.data});
-        console.log(this.state.books);
-      })
-      .catch(err => console.log(err));
-  };
+class Profile extends Component {
+//   state = {
+//     books: [],
+//     search: false,
+//     saved: true
+//   };
+
+//   componentDidMount() {
+//     this.loadSavedBooks();
+//   }
+
+//   loadSavedBooks = () => {
+//     API.getBooks()
+//       .then(res => {
+//         this.setState({ books: res.data});
+//         console.log(this.state.books);
+//       })
+//       .catch(err => console.log(err));
+//   };
 
     
     deleteABook = id => {
@@ -38,7 +37,7 @@ class Saved extends Component {
   render() {
     return (
       <div>
-      <Nav 
+      {/* <Nav 
        search = {this.state.search} 
        saved = {this.state.saved}/>
       <Container fluid>
@@ -64,10 +63,10 @@ class Saved extends Component {
      ))}
 
       </BoxOne>
-     </Container>
+     </Container> */}
      </div>
     );
   }
 }
 
-export default Saved;
+export default Profile;

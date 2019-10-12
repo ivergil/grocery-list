@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Jumbotron from "../components/jumbotron";
-import { Input, SearchBtn } from "../components/searchBox";
-import { Container, Box, BoxOne } from "../components/grid";
-import Cards from "../components/resultsCard";
-import Navbar from "../components/navbar";
-import "../styles/resultsCard.css";
+import { Container, Box, BoxOne } from "../components/Grid";
+
+import Navbar from "../components/Navbar";
+
 
 
 class Home extends Component {
