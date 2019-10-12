@@ -35,7 +35,7 @@ router.get("/recipesIds", (req, res) => {
   });
 
 
-  // Matches with "/api/recipesBulk"
+  // Matches with "/api/recipesBulk"////////////////////
 router.get("/recipesBulk", (req, res) => {
   var query = req.query;
   var url="https://api.spoonacular.com/recipes/informationBulk?apiKey=" + spoonacularId + "&";
@@ -58,7 +58,22 @@ router.get("/recipesBulk", (req, res) => {
         .then (({data}) => {res.json(data); console.log(query)})
         .catch(err => {console.log(err);res.status(422).json(err)});
     });
-     
+
+
+   
+  
+
+    // Matches with "/api/recipeInformation/:recipeId"
+    router.get("/recipePhotos/:recipeId", (req, res) => {
+      var recipeId = req.params.recipeId;
+      var query = req.query;
+      var url=" https://api.spoonacular.com/recipes/" + recipeId +"/ingredientWidget?apiKey=" + spoonacularId;
+    
+        //axios.get(url, {params:{q:query.q}})
+        axios.get(url)
+          .then (({data}) => {res.json(data); console.log(query)})
+          .catch(err => {console.log(err);res.status(422).json(err)});
+      });
 
   // router.get("/googlebook/:id", (req, res) => {
   //   var id = req.params.id
