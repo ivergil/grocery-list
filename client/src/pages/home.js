@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Box, BoxOne } from "../components/Grid";
-
+import {Input,SearchBtn} from "../components/SearchBox";
 import Navbar from "../components/Navbar";
 import Jumbotron from "../components/Jumbotron";
 
@@ -60,6 +60,21 @@ class Home extends Component {
               <h1>Chef Helper</h1>
               <p>..........................</p>
           </Jumbotron>
+
+          <Box>
+            <h4 className="mb-4" >Search Recipes</h4>
+            <p>Key Word:</p>
+          <Input
+            value={this.state.title}
+            onChange={this.handleInputChange}
+            name="keyWord"
+            placeholder="Chicken Teriyaki">
+          </Input>
+          <SearchBtn
+            onClick={this.handleSubmit}>
+            Search
+          </SearchBtn>
+         </Box>
       {/* <Nav
       Home = {this.state.Home} 
       saved = {this.state.saved}/>
