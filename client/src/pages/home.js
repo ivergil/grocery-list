@@ -4,6 +4,7 @@ import { Container, Box, BoxOne } from "../components/Grid";
 import {Input,SearchBtn} from "../components/SearchBox";
 import Navbar from "../components/Navbar";
 import Jumbotron from "../components/Jumbotron";
+import GroceryCard from "../components/GroceryCard"
 
 
 
@@ -56,11 +57,13 @@ class Home extends Component {
       <div>
 
           <Navbar></Navbar>
+
+          <Container fluid>   
           <Jumbotron>
               <h1>Chef Helper</h1>
               <p>..........................</p>
           </Jumbotron>
-
+               
           <Box>
             <h4 className="mb-4" >Search Recipes</h4>
             <p>Key Word:</p>
@@ -75,6 +78,22 @@ class Home extends Component {
             Search
           </SearchBtn>
          </Box>
+        <BoxOne>
+        <h4 className="mb-4"> Results</h4>
+        </BoxOne>
+
+        <BoxOne>
+        <h4 className="mb-4"> Grocery Calculator</h4>
+        </BoxOne>
+
+        <BoxOne>
+        <h4 className="mb-4"> Coupons</h4>
+        <GroceryCard/>
+        </BoxOne>
+
+        
+
+         </Container>
       {/* <Nav
       Home = {this.state.Home} 
       saved = {this.state.saved}/>
