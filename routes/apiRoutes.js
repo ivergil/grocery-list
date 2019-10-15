@@ -58,7 +58,7 @@ router.get("/recipesBulk", (req, res) => {
   });
   
 
-  // Matches with "/api/recipeInformation/:recipeId"
+  //Matches with "/api/recipeInformation/:recipeId"
   router.get("/recipeInformation/:recipeId", (req, res) => {
     var recipeId = req.params.recipeId;
     var query = req.query;
