@@ -23,15 +23,27 @@ const yourOrderController = require("../controllers/yourOrderController");
 /////-----edit routes to match sponacular api -------//////
 
 
-// Matches with "/api/recipesIds"
-router.get("/recipesIds", (req, res) => {
-  var query = req.query;
-  var url="https://api.spoonacular.com/recipes/search?number=6&apiKey=" + spoonacularId ;
+// // Matches with "/api/recipesIds"
+// router.get("/recipesIds", (req, res) => {
+//   var query = req.query;
+//   var url="https://api.spoonacular.com/recipes/search?number=6&apiKey=" + spoonacularId ;
 
-    //axios.get(url, {params:{q:query.q}})
-    axios.get(url + "&query=cheese")
-      .then (({data}) => {res.json(data); console.log(query)})
+//     //axios.get(url, {params:{q:query.q}})
+//     axios.get(url,{params:{q:query}})
+//       .then (({data}) => {res.json(data); console.log(query)})
+//       .catch(err => {console.log(err);res.status(422).json(err)});
+//   });
+
+
+//Matches with “/api/recipesIds”
+router.get('/recipesIds', (req, res) => {
+
+  var query = req.query;
+  var url=`https://api.spoonacular.com/recipes/search?&number=6&apiKey=${spoonacularId}` ;
+        axios.get(url + `&query=${query.q}`)
+      .then (({data}) => {res.json(data); console.log(query);})
       .catch(err => {console.log(err);res.status(422).json(err)});
+
   });
 
 
@@ -40,8 +52,7 @@ router.get("/recipesBulk", (req, res) => {
   var query = req.query;
   var url="https://api.spoonacular.com/recipes/informationBulk?apiKey=" + spoonacularId + "&";
 
-    //axios.get(url, {params:{q:query.q}})
-    axios.get(url + "ids=215435,116679")
+    axios.get(url + `&query=${query.q}`)
       .then (({data}) => {res.json(data); console.log(query)})
       .catch(err => {console.log(err);res.status(422).json(err)});
   });
@@ -54,7 +65,7 @@ router.get("/recipesBulk", (req, res) => {
     var url="https://api.spoonacular.com/recipes/"+ recipeId + "/information?includeNutrition=true&apiKey=" + spoonacularId;
   
       //axios.get(url, {params:{q:query.q}})
-      axios.get(url)
+      axios.get(url + `&query=${query.q}`)
         .then (({data}) => {res.json(data); console.log(query)})
         .catch(err => {console.log(err);res.status(422).json(err)});
     });
@@ -70,7 +81,7 @@ router.get("/recipesBulk", (req, res) => {
       var url=" https://api.spoonacular.com/recipes/" + recipeId +"/ingredientWidget?apiKey=" + spoonacularId;
     
         //axios.get(url, {params:{q:query.q}})
-        axios.get(url)
+        axios.get(url + `&query=${query.q}`)
           .then (({data}) => {res.json(data); console.log(query)})
           .catch(err => {console.log(err);res.status(422).json(err)});
       });
@@ -100,7 +111,5 @@ router.get("/recipesBulk", (req, res) => {
 //   .put(bookController.update)
 //   .delete(bookController.remove);
 
-
 //exporting routes
-
 module.exports = router;

@@ -10,15 +10,15 @@ import GroceryCard from "../components/GroceryCard"
 
 class Home extends Component {
   state = {
-    // books: [],
-    // title: "Harry potter",
+    listOfResults: [],
+    title: "chicken",
 
     // Home: true,
     // saved: false
   };
 
   componentDidMount() {
-    //this.loadBooks();
+    this.getRecipesIds();
   }
 
 //   loadBooks = () => {
@@ -31,20 +31,30 @@ class Home extends Component {
 //       .catch(err => console.log(err));
 //   };
 
+getRecipesIds = () => {
+  API.spoonacularId(this.state.title)
+    .then(res => {
+       console.log(this.state.title);
+      this.setState({ listOfResults:res.data.results });
+       console.log(this.state.listOfResults);
+    })
+    .catch(err => console.log(err));
+}
 
-//   handleInputChange = event => {
-//     const { name, value } = event.target;
-//     this.setState({
-//       [name]: value
-//     });
-//     console.log(this.state.title)
-//   };
 
-//   handleSubmit = event => {
-//     event.preventDefault();
-//     this.loadBooks(this.state.title);
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state.title)
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.getRecipesIds(this.state.title);
    
-//   };
+  };
 
 //   saveABook = (bookQuery) => {
 //       API.saveBook(bookQuery)
@@ -70,7 +80,7 @@ class Home extends Component {
           <Input
             value={this.state.title}
             onChange={this.handleInputChange}
-            name="keyWord"
+            name="title"
             placeholder="Chicken Teriyaki">
           </Input>
           <SearchBtn
@@ -84,11 +94,12 @@ class Home extends Component {
 
         <BoxOne>
         <h4 className="mb-4"> Grocery Calculator</h4>
+        <GroceryCard/>
         </BoxOne>
 
         <BoxOne>
         <h4 className="mb-4"> Coupons</h4>
-        <GroceryCard/>
+        
         </BoxOne>
 
         
