@@ -1,6 +1,6 @@
 import React from "react";
 import $ from 'jquery';
-import "./style.css";
+//import "./style.css";
 
 function RecipeCard(props) {
 
@@ -15,17 +15,22 @@ function RecipeCard(props) {
   })
 
   return (
-    <div className="card">
-      <div className="img-container">
-        <img /*alt={props.name} src={props.image}*/ />
+    <div className="mb-4 mr-2 ml-2">
+    <div className="card" style={{width:300, height:400}} >
+      <div className="img-container" style={{height:220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${props.image})`}}>
+        {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
+        <img style={{: 'cover'}} src={ `https://spoonacular.com/recipeImages/${props.image}`} /> */}
       </div>
       <div className="content">
         <ul>
           <li>
-            <strong>Recipe Name:</strong> {/*props.name*/}
+            <strong>Recipe Name:</strong> {props.recipeTitle}
           </li>
           <li>
-            <strong>Servins:</strong> {/*props.occupation*/}
+            <strong>Servings:</strong> {props.servings}
+          </li>
+          <li>
+            <strong>Ready in:</strong> {props.readyInMinutes} min
           </li>
           
           <a href="#">Add Favorite</a>
@@ -44,6 +49,7 @@ function RecipeCard(props) {
         x
       </button> */}
 
+    </div>
     </div>
   );
 }
