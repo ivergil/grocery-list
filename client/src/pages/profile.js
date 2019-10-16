@@ -1,34 +1,41 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import Navbar from "../components/Navbar";
+
+import Jumbotron from "../components/Jumbotron";
+import RecipeCard from "../components/RecipeCard";
+
 import { Container, Box, BoxOne } from "../components/Grid";
 
 
 
 class Profile extends Component {
-//   state = {
-//     books: [],
-//     search: false,
-//     saved: true
-//   };
+  //   state = {
+  //     books: [],
+  //     search: false,
+  //     saved: true
+  //   };
 
-//   componentDidMount() {
-//     this.loadSavedBooks();
-//   }
+  componentDidMount() {
+    // this.loadSavedBooks();
+  }
 
-//   loadSavedBooks = () => {
-//     API.getBooks()
-//       .then(res => {
-//         this.setState({ books: res.data});
-//         console.log(this.state.books);
-//       })
-//       .catch(err => console.log(err));
-//   };
+  //   loadSavedBooks = () => {
+  //     API.getBooks()
+  //       .then(res => {
+  //         this.setState({ books: res.data});
+  //         console.log(this.state.books);
+  //       })
+  //       .catch(err => console.log(err));
+  //   };
 
-    
-    deleteABook = id => {
-      API.deleteBook(id)
-      .then(res => {console.log(res);
-        this.loadSavedBooks()})
+
+  deleteABook = id => {
+    API.deleteBook(id)
+      .then(res => {
+        console.log(res);
+        this.loadSavedBooks()
+      })
       .catch(err => console.log(err));
   };
 
@@ -37,7 +44,29 @@ class Profile extends Component {
   render() {
     return (
       <div>
-      {/* <Nav 
+        <Navbar></Navbar>
+        {/* <Jumbotron>
+          <h1>Chef Helper</h1>
+          <p>..........................</p>
+        </Jumbotron> */}
+
+        <BoxOne>
+          {/* {this.state.friends.map(friend => ( */}
+          <RecipeCard
+
+          // removeFriend={this.removeFriend}
+          // id={friend.id}
+          // key={friend.id}
+          // name={friend.name}
+          // image={friend.image}
+          // occupation={friend.occupation}
+          // location={friend.location}
+
+          />
+          {/* ))} */}
+        </BoxOne>
+
+        {/* <Nav 
        search = {this.state.search} 
        saved = {this.state.saved}/>
       <Container fluid>
@@ -64,7 +93,7 @@ class Profile extends Component {
 
       </BoxOne>
      </Container> */}
-     </div>
+      </div>
     );
   }
 }
