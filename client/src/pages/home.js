@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Box, BoxOne } from "../components/Grid";
-
+import {Input,SearchBtn} from "../components/SearchBox";
 import Navbar from "../components/Navbar";
 import Jumbotron from "../components/Jumbotron";
+import GroceryCard from "../components/GroceryCard"
 
 
 
 class Home extends Component {
   state = {
-    // books: [],
-    // title: "Harry potter",
+    listOfResults: [],
+    title: "chicken",
 
     // Home: true,
     // saved: false
   };
 
   componentDidMount() {
-    //this.loadBooks();
+    this.getRecipesIds();
   }
 
 //   loadBooks = () => {
@@ -30,20 +31,30 @@ class Home extends Component {
 //       .catch(err => console.log(err));
 //   };
 
+getRecipesIds = () => {
+  API.spoonacularId(this.state.title)
+    .then(res => {
+       console.log(this.state.title);
+      this.setState({ listOfResults:res.data.results });
+       console.log(this.state.listOfResults);
+    })
+    .catch(err => console.log(err));
+}
 
-//   handleInputChange = event => {
-//     const { name, value } = event.target;
-//     this.setState({
-//       [name]: value
-//     });
-//     console.log(this.state.title)
-//   };
 
-//   handleSubmit = event => {
-//     event.preventDefault();
-//     this.loadBooks(this.state.title);
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state.title)
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.getRecipesIds(this.state.title);
    
-//   };
+  };
 
 //   saveABook = (bookQuery) => {
 //       API.saveBook(bookQuery)
@@ -56,10 +67,44 @@ class Home extends Component {
       <div>
 
           <Navbar></Navbar>
+
+          <Container fluid>   
           <Jumbotron>
               <h1>Chef Helper</h1>
               <p>..........................</p>
           </Jumbotron>
+               
+          <Box>
+            <h4 className="mb-4" >Search Recipes</h4>
+            <p>Key Word:</p>
+          <Input
+            value={this.state.title}
+            onChange={this.handleInputChange}
+            name="title"
+            placeholder="Chicken Teriyaki">
+          </Input>
+          <SearchBtn
+            onClick={this.handleSubmit}>
+            Search
+          </SearchBtn>
+         </Box>
+        <BoxOne>
+        <h4 className="mb-4"> Results</h4>
+        </BoxOne>
+
+        <BoxOne>
+        <h4 className="mb-4"> Grocery Calculator</h4>
+        <GroceryCard/>
+        </BoxOne>
+
+        <BoxOne>
+        <h4 className="mb-4"> Coupons</h4>
+        
+        </BoxOne>
+
+        
+
+         </Container>
       {/* <Nav
       Home = {this.state.Home} 
       saved = {this.state.saved}/>
