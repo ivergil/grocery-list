@@ -11,7 +11,7 @@ import GroceryCard from "../components/GroceryCard"
 class Home extends Component {
   state = {
     listOfResults: [],
-    title: "chicken",
+    title: "beef",
 
     // Home: true,
     // saved: false
