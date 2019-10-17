@@ -5,6 +5,7 @@ import {Input,SearchBtn} from "../components/SearchBox";
 import Navbar from "../components/Navbar";
 import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard"
+import RecipeCard from "../components/RecipeCard"
 
 
 
@@ -21,15 +22,6 @@ class Home extends Component {
     this.getRecipesIds();
   }
 
-//   loadBooks = () => {
-//     API.getGoogleBooks(this.state.title)
-//       .then(res => {
-//         console.log(res.data.items);
-//         this.setState({books:res.data.items, title: "" });
-//         console.log(this.state.books);
-//       })
-//       .catch(err => console.log(err));
-//   };
 
 getRecipesIds = () => {
   API.spoonacularId(this.state.title)
@@ -90,6 +82,21 @@ getRecipesIds = () => {
          </Box>
         <BoxOne>
         <h4 className="mb-4"> Results</h4>
+        {this.state.listOfResults.map(recipe => (
+
+            <RecipeCard
+              id={recipe.id}
+              key={recipe.id}
+              //saveABook = {this.saveABook}
+              recipeTitle={recipe.title}
+              //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
+              image={recipe.image}
+              servings={recipe.servings}
+              readyInMinutes={recipe.readyInMinutes}/>
+
+
+))}
+
         </BoxOne>
 
         <BoxOne>
