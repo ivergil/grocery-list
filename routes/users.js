@@ -11,7 +11,7 @@ users.use(cors());
 
 process.env.SECRET_KEY = 'secret'
 
-
+//final route is /api/users/register
 users.post("/register", (req, res)=>{
 
     const today = new Date();
@@ -55,7 +55,7 @@ users.post("/register", (req, res)=>{
 
 })
 
-
+// api/users/login
 users.post('/login', (req, res) => {
     Users.findOne({
         email: req.body.email
