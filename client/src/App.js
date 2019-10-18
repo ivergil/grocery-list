@@ -7,6 +7,7 @@ import LoginNavbar from "./components/LoginNavbar"
 import Login from "./components/Login"
 import Register from "./components/Register"
 import Profile from "./pages/profile"
+import Account from "./pages/account"
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/account" component={Account} />
         </div>
         
 
