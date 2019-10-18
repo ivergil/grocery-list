@@ -17,7 +17,7 @@ class Register extends Component {
         password: ""
     }
     this.onChange = this.onChange.bind(this)
-    this.onChange = this.onSubmit.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
  }
 
 
@@ -49,7 +49,7 @@ class Register extends Component {
          <div className="container">
              <div className="row">
                  <div className="col-md-6 mt-5 mx-auto">
-                        <form noValidate onSubmit={this.onSubmit}>
+                        <form noValidate onSubmit={this.onSubmit} >
                             <h1 className="h3 mb-3 ffont-weight-normal">
                                 Please sign in
                             </h1>
