@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-//import Home from "./pages/home";
+import Home from "./pages/home";
 //import Profile from "./pages/profile";
 import Landing from "./components/Landing"
 import LoginNavbar from "./components/LoginNavbar"
 import Login from "./components/Login"
 import Register from "./components/Register"
-import Profile from "./components/Profile"
+import Profile from "./pages/profile"
 
 
 function App() {
@@ -23,8 +23,9 @@ function App() {
 
     <Router>
       <div className="App">
-        <LoginNavbar/>
-        <Route exact path="/" component={Landing} />
+        {/* <LoginNavbar/>
+        <Route exact path="/" component={Landing} /> */}
+        <Route exact path="/" component={Home} />
         <div classname="container">
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />

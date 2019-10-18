@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Box, BoxOne } from "../components/Grid";
 import {Input,SearchBtn} from "../components/SearchBox";
-import Navbar from "../components/Navbar";
+import LoginNavbar from "../components/LoginNavbar";
 import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard"
 import RecipeCard from "../components/RecipeCard"
@@ -58,7 +58,7 @@ getRecipesIds = () => {
     return (
       <div>
 
-          <Navbar></Navbar>
+          <LoginNavbar></LoginNavbar>
 
           <Container fluid>   
           <Jumbotron>

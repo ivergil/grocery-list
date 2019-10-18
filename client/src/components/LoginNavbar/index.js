@@ -48,6 +48,7 @@ class Navbar extends Component {
 
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded"> 
+               <a className=" text-light navbar-brand" href="/">Chef Helper</a>
                 <button className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"
@@ -60,7 +61,7 @@ class Navbar extends Component {
 
                 </button>
 
-                <div className="collapse navbar-collapse justify-content-md-center" id="navbar1">
+                <div className="collapse navbar-collapse justify-content-md-end" id="navbar1">
                     <ul className="navbar-nav">
                         <li className="nav-item">
                             <Link to="/" className="nav-link">
