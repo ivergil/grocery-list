@@ -1,6 +1,6 @@
 import React from "react";
 import $ from 'jquery';
-import "./style.css";
+// import "./style.css";
 
 function RecipeCard(props) {
 
