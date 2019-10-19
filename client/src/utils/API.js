@@ -1,10 +1,18 @@
 import axios from "axios";
 
+// export default {
+//   // Gets books from the google books API
+//   getGoogleBooks: function(query){
+//     return axios.get("api/googlebooks", {params:{q:query}});
+//   },
+
 export default {
-  // Gets books from the google books API
-  getGoogleBooks: function(query){
-    return axios.get("api/googlebooks", {params:{q:query}});
-  },
+ // Gets books from the google books API
+ spoonacularId: function(query){
+   return axios.get('api/recipesIds', {params:{q:query}});
+ },
+
+
 
 //    // Gets books from the google books API
 //    getGoogleBookById: function(id){

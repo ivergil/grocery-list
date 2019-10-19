@@ -4,12 +4,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  name: {type:String, required: true},
+  first_name: {type:String, required: true},
+  last_name: {type:String, required: true},
   email: { type: String, required: true, unique: true},
-  phoneNumber: { type: String, required: true},
+  phone_number: { type: String, required: true},
   username: {type:String,  unique: true, required: true},
   password:{type:String, required: true},
-  photo: String,
+  //photo: String,
   date: { type: Date, default: Date.now },
     // grocerylist is an array that stores grocerylists that belong to this user
     groceryLists: [
@@ -36,6 +37,6 @@ const userSchema = new Schema({
 
 });
 
-const User = mongoose.model("User", userSchema);
+const Users = mongoose.model("Users", userSchema);
 
-module.exports = User;
+module.exports = Users;
