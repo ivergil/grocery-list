@@ -15,7 +15,7 @@ class Home extends Component {
     title: "chicken",
     recipesGroceryList: [],
     groceryListArray: [],
-    yourServings: 6
+    yourServings: 0
 
   };
 
@@ -40,7 +40,8 @@ getRecipesIds = () => {
     this.setState({
       [name]: value
     });
-    console.log(this.state.title)
+    console.log(this.state.title);
+    console.log(this.state.yourServings);
   };
 
   handleSubmit = event => {
@@ -73,7 +74,12 @@ getRecipesIds = () => {
           let amount = ingredient.amount;
           let id = ingredient.id;
           let unit = ingredient.unit;
+          let aisle = ingredient.aisle;
           unit = unit.toLowerCase();
+
+          if(aisle==="Produce"){
+            aisle = "Vegetables & Fruits"
+          }
 
           if(unit === "serving" || unit === "" || unit === " "){
             unit = "servings"}
@@ -86,7 +92,10 @@ getRecipesIds = () => {
           console.log(idUnit);
           let amountPerServing = (amount/servings);
           let yourServing = (amountPerServing * this.state.yourServings);
-          let finalAmountForUser = parseInt(yourServing);
+          if (yourServing >= 1){
+            yourServing = (yourServing + 0.4)
+          }
+          let finalAmountForUser = Math.round(yourServing);
 
           
 
@@ -96,7 +105,7 @@ getRecipesIds = () => {
 
           ingredient = {name:name, id:id, amount:amount,
              unit:unit, servings:servings, amountPerServing:amountPerServing,
-             finalAmountForUser:finalAmountForUser, idUnit:idUnit};
+             finalAmountForUser:finalAmountForUser, idUnit:idUnit , aisle:aisle};
 
              separateIngredients.push(ingredient);
 
@@ -112,14 +121,15 @@ getRecipesIds = () => {
              else{
                 if(finalIngredientList[index].idUnit === ingredient.idUnit){
                   finalIngredientList[index].amountPerServing = (finalIngredientList[index].amountPerServing + ingredient.amountPerServing);
-                  finalIngredientList[index].finalAmountForUser =  parseInt(finalIngredientList[index].amountPerServing * this.state.yourServings);
+                  if (finalIngredientList[index].amountPerServing >= 1){
+                    finalIngredientList[index].amountPerServing = (finalIngredientList[index].amountPerServing + 0.4)
+                  }
+                  finalIngredientList[index].finalAmountForUser =  Math.round(finalIngredientList[index].amountPerServing * this.state.yourServings);
                     if(finalIngredientList[index].finalAmountForUser === 0){
                       finalIngredientList[index].finalAmountForUser = 1
                     }
                 
                 }
-  
-            
   
                 else{
                   console.log(finalIngredientList[index].unit);
@@ -128,16 +138,8 @@ getRecipesIds = () => {
                   finalIngredientList.push(ingredient);
                 }
 
-
-
              }
              
-
-             
-          //console.log
-
-        
-         //console.log(this.state.groceryListArray);
 
          return ingredient;
         })
@@ -159,7 +161,7 @@ getRecipesIds = () => {
   console.log(idOfIngredientsList);
   console.log(recipeArray);
   this.setState({groceryListArray:finalIngredientList});
-  //console.log(this.state.groceryListArray)
+
 
   }
 
@@ -250,11 +252,21 @@ getRecipesIds = () => {
           image={recipe.image}/>
         ))}
 
+
+          <Input
+            value={this.state.yourServings}
+            onChange={this.handleInputChange}
+            name="yourServings"
+            placeholder="2">
+          </Input>
+
           <SearchBtn
             style={{ marginBottom: 10 }}
             onClick={this.calculateGroceries}>
             Calculate Groceries
           </SearchBtn>
+
+
 
   
         </BoxOne>
