@@ -13,9 +13,10 @@ class Home extends Component {
   state = {
     listOfResults: [],
     title: "chicken",
+    recipesGroceryList: [],
+    groceryListArray: [],
+    yourServings: 6
 
-    // Home: true,
-    // saved: false
   };
 
   componentDidMount() {
@@ -54,6 +55,117 @@ getRecipesIds = () => {
 //         .catch(err => console.log(err));
 //   }
 
+  calculateGroceries = () => {
+
+
+let finalIngredientList =[];
+let idOfIngredientsList = [];
+let separateIngredients = [];
+let recipeArray = this.state.recipesGroceryList.map(recipe => {
+        //console.log(recipe.servings);
+        let servings = recipe.servings;
+        let ingredients = recipe.ingredients;
+        let ingredientArray = ingredients.map(ingredient => {
+
+          
+          let name = ingredient.name;
+          let amount = ingredient.amount;
+          let id = ingredient.id;
+          let unit = ingredient.unit;
+          let amountPerServing = (amount/servings);
+          let yourServing = (amountPerServing * this.state.yourServings);
+          let finalAmountForUser = parseInt(yourServing);
+
+          if(finalAmountForUser === 0){
+            finalAmountForUser = 1
+          }
+
+          ingredient = {name : name, id : id, amount: amount,
+             unit:unit, servings: servings, amountPerServing:amountPerServing,
+             finalAmountForUser: finalAmountForUser};
+
+             separateIngredients.push(ingredient);
+
+          let index = idOfIngredientsList.indexOf(id);
+              if (index < 0){
+                idOfIngredientsList.push(id);
+                finalIngredientList.push(ingredient);
+              }
+             else if(finalIngredientList[index].unit === ingredient.unit){
+                finalIngredientList[index].amountPerServing = (finalIngredientList[index].amountPerServing + ingredient.amountPerServing);
+              
+                //console.log(amountPerServing);
+                //finalIngredientList[index].amountPerServing = 2;
+                finalIngredientList[index].finalAmountForUser =  parseInt(finalIngredientList[index].amountPerServing * this.state.yourServings);
+                  if(finalIngredientList[index].finalAmountForUser === 0){
+                    finalIngredientList[index].finalAmountForUser = 1
+                }
+              
+              }
+
+              else{
+                idOfIngredientsList.push(id);
+                finalIngredientList.push(ingredient);
+              }
+
+             
+          //console.log
+
+        
+         //console.log(this.state.groceryListArray);
+
+         return ingredient;
+        })
+
+        
+        recipe = ingredientArray;
+
+        console.log(recipe);
+
+        return recipe;
+
+      })
+
+      finalIngredientList.sort((a, b) => (a.name > b.name) ? 1 : -1);
+      separateIngredients.sort((a, b) => (a.name > b.name) ? 1 : -1);
+
+  console.log(finalIngredientList);
+  console.log(separateIngredients);
+  console.log(idOfIngredientsList);
+  console.log(recipeArray);
+  this.setState({groceryListArray:finalIngredientList});
+  //console.log(this.state.groceryListArray)
+
+  }
+
+
+
+
+  addToGrocery = (id) => {
+
+    API.recipeGroceryList(id)
+      .then(res => {
+         console.log(res.data);
+        const recipe = res.data;
+        let recipeDetail = {};
+        recipeDetail.id= recipe.id
+        recipeDetail.name = recipe.title;
+        recipeDetail.image = recipe.image;
+        recipeDetail.ingredients = recipe.extendedIngredients;
+        recipeDetail.servings = recipe.servings
+
+        this.setState({
+          recipesGroceryList: [ ...this.state.recipesGroceryList, recipeDetail],
+        });
+
+
+      })
+      
+    
+      .catch(err => console.log(err));
+  }
+
+
   render() {
     return (
       <div>
@@ -76,6 +188,7 @@ getRecipesIds = () => {
             placeholder="Chicken Teriyaki">
           </Input>
           <SearchBtn
+            style={{ float: "right", marginBottom: 10 }}
             onClick={this.handleSubmit}>
             Search
           </SearchBtn>
@@ -87,6 +200,7 @@ getRecipesIds = () => {
             <RecipeCard
               id={recipe.id}
               key={recipe.id}
+              addToGrocery = {this.addToGrocery}
               //saveABook = {this.saveABook}
               recipeTitle={recipe.title}
               //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
@@ -101,7 +215,23 @@ getRecipesIds = () => {
 
         <BoxOne>
         <h4 className="mb-4"> Grocery Calculator</h4>
-        <GroceryCard/>
+        {this.state.recipesGroceryList.map(recipe => (
+
+        <GroceryCard
+          id={recipe.id}
+          key={recipe.id}
+          recipeTitle={recipe.name}
+          //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
+          image={recipe.image}/>
+        ))}
+
+          <SearchBtn
+            style={{ marginBottom: 10 }}
+            onClick={this.calculateGroceries}>
+            Calculate Groceries
+          </SearchBtn>
+
+  
         </BoxOne>
 
         <BoxOne>
@@ -112,53 +242,7 @@ getRecipesIds = () => {
         
 
          </Container>
-      {/* <Nav
-      Home = {this.state.Home} 
-      saved = {this.state.saved}/>
-      <Container fluid>
-     <Jumbotron>
-      <h1>(React) Google Book Home</h1>
-      <p>Home for and Save Books of your Interest</p>
-     </Jumbotron>
-     <Box>
-     <h4 className="mb-4" >Book Home</h4>
-       <p>Title:</p>
-     <Input
-       value={this.state.title}
-       onChange={this.handleInputChange}
-       name="title"
-       placeholder="Title">
-       </Input>
-     <HomeBtn
-     onClick={this.handleSubmit}>
-       Home
-     </HomeBtn>
-     </Box>
-
-
-     <BoxOne>
-     <h4 className="mb-4"> Results</h4>
-     {this.state.books.map(book => (
-
-            <Cards
-              id={book.id}
-              key={book.id}
-              saveABook = {this.saveABook}
-              bookTitle={book.volumeInfo.title}
-              authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
-              image={book.volumeInfo.imageLinks.thumbnail}
-              description={book.volumeInfo.description}
-              link={book.volumeInfo.infoLink}/>
-
-
-     ))}
-
-
-
-      <p className="text-right"><a  href="https://github.com/ginnac/google-books-Home"> <p className="atag">Find GitHub Repository Here</p></a></p>
-     </BoxOne>
-
-     </Container> */}
+    
       </div>
      
     );
