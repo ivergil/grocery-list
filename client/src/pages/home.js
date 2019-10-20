@@ -58,55 +58,80 @@ getRecipesIds = () => {
   calculateGroceries = () => {
 
 
-let finalIngredientList =[];
-let idOfIngredientsList = [];
-let separateIngredients = [];
-let recipeArray = this.state.recipesGroceryList.map(recipe => {
+  let finalIngredientList = [];
+  let idOfIngredientsList = [];
+  let separateIngredients = [];
+
+  let recipeArray = this.state.recipesGroceryList.map(recipe => {
         //console.log(recipe.servings);
         let servings = recipe.servings;
         let ingredients = recipe.ingredients;
+
         let ingredientArray = ingredients.map(ingredient => {
 
-          
           let name = ingredient.name;
           let amount = ingredient.amount;
           let id = ingredient.id;
           let unit = ingredient.unit;
+          unit = unit.toLowerCase();
+
+          if(unit === "serving" || unit === "" || unit === " "){
+            unit = "servings"}
+          if(unit === "teaspoon" || unit === "tablespoon" || unit === "teaspoons" ){
+            unit = "tablespoons"}
+          if(unit === "cup"){
+            unit = "cups"}
+
+          let idUnit = id + unit; 
+          console.log(idUnit);
           let amountPerServing = (amount/servings);
           let yourServing = (amountPerServing * this.state.yourServings);
           let finalAmountForUser = parseInt(yourServing);
+
+          
 
           if(finalAmountForUser === 0){
             finalAmountForUser = 1
           }
 
-          ingredient = {name : name, id : id, amount: amount,
-             unit:unit, servings: servings, amountPerServing:amountPerServing,
-             finalAmountForUser: finalAmountForUser};
+          ingredient = {name:name, id:id, amount:amount,
+             unit:unit, servings:servings, amountPerServing:amountPerServing,
+             finalAmountForUser:finalAmountForUser, idUnit:idUnit};
 
              separateIngredients.push(ingredient);
 
-          let index = idOfIngredientsList.indexOf(id);
-              if (index < 0){
-                idOfIngredientsList.push(id);
-                finalIngredientList.push(ingredient);
-              }
-             else if(finalIngredientList[index].unit === ingredient.unit){
-                finalIngredientList[index].amountPerServing = (finalIngredientList[index].amountPerServing + ingredient.amountPerServing);
-              
-                //console.log(amountPerServing);
-                //finalIngredientList[index].amountPerServing = 2;
-                finalIngredientList[index].finalAmountForUser =  parseInt(finalIngredientList[index].amountPerServing * this.state.yourServings);
-                  if(finalIngredientList[index].finalAmountForUser === 0){
-                    finalIngredientList[index].finalAmountForUser = 1
-                }
-              
-              }
+          let index = idOfIngredientsList.indexOf(idUnit);
 
-              else{
-                idOfIngredientsList.push(id);
+              if (index < 0){
+                console.log(index);
+
+                idOfIngredientsList.push(idUnit);
                 finalIngredientList.push(ingredient);
               }
+              
+             else{
+                if(finalIngredientList[index].idUnit === ingredient.idUnit){
+                  finalIngredientList[index].amountPerServing = (finalIngredientList[index].amountPerServing + ingredient.amountPerServing);
+                  finalIngredientList[index].finalAmountForUser =  parseInt(finalIngredientList[index].amountPerServing * this.state.yourServings);
+                    if(finalIngredientList[index].finalAmountForUser === 0){
+                      finalIngredientList[index].finalAmountForUser = 1
+                    }
+                
+                }
+  
+            
+  
+                else{
+                  console.log(finalIngredientList[index].unit);
+                  console.log(ingredient.unit);
+                  idOfIngredientsList.push(id);
+                  finalIngredientList.push(ingredient);
+                }
+
+
+
+             }
+             
 
              
           //console.log
