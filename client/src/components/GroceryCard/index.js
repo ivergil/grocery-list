@@ -5,7 +5,7 @@ function GroceryCard(props) {
 
 
   return (
-    <div className="mb-4 mr-2 ml-2">
+    <div className="col-6 mb-4 mr-2 ml-2">
     <div className="card" style={{width:200, height:300}} >
       <div className="img-container" style={{height:220, backgroundSize: "cover", backgroundImage: `url(${props.image})`}}>
        

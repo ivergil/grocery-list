@@ -6,17 +6,17 @@ import LoginNavbar from "../components/LoginNavbar";
 import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard"
 import RecipeCard from "../components/RecipeCard"
-
-
+import List from "../components/List"
 
 class Home extends Component {
   state = {
     listOfResults: [],
-    title: "chicken",
+    title: "Pie",
     recipesGroceryList: [],
     groceryListArray: [],
-    yourServings: 0
-
+    idGroceryListArray: [],
+    yourServings: 0,
+    toSaveGroceryListArray:[],
   };
 
   componentDidMount() {
@@ -40,8 +40,8 @@ getRecipesIds = () => {
     this.setState({
       [name]: value
     });
-    console.log(this.state.title);
-    console.log(this.state.yourServings);
+    //console.log(this.state.title);
+    //console.log(this.state.yourServings);
   };
 
   handleSubmit = event => {
@@ -78,9 +78,7 @@ getRecipesIds = () => {
           unit = unit.toLowerCase();
 
           if(aisle==="Produce"){
-            aisle = "Vegetables & Fruits"
-          }
-
+            aisle = "Vegetables & Fruits" }
           if(unit === "serving" || unit === "" || unit === " "){
             unit = "servings"}
           if(unit === "teaspoon" || unit === "tablespoon" || unit === "teaspoons" ){
@@ -93,27 +91,21 @@ getRecipesIds = () => {
           let amountPerServing = (amount/servings);
           let yourServing = (amountPerServing * this.state.yourServings);
           if (yourServing >= 1){
-            yourServing = (yourServing + 0.4)
-          }
+            yourServing = (yourServing + 0.4)}
           let finalAmountForUser = Math.round(yourServing);
 
-          
-
           if(finalAmountForUser === 0){
-            finalAmountForUser = 1
-          }
+            finalAmountForUser = 1 }
 
           ingredient = {name:name, id:id, amount:amount,
-             unit:unit, servings:servings, amountPerServing:amountPerServing,
-             finalAmountForUser:finalAmountForUser, idUnit:idUnit , aisle:aisle};
+            unit:unit, servings:servings, amountPerServing:amountPerServing,
+            finalAmountForUser:finalAmountForUser, idUnit:idUnit , aisle:aisle};
 
-             separateIngredients.push(ingredient);
+            separateIngredients.push(ingredient);
 
           let index = idOfIngredientsList.indexOf(idUnit);
-
               if (index < 0){
                 console.log(index);
-
                 idOfIngredientsList.push(idUnit);
                 finalIngredientList.push(ingredient);
               }
@@ -137,7 +129,6 @@ getRecipesIds = () => {
                   idOfIngredientsList.push(id);
                   finalIngredientList.push(ingredient);
                 }
-
              }
              
 
@@ -160,13 +151,12 @@ getRecipesIds = () => {
   console.log(separateIngredients);
   console.log(idOfIngredientsList);
   console.log(recipeArray);
+  //setting state for grocery list array...
   this.setState({groceryListArray:finalIngredientList});
-
+  this.setState({toSaveGroceryListArray:finalIngredientList});
+  this.setState({idGroceryListArray:idOfIngredientsList})
 
   }
-
-
-
 
   addToGrocery = (id) => {
 
@@ -185,12 +175,31 @@ getRecipesIds = () => {
           recipesGroceryList: [ ...this.state.recipesGroceryList, recipeDetail],
         });
 
-
       })
-      
-    
       .catch(err => console.log(err));
   }
+
+  handleIngredientDelete = (id)=>{
+    //console.log(id);
+    //console.log(this.state.toSaveGroceryListArray)
+    const items = this.state.groceryListArray.filter(item => item.idUnit !== id);
+    this.setState({ groceryListArray: items });
+
+    console.log(this.state.groceryListArray);
+  } 
+
+  handleIngredientUpdate = (id, amount, unit)=>{
+    console.log(id);
+    console.log(this.state.toSaveGroceryListArray)
+    const newIngredientListState = this.state.groceryListArray.map(ingredient =>{
+      if(ingredient.idUnit === id){
+        ingredient.finalAmountForUser = parseInt(amount)
+        ingredient.unit = unit
+      }
+      return ingredient;
+    });
+    this.setState({ groceryListArray: newIngredientListState });
+  } 
 
 
   render() {
@@ -234,24 +243,21 @@ getRecipesIds = () => {
               image={recipe.image}
               servings={recipe.servings}
               readyInMinutes={recipe.readyInMinutes}/>
-
-
 ))}
 
         </BoxOne>
 
         <BoxOne>
-        <h4 className="mb-4"> Grocery Calculator</h4>
-        {this.state.recipesGroceryList.map(recipe => (
+        <div className="col-6">
+         <h4 className="mb-4"> Grocery Calculator</h4>
+         {this.state.recipesGroceryList.map(recipe => (
 
-        <GroceryCard
-          id={recipe.id}
-          key={recipe.id}
-          recipeTitle={recipe.name}
-          //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
-          image={recipe.image}/>
-        ))}
-
+          <GroceryCard
+            id={recipe.id}
+            key={recipe.id}
+            recipeTitle={recipe.name}
+            image={recipe.image}/>
+          ))}
 
           <Input
             value={this.state.yourServings}
@@ -265,8 +271,29 @@ getRecipesIds = () => {
             onClick={this.calculateGroceries}>
             Calculate Groceries
           </SearchBtn>
+        </div> 
+         
+        <div className="col-6">
+        {this.state.groceryListArray.map(item => (
 
+          <List
+          id={item.idUnit}
+          key={item.idUnit}
+          name={item.name}
+          yourServings = {this.state.yourServings}
+          finalAmount = {item.finalAmountForUser}
+          unit = {item.unit}
+          aisle = {item.aisle}
+          handleIngredientDelete={this.handleIngredientDelete}
+          handleIngredientUpdate={this.handleIngredientUpdate}
 
+          />
+
+          ))}
+
+         
+        </div>
+        
 
   
         </BoxOne>
