@@ -274,6 +274,8 @@ getRecipesIds = () => {
         </div> 
          
         <div className="col-6">
+          {/* //conditional to render good edit option of grocerylist or 
+          //render the not edit option */}
         {this.state.groceryListArray.map(item => (
 
           <List
@@ -290,6 +292,15 @@ getRecipesIds = () => {
           />
 
           ))}
+
+          {/* //btn to let you add new items
+
+          //input and btn to save new 
+
+          //button to say done with changes and just render plain 
+          results without editing material
+
+          //element to render === readyToSendList */}
 
          
         </div>
