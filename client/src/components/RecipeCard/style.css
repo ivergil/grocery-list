@@ -53,6 +53,7 @@
 } */
 
 .card > .groceries {
+  
   position: absolute;
   top: 8px;
   right: 5px;
