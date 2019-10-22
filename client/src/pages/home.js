@@ -236,26 +236,30 @@ class Home extends Component {
             onClick={this.handleSubmit}>
             Search
           </SearchBtn>
+
           
          </Box>
          <hr style={{borderColor: "#fff"}}></hr>
-        <BoxOne>
-        <h4 className="mb-4"> Results &nbsp; <i className="fa fa-list-ol"></i></h4>
-        {this.state.listOfResults.map(recipe => (
+      <BoxOne>
+            <h4 className="mb-4"> Results</h4>
+            <Row>
+              {this.state.listOfResults.map(recipe => (
+                
+                <Col size="md-4">
+                  <RecipeCard
+                    id={recipe.id}
+                    key={recipe.id}
+                    //saveABook = {this.saveABook}
+                    recipeTitle={recipe.title}
+                    //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
+                    image={recipe.image}
+                    servings={recipe.servings}
+                    readyInMinutes={recipe.readyInMinutes} />
+                </Col>
 
-            <RecipeCard
-              id={recipe.id}
-              key={recipe.id}
-              addToGrocery = {this.addToGrocery}
-              //saveABook = {this.saveABook}
-              recipeTitle={recipe.title}
-              //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
-              image={recipe.image}
-              servings={recipe.servings}
-              readyInMinutes={recipe.readyInMinutes}/>
-))}
-
-        </BoxOne>
+              ))}
+            </Row>
+          </BoxOne>
         <hr style={{borderColor: "#fff"}}></hr>
         <BoxOne>
 
@@ -333,6 +337,7 @@ class Home extends Component {
 
          </Container>
     
+
 
       </div>
 
