@@ -243,11 +243,7 @@ getRecipesIds = () => {
           <Container fluid>   
           <Jumbotron>
               <h1>Chef Helper</h1>
-<<<<<<< HEAD
-              
-=======
               <p>Your meal ideas virtual assistant app</p>
->>>>>>> c8b6bf4aedd97f0c720b3ecfa747adab252f9489
           </Jumbotron>
                
           <Box>
@@ -267,11 +263,7 @@ getRecipesIds = () => {
           </SearchBtn>
           
          </Box>
-<<<<<<< HEAD
-
-=======
          <hr style={{borderColor: "#fff"}}></hr>
->>>>>>> c8b6bf4aedd97f0c720b3ecfa747adab252f9489
         <BoxOne>
         <h4 className="mb-4"> Results &nbsp; <i className="fa fa-list-ol"></i></h4>
         {this.state.listOfResults.map(recipe => (
