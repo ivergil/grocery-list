@@ -1,6 +1,6 @@
 .card {
   background: #fff;
-  border-radius: 2px;
+  border-radius: 20px;
   height: 360px;
   margin: 1rem;
   position: relative;
@@ -14,17 +14,18 @@
   overflow: hidden;
   text-align: center;
   background:#fff;
+  border-radius: 20px;
 }
 .card > .img-container > img {
   width: 45%
 }
 
 .img-container {
-  border-style: double;
+  border-style: hidden;
 }
 
 .card > .content {
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   padding-right: 1rem;
   font-size: 15px;
 }
@@ -37,7 +38,7 @@
   margin-top: 18px;
 }
 
-.card > .remove {
+/* .remove {
   color: #ff1744;
   font-size: 14px;
   position: absolute;
@@ -45,19 +46,31 @@
   right: 5px;
   cursor: pointer;
   font-weight: bolder;
-}
+  padding-bottom: 4px;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px; 
+} */
 
 .card > .groceries {
+  
   position: absolute;
-  top: 305px;
-  right: 60px;
+  top: 8px;
+  right: 5px;
+  /* font-size: px; */
+  padding-bottom: 4px;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  font-weight: bolder;
 }
 
-.card > .remove:hover {
+/* .remove:hover {
   color: #d50000;
-}
+} */
 
-a {
+
+/* a {
   position: absolute;
   top: 50%;
   left: 25%;
@@ -112,12 +125,22 @@ a:after {
   z-index: -1;
   transform:  translateX(50px) rotate(325deg);
   opacity: 0;
-}
+}*/
 
-a.active:after {
-  right: 10px;
-  transform:  translateX(0) rotate(-20deg);
+.favorite {
+  width: 20px;
+  /* right: 50px; */
+  transform:  translateX(0) rotate(-30deg);
   border-bottom-right-radius: 75px;
   border-top-right-radius: 75px; 
   opacity: 1;
-}
+} 
+
+.favorite1 {
+  width: 20px;
+  /* right: 50px; */
+  transform:  translateX(0) rotate(30deg);
+  border-bottom-right-radius: 75px;
+  border-top-right-radius: 75px; 
+  opacity: 1;
+} 
