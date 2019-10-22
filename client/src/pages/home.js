@@ -279,6 +279,7 @@ class Home extends Component {
                   <RecipeCard
                     id={recipe.id}
                     key={recipe.id}
+                    addToGrocery = {this.addToGrocery}
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.title}
                     //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
@@ -398,11 +399,6 @@ class Home extends Component {
          
         </div>
         
-
-  
-
-        <h4 className="mb-4"> Grocery Calculator &nbsp; <i className="fa fa-cart-plus"></i></h4>
-        <GroceryCard/>
 
         </BoxOne>
         <hr style={{borderColor: "#fff"}}></hr>

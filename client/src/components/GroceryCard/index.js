@@ -5,8 +5,8 @@ import "./style.css";
 function GroceryCard(props) {
   return (
     <div className="mb-4 mr-2 ml-2">
-      <div className="card" style={{ width: 150, height: 200 }} >
-        <div className="img-container" style={{ height: 108, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${props.image})` }}>
+      <div className="card" style={{ width: 300, height: 400 }} >
+        <div className="img-container" style={{ height: 108, backgroundSize: "cover", backgroundImage: `url(${props.image})` }}>
         </div>
         <div className="content">
           <ul>
