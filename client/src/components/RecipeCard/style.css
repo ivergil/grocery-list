@@ -57,7 +57,7 @@
   color: #d50000;
 }
 
-a {
+/*a {
   position: absolute;
   top: 50%;
   left: 25%;
@@ -72,12 +72,12 @@ a {
   color: #262626;
 }
 
-a.active {
+/*a.active {
 background: transparent;
 color: #fff;
 }
 
-a:before {
+/*a:before {
   
   content: '';
   position: absolute;
@@ -92,7 +92,7 @@ a:before {
   opacity: 0;
 }
 
-a.active:before {
+/*a.active:before {
   left: 10px;
   transform:  translateX(0) rotate(20deg);
   border-bottom-left-radius: 75px;
@@ -100,7 +100,7 @@ a.active:before {
   opacity: 1;
 }
 
-a:after {
+/*a:after {
   content: '';
   position: absolute;
   top: 0;
@@ -114,10 +114,28 @@ a:after {
   opacity: 0;
 }
 
-a.active:after {
+/*a.active:after {
   right: 10px;
   transform:  translateX(0) rotate(-20deg);
   border-bottom-right-radius: 75px;
   border-top-right-radius: 75px; 
   opacity: 1;
+}*/
+
+body {
+  background-color: #66655f;
+  color: white;
+  padding: 30px;
+  font-family: 'Happy Monkey', cursive;
+  font-size: 22px;
+  text-align: center;
+}
+
+a:hover {
+	background: lightgray;
+	text-decoration: underline;
+}
+
+h1 {
+  font-size: 85px;
 }

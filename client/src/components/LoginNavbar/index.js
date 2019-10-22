@@ -52,8 +52,9 @@ class Navbar extends Component {
 
 
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded"> 
-               <a className=" text-light navbar-brand" href="/">Chef Helper</a>
+            <nav className="navbar navbar-expand-lg navbar-dark rounded" style = {{backgroundColor: "#24221c"}}>
+                <img id="chefhat" src="https://cdn.pixabay.com/photo/2014/04/03/00/38/grilling-308914__340.png" alt="" width="125px" height="60px" ></img> &nbsp; 
+                &nbsp; <a className=" text-light navbar-brand" href="/"><h3>Chef Helper</h3></a>
                 <button className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"
