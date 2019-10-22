@@ -1,18 +1,18 @@
 import React from "react";
-import $ from 'jquery';
+//import $ from 'jquery';
 //import "./style.css";
 
 function RecipeCard(props) {
 
-  $(document).ready(function () {
+  // $(document).ready(function () {
 
-    $('a').click(function () {
+  //   $('a').click(function () {
 
-      $(this).attr("class", "active")
-      $(this).text('LIKE')
-    })
+  //     $(this).attr("class", "active")
+  //     $(this).text('LIKE')
+  //   })
 
-  })
+  // })
 
   return (
     <div className="mb-4 mr-2 ml-2">
@@ -38,7 +38,7 @@ function RecipeCard(props) {
         </ul>
 
       </div>
-      <button className="groceries">
+      <button className="groceries" onClick={() => props.addToGrocery(props.id)}>
         My groceries
       </button>
       <button  className="remove">
