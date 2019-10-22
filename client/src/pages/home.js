@@ -236,32 +236,44 @@ getRecipesIds = () => {
     return (
       <div>
 
-          <LoginNavbar></LoginNavbar>
+          <LoginNavbar>
+            
+          </LoginNavbar>
 
           <Container fluid>   
           <Jumbotron>
               <h1>Chef Helper</h1>
+<<<<<<< HEAD
               
+=======
+              <p>Your meal ideas virtual assistant app</p>
+>>>>>>> c8b6bf4aedd97f0c720b3ecfa747adab252f9489
           </Jumbotron>
                
           <Box>
-            <h4 className="mb-4" >Search Recipes</h4>
-            <p>Key Word:</p>
+            <h4 className="mb-4" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
+            <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>
           <Input
             value={this.state.title}
             onChange={this.handleInputChange}
             name="title"
             placeholder="Chicken Teriyaki">
           </Input>
+          
           <SearchBtn
             style={{ float: "right", marginBottom: 10 }}
             onClick={this.handleSubmit}>
             Search
           </SearchBtn>
+          
          </Box>
+<<<<<<< HEAD
 
+=======
+         <hr style={{borderColor: "#fff"}}></hr>
+>>>>>>> c8b6bf4aedd97f0c720b3ecfa747adab252f9489
         <BoxOne>
-        <h4 className="mb-4"> Results</h4>
+        <h4 className="mb-4"> Results &nbsp; <i className="fa fa-list-ol"></i></h4>
         {this.state.listOfResults.map(recipe => (
 
             <RecipeCard
@@ -277,8 +289,9 @@ getRecipesIds = () => {
 ))}
 
         </BoxOne>
-
+        <hr style={{borderColor: "#fff"}}></hr>
         <BoxOne>
+
         <div className="col-6">
          <h4 className="mb-4"> Grocery Calculator</h4>
          {this.state.recipesGroceryList.map(recipe => (
@@ -386,10 +399,14 @@ getRecipesIds = () => {
         
 
   
-        </BoxOne>
 
+        <h4 className="mb-4"> Grocery Calculator &nbsp; <i className="fa fa-cart-plus"></i></h4>
+        <GroceryCard/>
+
+        </BoxOne>
+        <hr style={{borderColor: "#fff"}}></hr>
         <BoxOne>
-        <h4 className="mb-4"> Coupons</h4>
+        <h4 className="mb-4"> Coupons &nbsp; <i className="fa fa-barcode"></i></h4>
         
         </BoxOne>
 
