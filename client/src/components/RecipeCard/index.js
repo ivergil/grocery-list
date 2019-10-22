@@ -2,7 +2,7 @@ import React from "react";
 
 
 import "./style.css";
-=======
+
 //import $ from 'jquery';
 //import "./style.css";
 
@@ -48,23 +48,23 @@ function RecipeCard(props) {
 
         </div>
 
-        
+
         <button className="groceries">
           +
-
-      </div>
-      <button className="groceries" onClick={() => props.addToGrocery(props.id)}>
+          </button>
+      
+      <button className="groceries-1" onClick={() => props.addToGrocery(props.id)}>
         My groceries
       </button>
- >
-        
 
-        {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
+      </div>
+
+      {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
         x
       </button> */}
-{/*  */}
-      </div>
+      {/*  */}
     </div>
+    
   );
 }
 
