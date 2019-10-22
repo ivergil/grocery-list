@@ -4,9 +4,10 @@ import { Container, Box, BoxOne, Col, Row } from "../components/Grid";
 import { Input, SearchBtn } from "../components/SearchBox";
 import LoginNavbar from "../components/LoginNavbar";
 import Jumbotron from "../components/Jumbotron";
-import GroceryCard from "../components/GroceryCard"
-import RecipeCard from "../components/RecipeCard"
-import List from "../components/List"
+import GroceryCard from "../components/GroceryCard";
+import RecipeCard from "../components/RecipeCard";
+import List from "../components/List";
+
 
 class Home extends Component {
   state = {
@@ -17,6 +18,11 @@ class Home extends Component {
     idGroceryListArray: [],
     yourServings: 0,
     toSaveGroceryListArray:[],
+    edit: false,
+    addNew: false,
+    newName: "",
+    newUnit: "",
+    newAmount: "",
   };
 
   componentDidMount() {
@@ -179,6 +185,30 @@ class Home extends Component {
       .catch(err => console.log(err));
   }
 
+  addItem = event => {
+    event.preventDefault();
+    let newItemObject = {};
+    
+    newItemObject.idUnit= (this.state.newName + this.state.newAmount);
+    newItemObject.name = this.state.newName;
+    newItemObject.finalAmountForUser = this.state.newAmount;
+    newItemObject.unit = this.state.newUnit;
+
+    this.setState({
+      groceryListArray: [ ...this.state.groceryListArray, newItemObject],
+    });
+  }
+
+  showForm = event =>{
+    event.preventDefault();
+    if(this.state.addNew===false){
+      this.setState({addNew: true})
+    }else{
+      this.setState({addNew: false})
+    }
+    
+  }
+
   handleIngredientDelete = (id)=>{
     //console.log(id);
     //console.log(this.state.toSaveGroceryListArray)
@@ -289,18 +319,22 @@ class Home extends Component {
         </div> 
          
         <div className="col-6">
-          {/* //conditional to render good edit option of grocerylist or 
-          //render the not edit option */}
-        {this.state.groceryListArray.map(item => (
 
+          {/* //inside groceryListArray mapping
+          do conditional to render good edit option 
+          of grocerylist or render the not edit option */}
+
+         
+        {this.state.groceryListArray.map(item => (
+           
           <List
           id={item.idUnit}
           key={item.idUnit}
           name={item.name}
-          yourServings = {this.state.yourServings}
+          //yourServings = {this.state.yourServings}
           finalAmount = {item.finalAmountForUser}
           unit = {item.unit}
-          aisle = {item.aisle}
+          //aisle = {item.aisle}
           handleIngredientDelete={this.handleIngredientDelete}
           handleIngredientUpdate={this.handleIngredientUpdate}
 
@@ -308,9 +342,53 @@ class Home extends Component {
 
           ))}
 
+        
+        
+        {this.state.addNew === false? "" : (
+         <div>
+          <h6 className="mt-3">Add item</h6>
+
+          <Input
+            value={this.state.newAmount}
+            onChange={this.handleInputChange}
+            name="newAmount"
+            placeholder="Amount">
+          </Input>
+
+          <Input
+            value={this.state.newUnit}
+            onChange={this.handleInputChange}
+            name="newUnit"
+            placeholder="Unit">
+          </Input>
+
+          <Input
+            value={this.state.newName}
+            onChange={this.handleInputChange}
+            name="newName"
+            placeholder="Name">
+          </Input>
+
+          <SearchBtn
+            style={{ marginBottom: 10 }}
+            onClick={this.addItem}>
+            Add
+          </SearchBtn>
+         </div>
+        )}
+
+        <SearchBtn
+          style={{ marginBottom: 10 }}
+          onClick={this.showForm}>
+         {this.state.addNew===false?"+":"-"}
+        </SearchBtn> 
+        
+         
           {/* //btn to let you add new items
 
-          //input and btn to save new 
+             
+
+          //input for unit, name and amount - and btn to save new item
 
           //button to say done with changes and just render plain 
           results without editing material
