@@ -108,7 +108,7 @@ class Home extends Component {
                 <GroceryCard />
               </Col>
               <Col size="md-6">
-                Hola
+                Results of 
             </Col>
             </div>
 
