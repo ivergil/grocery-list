@@ -1,6 +1,11 @@
 import React from "react";
-import $ from 'jquery';
+
+
 import "./style.css";
+=======
+//import $ from 'jquery';
+//import "./style.css";
+
 
 function RecipeCard(props) {
 
@@ -38,6 +43,7 @@ function RecipeCard(props) {
 
             <a href="#">Add Favorite</a>
 
+
           </ul>
 
         </div>
@@ -45,7 +51,12 @@ function RecipeCard(props) {
         
         <button className="groceries">
           +
+
+      </div>
+      <button className="groceries" onClick={() => props.addToGrocery(props.id)}>
+        My groceries
       </button>
+ >
         
 
         {/* <button onClick={() => props.removeFriend(props.id)} className="remove">

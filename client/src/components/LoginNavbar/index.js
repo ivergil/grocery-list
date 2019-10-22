@@ -60,7 +60,7 @@ class Navbar extends Component {
                     data-target="#navbar1"
                     aria-controls="navbar1"
                     aria-expanded="false"
-                    aria-lable ="toggle navigation">
+                    >
                     <span className="navbar-toggler-icon"></span>    
 
 
