@@ -43,6 +43,8 @@ export default class List extends Component {
 
   render() {
     return (
+    <div>
+      {this.props.edit ?(
       <div>
       {this.state.display?(
       <div>
@@ -84,6 +86,8 @@ export default class List extends Component {
       ):""
       }
       </div>
+      ):(<p>{this.props.finalAmount} {this.props.unit} {this.props.name}</p>)}
+    </div>
     );
   }
 }

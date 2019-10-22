@@ -64,7 +64,6 @@ class Home extends Component {
 
   calculateGroceries = () => {
 
-
   let finalIngredientList = [];
   let idOfIngredientsList = [];
   let separateIngredients = [];
@@ -209,6 +208,15 @@ class Home extends Component {
     
   }
 
+  groceryListStatus = event =>{
+    event.preventDefault();
+    if(this.state.edit === false){
+      this.setState({edit:true})
+    }else{
+      this.setState({edit:false})
+    }
+  }
+
   handleIngredientDelete = (id)=>{
     //console.log(id);
     //console.log(this.state.toSaveGroceryListArray)
@@ -332,6 +340,7 @@ class Home extends Component {
           id={item.idUnit}
           key={item.idUnit}
           name={item.name}
+          edit={this.state.edit}
           //yourServings = {this.state.yourServings}
           finalAmount = {item.finalAmountForUser}
           unit = {item.unit}
@@ -378,25 +387,21 @@ class Home extends Component {
          </div>
         )}
 
-        <SearchBtn
+    {this.state.edit === false ? "":(<SearchBtn
           style={{ marginBottom: 10 }}
           onClick={this.showForm}>
          {this.state.addNew===false?"+":"-"}
-        </SearchBtn> 
+        </SearchBtn>)}
         
-         
-          {/* //btn to let you add new items
 
-             
+    
+    <SearchBtn
+      style={{ marginBottom: 10 }}
+      onClick={this.groceryListStatus}>
+         {this.state.edit===false?"Edit":"Done"}
+    </SearchBtn> 
 
-          //input for unit, name and amount - and btn to save new item
-
-          //button to say done with changes and just render plain 
-          results without editing material
-
-          //element to render === readyToSendList */}
-
-         
+                   
         </div>
         
 
