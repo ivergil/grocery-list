@@ -6,7 +6,7 @@ export default class SendsMyGroceryList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email="Email",
+      email: "Email",
       phoneNumber: "Phone Number"
     };
   }
