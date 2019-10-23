@@ -402,24 +402,18 @@ class Home extends Component {
          {this.state.edit===false?"Edit":"Done"}
     </SearchBtn> 
 
-
+    {this.state.edit === false && this.state.groceryListArray.length > 0 ?(
     <SendMyGroceryList
     toSend = {this.state.groceryListArray}
-    />
+    />) : ""}
                    
         </div>
         
 
         </BoxOne>
-        <hr style={{borderColor: "#fff"}}></hr>
-        <BoxOne>
-        <h4 className="mb-4"> Coupons &nbsp; <i className="fa fa-barcode"></i></h4>
-        
-        </BoxOne>
 
         
-
-         </Container>
+    </Container>
     
 
 

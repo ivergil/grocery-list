@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 
-
-
-import LoginNavbar from "../components/LoginNavbar";
-import RecipeCard from "../components/RecipeCard";
-
 import { Container, Box, BoxOne } from "../components/Grid";
 
 
 
 class Profile extends Component {
-  //   state = {
-  //     books: [],
-  //     search: false,
-  //     saved: true
-  //   };
+    state = {
+      books: [],
+      search: false,
+      saved: true
+    };
 
   componentDidMount() {
     // this.loadSavedBooks();
