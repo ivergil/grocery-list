@@ -7,6 +7,7 @@ import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
+import SendMyGroceryList from "../components/SendMyGroceryList"
 
 
 class Home extends Component {
@@ -401,6 +402,10 @@ class Home extends Component {
          {this.state.edit===false?"Edit":"Done"}
     </SearchBtn> 
 
+
+    <SendMyGroceryList
+    toSend = {this.state.groceryListArray}
+    />
                    
         </div>
         
