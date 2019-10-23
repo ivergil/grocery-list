@@ -52,7 +52,7 @@
   height: 30px; 
 } */
 
-.card > .groceries {
+.card > .details {
   
   position: absolute;
   top: 8px;
@@ -60,9 +60,46 @@
   /* font-size: px; */
   padding-bottom: 4px;
   border-radius: 20px;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   font-weight: bolder;
+}
+.fa-cart-plus {
+  font-size: 30px;
+  color: #fff
+}
+
+.fa-heart {
+  color: red;
+  font-size: 40px
+}
+
+.fa-eye {
+  font-size: 20px;
+  color: #0066ff
+}
+
+.card > .groceries {
+  position: absolute;
+  top: 370px;
+  right: 45px;
+  font-size:15px;
+  padding-bottom: 4px;
+  border-radius: 30px;
+  width: 75px;
+  height: 40px;
+  font-weight: bolder;
+  padding-top: 0px ;
+  padding-left: 5px;
+  background: green;
+  /* border-style: none; */
+  
+}
+
+.favorite {
+  position: absolute;
+  top: 370px;
+  right: 200px;
 }
 
 /* .remove:hover {
@@ -127,20 +164,3 @@ a:after {
   opacity: 0;
 }*/
 
-.favorite {
-  width: 20px;
-  /* right: 50px; */
-  transform:  translateX(0) rotate(-30deg);
-  border-bottom-right-radius: 75px;
-  border-top-right-radius: 75px; 
-  opacity: 1;
-} 
-
-.favorite1 {
-  width: 20px;
-  /* right: 50px; */
-  transform:  translateX(0) rotate(30deg);
-  border-bottom-right-radius: 75px;
-  border-top-right-radius: 75px; 
-  opacity: 1;
-} 

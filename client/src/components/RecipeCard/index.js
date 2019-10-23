@@ -21,7 +21,7 @@ function RecipeCard(props) {
 
   return (
     <div >
-      <div className="card" style={{ width: 300, height: 400 }} >
+      <div className="card" style={{ width: 300, height: 430 }} >
 
         <div className="img-container" style={{ height: 220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${props.image})` }}>
           {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
@@ -30,6 +30,7 @@ function RecipeCard(props) {
 
 
         <div className="content">
+
           <ul>
             <li>
               <strong>Recipe Name:</strong> {props.recipeTitle}
@@ -41,21 +42,23 @@ function RecipeCard(props) {
               <strong>Ready in:</strong> {props.readyInMinutes} mins
           </li>
 
-            <a href="#">Add Favorite</a>
-
+            <a className="favorite" href="#"><i className="fa fa-heart"></i></a>
 
           </ul>
 
         </div>
 
 
-        <button className="groceries">
-          +
-          </button>
-      
-      <button className="groceries-1" onClick={() => props.addToGrocery(props.id)}>
-        My groceries
-      </button>
+        <button className="details">
+
+          <i className="fa fa-info"></i>
+
+        </button>
+
+        <button className="groceries" onClick={() => props.addToGrocery(props.id)}>
+          <i className="fa fa-cart-plus" aria-hidden="true"></i>
+        </button>
+
 
       </div>
 
@@ -64,7 +67,7 @@ function RecipeCard(props) {
       </button> */}
       {/*  */}
     </div>
-    
+
   );
 }
 
