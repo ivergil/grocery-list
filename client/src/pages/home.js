@@ -9,6 +9,7 @@ import RecipeCard from "../components/RecipeCard"
 
 
 
+
 class Home extends Component {
   state = {
     listOfResults: [],
@@ -93,8 +94,8 @@ getRecipesIds = () => {
               image={recipe.image}
               servings={recipe.servings}
               readyInMinutes={recipe.readyInMinutes}/>
-
-
+           
+            
 ))}
 
         </BoxOne>
