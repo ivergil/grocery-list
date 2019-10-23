@@ -15,8 +15,11 @@ export default {
  //Gets the recipe Information for the specific recipe
   recipeGroceryList: function(recipeId){
     return axios.get("api/recipeInformation/" + recipeId)
-  }
+  },
 
+  sendGroceryList: function(query){
+    return axios.get('api/sendsms', {params:{q:query}})
+  }
 
 //    // Gets books from the google books API
 //    getGoogleBookById: function(id){
