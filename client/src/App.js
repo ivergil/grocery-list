@@ -1,18 +1,39 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/home";
-import Profile from "./pages/profile";
+import Login from "./components/Login"
+import Register from "./components/Register"
+import Profile from "./pages/profile"
+import Account from "./pages/account"
 
 
 function App() {
   return (
+    // <Router>
+    // //   <div>
+    // //     <Switch>
+    // //       <Route exact path="/" component={Home} />
+    // //       <Route exact path="/home" component={Home} />
+    // //       <Route exact path="/profile" component={Profile} /> 
+    // //     </Switch>
+    // //   </div>
+    //  </Router>
+
     <Router>
       <div>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/profile" component={Profile} /> 
-        </Switch>
+        {/* <LoginNavbar/>
+        <Route exact path="/" component={Landing} /> */}
+        <Route exact path="/" component={Home} />
+        <div className="container">
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/profile" component={Profile} />
+        <Route exact path="/account" component={Account} />
+        </div>
+        
+
+
+       
       </div>
     </Router>
   );

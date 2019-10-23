@@ -4,7 +4,7 @@ import LoginNavbar from "../components/LoginNavbar";
 import jwt_decode from "jwt-decode"
 //import API from "../utils/API";
 
-class Profile extends Component {
+class Account extends Component {
     constructor(){
         super()
         this.state={
@@ -34,33 +34,7 @@ class Profile extends Component {
               <div className="jumbotron mt-5">
                   <div className = "col-sm-8 mx-auto">
                       <h1 className= "text-center">
-                          Saved Recipes
-                      </h1>  
-                  </div>
-                  <table className="table col-md-6 mx-auto">
-                    <tbody>
-                        <tr>
-                            <td>First Name</td>
-                            <td>{this.state.first_name}</td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td>{this.state.last_name}</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>{this.state.email}</td>
-                        </tr> 
-                         
-                       
-                    </tbody>
-                  </table>
-
-              </div>
-              <div className="jumbotron mt-5">
-                  <div className = "col-sm-8 mx-auto">
-                      <h1 className= "text-center">
-                          Your Groceries List
+                          Account
                       </h1>  
                   </div>
                   <table className="table col-md-6 mx-auto">
@@ -92,4 +66,4 @@ class Profile extends Component {
 
 }
 
-export default Profile
+export default Account
