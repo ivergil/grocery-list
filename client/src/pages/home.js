@@ -304,20 +304,6 @@ class Home extends Component {
         <hr style={{borderColor: "#fff"}}></hr>
         <BoxOne>
 
-<<<<<<< HEAD
-            <RecipeCard
-              id={recipe.id}
-              key={recipe.id}
-              //saveABook = {this.saveABook}
-              recipeTitle={recipe.title}
-              //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
-              image={recipe.image}
-              servings={recipe.servings}
-              readyInMinutes={recipe.readyInMinutes}/>
-           
-            
-))}
-=======
         <div className="col-6">
          <h4 className="mb-4"> Grocery Calculator</h4>
          {this.state.recipesGroceryList.map(recipe => (
@@ -335,7 +321,6 @@ class Home extends Component {
             name="yourServings"
             placeholder="2">
           </Input>
->>>>>>> 7cf980ac0eb777fbd3d6721a1a29808a3a8f9bd9
 
           <SearchBtn
             style={{ marginBottom: 10 }}
