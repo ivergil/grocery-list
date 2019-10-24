@@ -354,7 +354,7 @@ class Home extends Component {
 
         
         
-        {this.state.addNew === false? "" : (
+        {this.state.addNew === false || this.state.edit ===false? "" : (
          <div>
           <h6 className="mt-3">Add item</h6>
 
