@@ -1,23 +1,13 @@
 import React from "react";
 
-
+//import $ from 'jquery';
 import "./style.css";
 
-//import $ from 'jquery';
-//import "./style.css";
 
 
 function RecipeCard(props) {
 
-  // $(document).ready(function () {
-
-  //   $('a').click(function () {
-
-  //     $(this).attr("class", "active")
-  //     $(this).text('LIKE')
-  //   })
-
-  // })
+  
 
   return (
     <div >
