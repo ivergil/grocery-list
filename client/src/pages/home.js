@@ -284,10 +284,9 @@ class Home extends Component {
             <Row>
               {this.state.listOfResults.map(recipe => (
                 
-                <Col size="md-4">
+                <Col size="md-4"key={recipe.id}>
                   <RecipeCard
-                    id={recipe.id}
-                    key={recipe.id}
+                    id={recipe.id}   
                     addToGrocery = {this.addToGrocery}
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.title}
@@ -402,24 +401,18 @@ class Home extends Component {
          {this.state.edit===false?"Edit":"Done"}
     </SearchBtn> 
 
-
+    {this.state.edit === false && this.state.groceryListArray.length > 0 ?(
     <SendMyGroceryList
     toSend = {this.state.groceryListArray}
-    />
+    />) : ""}
                    
         </div>
         
 
         </BoxOne>
-        <hr style={{borderColor: "#fff"}}></hr>
-        <BoxOne>
-        <h4 className="mb-4"> Coupons &nbsp; <i className="fa fa-barcode"></i></h4>
-        
-        </BoxOne>
 
         
-
-         </Container>
+    </Container>
     
 
 
