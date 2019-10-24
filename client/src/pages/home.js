@@ -291,12 +291,11 @@ class Home extends Component {
             <h4 className="mb-4"> Results</h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
-
-                <Col size="md-4">
+                
+                <Col size="md-4"key={recipe.id}>
                   <RecipeCard
-                    id={recipe.id}
-                    key={recipe.id}
-                    addToGrocery={this.addToGrocery}
+                    id={recipe.id}   
+                    addToGrocery = {this.addToGrocery}
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.title}
                     //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
@@ -395,42 +394,36 @@ class Home extends Component {
                     onClick={this.addItem}>
                     Add
           </SearchBtn>
-                </div>
-              )}
+         </div>
+        )}
 
-              {this.state.edit === false ? "" : (<SearchBtn
-                style={{ marginBottom: 10 }}
-                onClick={this.showForm}>
-                {this.state.addNew === false ? "+" : "-"}
-              </SearchBtn>)}
+    {this.state.edit === false ? "":(<SearchBtn
+          style={{ marginBottom: 10 }}
+          onClick={this.showForm}>
+         {this.state.addNew===false?"+":"-"}
+        </SearchBtn>)}
+        
 
+    
+    <SearchBtn
+      style={{ marginBottom: 10 }}
+      onClick={this.groceryListStatus}>
+         {this.state.edit===false?"Edit":"Done"}
+    </SearchBtn> 
 
+    {this.state.edit === false && this.state.groceryListArray.length > 0 ?(
+    <SendMyGroceryList
+    toSend = {this.state.groceryListArray}
+    />) : ""}
+                   
+        </div>
+        
 
-              <SearchBtn
-                style={{ marginBottom: 10 }}
-                onClick={this.groceryListStatus}>
-                {this.state.edit === false ? "Edit" : "Done"}
-              </SearchBtn>
+        </BoxOne>
 
-
-              <SendMyGroceryList
-                toSend={this.state.groceryListArray}
-              />
-
-            </div>
-
-
-          </BoxOne>
-          <hr style={{ borderColor: "#fff" }}></hr>
-          <BoxOne>
-            <h4 className="mb-4"> Coupons &nbsp; <i className="fa fa-barcode"></i></h4>
-
-          </BoxOne>
-
-
-
-        </Container>
-
+        
+    </Container>
+    
 
 
       </div>

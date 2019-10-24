@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Input, SearchBtn } from "../SearchBox"
-
+import API from "../../utils/API";
 
 export default class SendsMyGroceryList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "Email",
-      phoneNumber: "Phone Number"
+      phoneNumber: "Phone Number",
+      stringToSend: ""
+      
     };
   }
 
@@ -20,20 +21,25 @@ export default class SendsMyGroceryList extends Component {
     });
   };
 
-//   saveChanges = event => {
-//     event.preventDefault();
-//     this.props.handleIngredientUpdate(
-//       this.props.id,
-//       this.state.amount,
-//       this.state.unit
-//     );
-//   };
+  sendMessage = event => {
+    event.preventDefault();
+    let array = []
+    const newIngredientListState = this.props.toSend.map(ingredient =>{
+       ingredient =  ingredient.finalAmountForUser + " " + ingredient.unit + " " + ingredient.name;
+        return ingredient
+    });
+    let stringToSend = newIngredientListState.join(", ")
+    API.sendGroceryList(this.state.phoneNumber , stringToSend )
+    .then(res => {
+        console.log(stringToSend);
+       
+      })
+      .catch(err => console.log(err));
+      alert("Message sent!");
+    
+  };
 
-//   deleteIngredient = event => {
-//     event.preventDefault();
-//     this.setState({ display: false });
-//     this.props.handleIngredientDelete(this.props.id);
-//   };
+
 
   render() {
     return (
@@ -43,16 +49,12 @@ export default class SendsMyGroceryList extends Component {
           value={this.state.phoneNumber}
           name="phoneNumber"
           placeholder="Number"/>
-          
-          <Input
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          name="email"
-          placeholder="Email"/>
 
           <SearchBtn
           style={{ marginBottom: 10 }}
-          onClick={this.groceryListStatus}/>
+          onClick={this.sendMessage}>
+              Text Me Grocery List
+          </SearchBtn>
        
       </div>
     );

@@ -1,26 +1,28 @@
 import React from "react";
 
 // Exporting the Container, Row, and Col components from this file
-const style = {
-  borderStyle: {
-    // borderStyle: "solid",
-    // borderColor: "#17a2b8",
-    height: 250,
-    paddingRight: 20,
-    paddingLeft: 20,
-    paddingTop: 20,
-    marginBottom: 20,
-  },
 
-  borderStyleOne: {
+const style={
+    borderStyle:{
     // borderStyle: "solid",
-    // borderColor: "#17a2b8",
-    paddingRight: 50,
-    paddingLeft: 50,
-    paddingTop: 20,
-    marginBottom: 100,
+    // borderStyleBottom: "double",
+    borderColor: "#17a2b8",
+    height:250,
+    paddingRight:20,
+    paddingLeft:20,
+    paddingTop:20,
+    marginBottom:20,
+    },
     
-}
+    borderStyleOne:{
+        // borderStyle: "solid",
+        // borderColor: "#17a2b8",
+        paddingRight:20,
+        paddingLeft:20,
+        paddingTop:20,
+        marginBottom:100,
+    }
+
 
 }
 // This Container component allows us to use a bootstrap container without worrying about class names

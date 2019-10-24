@@ -33,6 +33,9 @@ class Login extends Component {
          if(res){
              this.props.history.push("/profile")
          }
+         else{
+            this.props.history.push("/")  
+         }
      })
  }
 
