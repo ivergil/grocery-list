@@ -284,10 +284,9 @@ class Home extends Component {
             <Row>
               {this.state.listOfResults.map(recipe => (
                 
-                <Col size="md-4">
+                <Col size="md-4"key={recipe.id}>
                   <RecipeCard
-                    id={recipe.id}
-                    key={recipe.id}
+                    id={recipe.id}   
                     addToGrocery = {this.addToGrocery}
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.title}
