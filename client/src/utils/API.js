@@ -7,12 +7,19 @@ import axios from "axios";
 //   },
 
 export default {
- // Gets books from the google books API
+ // Gets recipes basic info from the spoonacular  API
  spoonacularId: function(query){
    return axios.get('api/recipesIds', {params:{q:query}});
  },
 
+ //Gets the recipe Information for the specific recipe
+  recipeGroceryList: function(recipeId){
+    return axios.get("api/recipeInformation/" + recipeId)
+  },
 
+  sendGroceryList: function(query){
+    return axios.get('api/sendsms', {params:{q:query}})
+  }
 
 //    // Gets books from the google books API
 //    getGoogleBookById: function(id){
