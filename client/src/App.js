@@ -9,15 +9,7 @@ import Account from "./pages/account"
 
 function App() {
   return (
-    // <Router>
-    // //   <div>
-    // //     <Switch>
-    // //       <Route exact path="/" component={Home} />
-    // //       <Route exact path="/home" component={Home} />
-    // //       <Route exact path="/profile" component={Profile} /> 
-    // //     </Switch>
-    // //   </div>
-    //  </Router>
+   
 
     <Router>
       <div>

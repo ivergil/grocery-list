@@ -33,6 +33,7 @@
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.3",
     "react-router-dom": "^5.1.2",
+    "react-sticky-footer": "0.1.0-rc3",
     "twilio": "^3.36.0"
   }
 }
