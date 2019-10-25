@@ -118,7 +118,7 @@ router.get('/sendsms/:phonenumber/:list', (req, res) => {
 //   .get(bookController.findAll)
 //   .post(bookController.create);
 
-// // Matches with "/api/checklist/:id"
+// Matches with "/api/checklist/:id"
 router
   .route("/checklist")
   .post(groceryListController.create)
