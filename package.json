@@ -36,6 +36,7 @@
     "react-bootstrap": "^1.0.0-beta.14",
     "react-modal": "^3.10.1",
     "react-router-dom": "^5.1.2",
+    "react-sticky-footer": "0.1.0-rc3",
     "twilio": "^3.36.0"
   }
 }

@@ -7,7 +7,9 @@ import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
-import SendMyGroceryList from "../components/SendMyGroceryList"
+import SendMyGroceryList from "../components/SendMyGroceryList";
+import Footer from "../components/Footer";
+import "./style.css";
 
 
 
@@ -269,7 +271,7 @@ class Home extends Component {
           </Jumbotron>
 
           <Box>
-
+            <div className="container">
             <h4 className="mb-4" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
             <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>
             <Input
@@ -284,12 +286,14 @@ class Home extends Component {
               onClick={this.handleSubmit}>
               Search
           </SearchBtn>
+          </div>
+          
 
-
-          </Box>
-          <hr style={{ borderColor: "#fff" }}></hr>
-          <BoxOne>
-            <h4 className="mb-4"> Results</h4>
+          
+         </Box>
+         <hr style={{borderColor: "#fff"}}></hr>
+      <BoxOne>
+            <h4 className="mb-4"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
                 
@@ -308,42 +312,60 @@ class Home extends Component {
               ))}
             </Row>
           </BoxOne>
-          <hr style={{ borderColor: "#fff" }}></hr>
-          <BoxOne>
+        <hr style={{borderColor: "#fff"}}></hr>
+        <BoxOne>
+        
 
-            <div>
-              <h4 className="mb-4"> Grocery Calculator</h4>
-              <Row>
-                {this.state.recipesGroceryList.map(recipe => (
-                  <Col size="md-4">
-                    <GroceryCard
-                      id={recipe.id}
-                      key={recipe.id}
-                      recipeTitle={recipe.name}
-                      image={recipe.image} />
-                  </Col>
-                ))}
-              </Row>
-              <Input
-                value={this.state.yourServings}
-                onChange={this.handleInputChange}
-                name="yourServings"
-                placeholder="2">
-              </Input>
+        <div className="container">
+         <h4 className="mb-4"> Grocery Calculator &nbsp; <i class="fab fa-nutritionix"></i></h4>
+         {this.state.recipesGroceryList.map(recipe => (
 
-              <SearchBtn
-                style={{ marginBottom: 10 }}
-                onClick={this.calculateGroceries}>
-                Calculate Groceries
+          <GroceryCard
+            id={recipe.id}
+            key={recipe.id}
+            recipeTitle={recipe.name}
+            image={recipe.image}/>
+          ))}
+
+          <Input
+            value={this.state.yourServings}
+            onChange={this.handleInputChange}
+            name="yourServings"
+            placeholder="2">
+          </Input>
+
+          <SearchBtn
+            style={{ marginBottom: 10 }}
+            onClick={this.calculateGroceries}>
+            Calculate Groceries
           </SearchBtn>
-            </div>
-
-            <div className="col-6">
+        </div> 
+         
+        <div className="container">
 
               {/* //inside groceryListArray mapping
           do conditional to render good edit option 
           of grocerylist or render the not edit option */}
 
+         
+        {this.state.groceryListArray.map(item => (
+           
+          <List
+          
+          id={item.idUnit}
+          key={item.idUnit}
+          name={item.name}
+          edit={this.state.edit}
+          //yourServings = {this.state.yourServings}
+          finalAmount = {item.finalAmountForUser}
+          unit = {item.unit}
+          //aisle = {item.aisle}
+          handleIngredientDelete={this.handleIngredientDelete}
+          handleIngredientUpdate={this.handleIngredientUpdate}
+
+          />
+
+          ))}
 
               {this.state.groceryListArray.map(item => (
 
@@ -421,10 +443,18 @@ class Home extends Component {
         
 
         </BoxOne>
+        <hr style={{borderColor: "#fff"}}></hr>
+        <BoxOne>
+        <h4 className="mb-4"> Coupons &nbsp; <i className="far fa-money-bill-alt"></i></h4>
+        
+        </BoxOne>
 
         
     </Container>
-    
+
+    <Footer>
+      
+    </Footer>
 
 
       </div>

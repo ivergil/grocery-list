@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {SearchBtn} from "../SearchBox";
+import "./style.css";
 
 export default class List extends Component {
   constructor(props) {
