@@ -1,6 +1,8 @@
 .card {
   background: #fff;
+
   color: black;
+
   border-radius: 20px;
   height: 360px;
   margin: 1rem;
@@ -57,7 +59,9 @@
   
   position: absolute;
   top: 8px;
+
   right: 20px;
+
   /* font-size: px; */
   padding-bottom: 4px;
   border-radius: 20px;
@@ -84,8 +88,10 @@
 }
 
 .fa-eye {
+
   font-size: 25px;
   color: black;
+
 }
 
 .card > .groceries {
@@ -103,6 +109,7 @@
   background: green;
   /* border-style: none; */
   
+
 }
 
 .favorite {
@@ -125,6 +132,7 @@
 
 
 /* a {
+
   position: absolute;
   top: 50%;
   left: 25%;
@@ -139,12 +147,12 @@
   color: #262626;
 }
 
-a.active {
+/*a.active {
 background: transparent;
 color: #fff;
 }
 
-a:before {
+/*a:before {
   
   content: '';
   position: absolute;
@@ -159,7 +167,7 @@ a:before {
   opacity: 0;
 }
 
-a.active:before {
+/*a.active:before {
   left: 10px;
   transform:  translateX(0) rotate(20deg);
   border-bottom-left-radius: 75px;
@@ -167,7 +175,7 @@ a.active:before {
   opacity: 1;
 }
 
-a:after {
+/*a:after {
   content: '';
   position: absolute;
   top: 0;
@@ -196,4 +204,5 @@ body {
  h1 {
   font-size: 85px;
  }
+
 
