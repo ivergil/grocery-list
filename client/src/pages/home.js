@@ -8,6 +8,10 @@ import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
 import SendMyGroceryList from "../components/SendMyGroceryList";
+import Footer from "../components/Footer";
+import "./style.css";
+
+
 
 class Home extends Component {
   state = {
@@ -266,12 +270,9 @@ class Home extends Component {
           </Jumbotron>
 
           <Box>
-            <h4 className="mb-4">
-              Search Recipes &nbsp; <i className="fa fa-search"></i>
-            </h4>
-            <p>
-              Key Word: &nbsp; <i className="fa fa-comment"></i>
-            </p>
+            <div className="container">
+            <h4 className="mb-4" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
+            <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>
             <Input
               value={this.state.title}
               onChange={this.handleInputChange}
@@ -284,14 +285,15 @@ class Home extends Component {
               onClick={this.handleSubmit}
             >
               Search
-            </SearchBtn>
+          </SearchBtn>
+          </div>
+          
 
-          </Box>
-
-          <hr style={{ borderColor: "#fff" }}></hr>
-
-          <BoxOne>
-            <h4 className="mb-4"> Results</h4>
+          
+         </Box>
+         <hr style={{borderColor: "#fff"}}></hr>
+      <BoxOne>
+            <h4 className="mb-4"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
                 <Col size="md-4" key={recipe.id}>
@@ -312,10 +314,11 @@ class Home extends Component {
 
           <hr style={{ borderColor: "#fff" }}></hr>
           
+          
           <BoxOne>
            
            <div>
-              <h4 className="mb-4"> Grocery Calculator</h4>
+              <h4 className="mb-4"> Grocery Calculator &nbsp; <i class="fab fa-nutritionix"></i></h4>
 
             <Row>
               {/* //column left */}
@@ -340,10 +343,10 @@ class Home extends Component {
               
               <Row>
               <div className="container w-100">
-              <p className="mr-3 ml-5" style={{ fontStyle: "italic" }}>How many servings?</p>
+              <p className="mr-3" style={{ fontStyle: "italic" }}>How many servings?</p>
               <Input 
                 value={this.state.yourServings}
-                style={{ width: 100, marginLeft: 60, marginTop:10}}
+                style={{ width: 100, marginLeft: 100, marginTop:10}}
                 onChange={this.handleInputChange}
                 name="yourServings"
                 placeholder="1"
@@ -353,7 +356,7 @@ class Home extends Component {
               
               <SearchBtn
                 disabled={this.state.list? true:false} 
-                style={{ marginBottom: 20, marginLeft:75, marginTop: 20 }}
+                style={{ marginBottom: 20, marginLeft:97, marginTop: 10 }}
                 onClick={this.calculateGroceries}
               >
                 Calculate Groceries
@@ -367,8 +370,6 @@ class Home extends Component {
           do conditional to render good edit option 
           of grocerylist or render the not edit option */}
           
-
-
              
 
               {this.state.addNew === false || this.state.edit === false ? (
@@ -453,6 +454,10 @@ class Home extends Component {
                   
                 ))}
               </div>
+
+              <Footer>
+      
+              </Footer>
 
             </Row>
             </div>
