@@ -344,7 +344,6 @@ class Home extends Component {
           of grocerylist or render the not edit option */}
 
 
-<<<<<<< HEAD
         
         
         {this.state.addNew === false || this.state.edit ===false? "" : (
@@ -376,57 +375,6 @@ class Home extends Component {
             style={{ marginBottom: 10 }}
             onClick={this.addItem}>
             Add
-=======
-              {this.state.groceryListArray.map(item => (
-
-                <List
-                  id={item.idUnit}
-                  key={item.idUnit}
-                  name={item.name}
-                  edit={this.state.edit}
-                  //yourServings = {this.state.yourServings}
-                  finalAmount={item.finalAmountForUser}
-                  unit={item.unit}
-                  //aisle = {item.aisle}
-                  handleIngredientDelete={this.handleIngredientDelete}
-                  handleIngredientUpdate={this.handleIngredientUpdate}
-
-                />
-
-              ))}
-
-
-
-              {this.state.addNew === false ? "" : (
-                <div>
-                  <h6 className="mt-3">Add item</h6>
-
-                  <Input
-                    value={this.state.newAmount}
-                    onChange={this.handleInputChange}
-                    name="newAmount"
-                    placeholder="Amount">
-                  </Input>
-
-                  <Input
-                    value={this.state.newUnit}
-                    onChange={this.handleInputChange}
-                    name="newUnit"
-                    placeholder="Unit">
-                  </Input>
-
-                  <Input
-                    value={this.state.newName}
-                    onChange={this.handleInputChange}
-                    name="newName"
-                    placeholder="Name">
-                  </Input>
-
-                  <SearchBtn
-                    style={{ marginBottom: 10 }}
-                    onClick={this.addItem}>
-                    Add
->>>>>>> d336f22ccf7bccfffb7b110adc4e712fe6f270fe
           </SearchBtn>
          </div>
         )}
