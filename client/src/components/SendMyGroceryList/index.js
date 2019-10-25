@@ -48,15 +48,15 @@ export default class SendsMyGroceryList extends Component {
   //       let yourUrl = "http://localhost:3000/yourchecklist/" + res.data._id + ""
 
   //       //change url to match heroku when we deploy
-  //       API.sendGroceryList(this.state.phoneNumber , "app-friends-finder.herokuapp.com")
-  //         .then(res => {
-  //           console.log(yourUrl);
-  //         })
-  //         .catch(err => console.log(err));
-  //       alert("Message sent!");
+        API.sendGroceryList(this.state.phoneNumber , grocery.list)
+          .then(res => {
+            //console.log(yourUrl);
+          })
+          .catch(err => console.log(err));
+        alert("Message sent!");
   //     })
   //     .catch(err => console.log(err));
-  // };
+   };
 
   render() {
     return (
