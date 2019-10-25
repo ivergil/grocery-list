@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/home";
 import Login from "./components/Login"
 import Register from "./components/Register"
@@ -21,6 +21,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/account" component={Account} />
+        {/* <Route exact path="/yourchecklist/:id" component={CheckList} /> */}
         </div>
         
 

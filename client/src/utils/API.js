@@ -32,6 +32,7 @@ export default {
 //   getBooks: function() {
 //     return axios.get("/api/books");
 //   },
+
 favUser: function(userData) {
   return axios.get("/api/yourSavedRecipes", userData);
 },
@@ -45,3 +46,14 @@ favUser: function(userData) {
     return axios.post("/api/favoriteRecipe", recipeData);
   }
 };
+
+//   // Deletes the saved book by the given id
+//   deleteBook: function(id) {
+//     return axios.delete("/api/books/" + id);
+//   },
+  // Saves a checklist to the database
+  checklist: function(list) {
+    return axios.post("/api/checklist", list);
+  }
+};
+

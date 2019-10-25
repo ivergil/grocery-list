@@ -50,11 +50,27 @@ router.get("/recipesBulk", (req, res) => {
 });
 
 
+
 //Matches with "/api/recipeInformation/:recipeId"
 router.get("/recipeInformation/:recipeId", (req, res) => {
   var recipeId = req.params.recipeId;
   //var query = req.query;
   var url = "https://api.spoonacular.com/recipes/" + recipeId + "/information?includeNutrition=true&apiKey=" + spoonacularId;
+
+  //axios.get(url, {params:{q:query.q}})
+  axios.get(url)
+    .then(({ data }) => { res.json(data) })
+    .catch(err => { console.log(err); res.status(422).json(err) });
+});
+
+
+
+//Matches with "/api/recipeInformation/:recipeId"
+router.get("/recipeInformation/:recipeId", (req, res) => {
+  var recipeId = req.params.recipeId;
+  //var query = req.query;
+  var url = "https://api.spoonacular.com/recipes/" + recipeId + "/information?includeNutrition=true&apiKey=" + spoonacularId;
+
 
   //axios.get(url, {params:{q:query.q}})
   axios.get(url)
@@ -77,6 +93,21 @@ router.get("/recipePhotos/:recipeId", (req, res) => {
     .then(({ data }) => { res.json(data); console.log(query) })
     .catch(err => { console.log(err); res.status(422).json(err) });
 });
+
+
+
+// Matches with "/api/recipeInformation/:recipeId"
+router.get("/recipePhotos/:recipeId", (req, res) => {
+  var recipeId = req.params.recipeId;
+  //var query = req.query;
+  var url = " https://api.spoonacular.com/recipes/" + recipeId + "/ingredientWidget?apiKey=" + spoonacularId;
+
+  //axios.get(url, {params:{q:query.q}})
+  axios.get(url + `&query=${query.q}`)
+    .then(({ data }) => { res.json(data); console.log(query) })
+    .catch(err => { console.log(err); res.status(422).json(err) });
+});
+
 
 // Match the route to send a SMS to user
 
@@ -102,7 +133,6 @@ router.get('/sendsms/:phonenumber/:list', (req, res) => {
 });
 
 
-
 //// routes to interact with mongo database --------
 
 // Matches with "/api/updateUser"
@@ -111,6 +141,7 @@ router.route("/updateUser/:email")
 //   .get(bookController.findAll)
 //   .post(bookController.create);
 
+
 // // Matches with "/api/favoriteRecipe/"
 router
 .route("/favoriteRecipe")
@@ -118,6 +149,15 @@ router
 //   .get(bookController.findById)
 //   .put(bookController.update)
 //   .delete(bookController.remove);
+
+// Matches with "/api/checklist/:id"
+router
+  .route("/checklist")
+  .post(groceryListController.create)
+  .get(groceryListController.findAll)
+ // .put(bookController.update)
+  //.delete(bookController.remove);
+
 
 
 //populate favRecipes for user
