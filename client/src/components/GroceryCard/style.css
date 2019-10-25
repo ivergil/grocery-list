@@ -1,5 +1,6 @@
 .card {
     background: #fff;
+    color:black;
     border-radius: 2px;
     height: 360px;
     margin: 1rem;
@@ -56,6 +57,8 @@
   .remove:hover {
     color: #d50000;
   }
+
+ 
   
   /* a {
     position: absolute;

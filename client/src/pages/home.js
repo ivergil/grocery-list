@@ -7,7 +7,8 @@ import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
-import SendMyGroceryList from "../components/SendMyGroceryList"
+import SendMyGroceryList from "../components/SendMyGroceryList";
+import "./style.css";
 
 
 class Home extends Component {
@@ -260,7 +261,7 @@ class Home extends Component {
           </Jumbotron>
 
           <Box>
-
+            <div className="container">
             <h4 className="mb-4" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
             <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>
           <Input
@@ -275,12 +276,14 @@ class Home extends Component {
             onClick={this.handleSubmit}>
             Search
           </SearchBtn>
+          </div>
+          
 
           
          </Box>
          <hr style={{borderColor: "#fff"}}></hr>
       <BoxOne>
-            <h4 className="mb-4"> Results</h4>
+            <h4 className="mb-4"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
                 
@@ -302,9 +305,10 @@ class Home extends Component {
           </BoxOne>
         <hr style={{borderColor: "#fff"}}></hr>
         <BoxOne>
+        
 
-        <div className="col-6">
-         <h4 className="mb-4"> Grocery Calculator</h4>
+        <div className="container">
+         <h4 className="mb-4"> Grocery Calculator &nbsp; <i class="fab fa-nutritionix"></i></h4>
          {this.state.recipesGroceryList.map(recipe => (
 
           <GroceryCard
@@ -328,7 +332,7 @@ class Home extends Component {
           </SearchBtn>
         </div> 
          
-        <div className="col-6">
+        <div className="row">
 
           {/* //inside groceryListArray mapping
           do conditional to render good edit option 
@@ -338,6 +342,7 @@ class Home extends Component {
         {this.state.groceryListArray.map(item => (
            
           <List
+          
           id={item.idUnit}
           key={item.idUnit}
           name={item.name}
@@ -413,7 +418,7 @@ class Home extends Component {
         </BoxOne>
         <hr style={{borderColor: "#fff"}}></hr>
         <BoxOne>
-        <h4 className="mb-4"> Coupons &nbsp; <i className="fa fa-barcode"></i></h4>
+        <h4 className="mb-4"> Coupons &nbsp; <i className="far fa-money-bill-alt"></i></h4>
         
         </BoxOne>
 
