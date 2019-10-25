@@ -44,6 +44,7 @@ class Navbar extends Component {
                         Log Out
                     </a>
                 </li>
+                
 
             </ul>
 

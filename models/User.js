@@ -10,6 +10,7 @@ const userSchema = new Schema({
   phone_number: { type: String, required: true},
   username: {type:String,  unique: true, required: true},
   password:{type:String, required: true},
+  favorites: {type:String},
   //photo: String,
   date: { type: Date, default: Date.now },
     // grocerylist is an array that stores grocerylists that belong to this user

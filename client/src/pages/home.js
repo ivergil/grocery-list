@@ -7,7 +7,8 @@ import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
-import SendMyGroceryList from "../components/SendMyGroceryList"
+import SendMyGroceryList from "../components/SendMyGroceryList";
+
 
 
 class Home extends Component {

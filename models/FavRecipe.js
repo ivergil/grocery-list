@@ -4,13 +4,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
-  spoonacularId: {type:String, required: true, unique: true},
+  spoonacularId: {type:String, required: true},
   recipeName: {type:String, required: true},
   servings: {type:String, required: true},
   img: {type:String, required: true},
-  instructions: {type: String, required: true},
-  ingredientsList: { type: [String], required: true},
-  link: {type: String},
+  readyInMin: {type:String},
+  //instructions: {type: String, required: true},
+  //ingredientsList: { type: [String], required: true},
+  //link: {type: String},
   date: { type: Date, default: Date.now }
 
 

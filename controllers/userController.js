@@ -23,9 +23,10 @@ module.exports = {
   },
   update: function(req, res) {
     db.User
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ email: req.params.email }, {$push:{favRecipes: req.body}}, {new:true})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+
   },
   remove: function(req, res) {
     db.User

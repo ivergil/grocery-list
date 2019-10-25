@@ -29,7 +29,7 @@ const client = require('twilio')(accountSid, authToken);
 
 //Matches with “/api/recipesIds”
 router.get('/recipesIds', (req, res) => {
-
+  console.log("hello!");
   var query = req.query;
   var url = `https://api.spoonacular.com/recipes/search?&number=6&apiKey=${spoonacularId}`;
   axios.get(url + `&query=${query.q}`)
@@ -99,30 +99,46 @@ router.get('/sendsms', (req, res) => {
 
 });
 
-// router.get("/googlebook/:id", (req, res) => {
-//   var id = req.params.id
-//   var url="https://www.googleapis.com/books/v1/volumes/" + id;
 
-//     axios.get(url)
-//       .then (({data}) => {res.json(data); console.log(url)})
-//       .catch(err => {console.log(err);res.status(422).json(err)});
-//   });
 
-//////////////////////////////////////////////////////
+//// routes to interact with mongo database --------
 
-//// routes to interact with mongo database --------////////
-
-// Matches with "/api/books"
-// router.route("/books")
+// Matches with "/api/updateUser"
+router.route("/updateUser/:email")
+   .put(userController.update)
 //   .get(bookController.findAll)
 //   .post(bookController.create);
 
-// // Matches with "/api/books/:id"
-// router
-//   .route("/books/:id")
+// // Matches with "/api/favoriteRecipe/:id"
+router
+.route("/favoriteRecipe")
+.post(favRecipeController.create);
 //   .get(bookController.findById)
 //   .put(bookController.update)
 //   .delete(bookController.remove);
+
+
+// app.post("/api/articles/:id", function(req, res) {
+//   //
+//   // Create a new comment and pass the req.body to the entry
+//   db.Comment.create(req.body)
+//     .then(function(dbComment) {
+//       // If a comment was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Comment
+//       // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
+//       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
+//       return db.Saved.findOneAndUpdate({ _id: req.params.id }, { $push:{comments: dbComment._id }}, { new: true });
+//     })
+//     .then(function(dbComment) {
+//       // If we were able to successfully update an Article, send it back to the client
+//       res.json(dbComment);
+//     })
+//     .catch(function(err) {
+//       // If an error occurred, send it to the client
+//       res.json(err);
+//     });
+// });
+
+
 
 //exporting routes
 module.exports = router;

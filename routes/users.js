@@ -23,6 +23,7 @@ users.post("/register", (req, res)=>{
         username: req.body.username,
         password: req.body.password,
         date: today
+
         
     }
 
