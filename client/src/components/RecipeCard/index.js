@@ -1,61 +1,92 @@
-import React from "react";
-
+import React, { Component } from "react";
+import { Button, ButtonToolbar } from "react-bootstrap";
+import { AddModal } from "./AddModal";
+import API from "../../utils/API";
 //import $ from 'jquery';
 import "./style.css";
+export class RecipeCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { addModalShow: false, ingredients: [], instructions: '', title: '' }
+  }
 
+  handleModal = event => {
+    event.preventDefault();
+    console.log(this.props.id)
+    API.recipeGroceryList(this.props.id)
+      .then(res => {
+        console.log(res.data)
+        
+        // console.log(this.state.title);
+        this.setState({ addModalShow: true });
+        this.setState({ ingredients: res.data.nutrition.ingredients })
+        this.setState({ instructions: res.data.instructions })
+        this.setState({title: res.data.title})
+        console.log(this.state.ingredients);
+        console.log(this.state.title);
+      })
+      .catch(err => console.log(err));
 
+  };
+  render() {
+    let addModalClose = () => this.setState({ addModalShow: false });
+    return (
 
-function RecipeCard(props) {
-
-  
-
-  return (
-    <div >
-      <div className="card" style={{ width: 300, height: 400 }} >
-
-        <div className="img-container" style={{ height: 220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${props.image})` }}>
-          {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
+      <div >
+        <div className="card" style={{ width: 300, height: 430 }} >
+          <div className="img-container" style={{ height: 220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
+            {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
         <img style={{: 'cover'}} src={ `https://spoonacular.com/recipeImages/${props.image}`} /> */}
-        </div>
-
-
-        <div className="content">
-          <ul>
-            <li>
-              <strong>Recipe Name:</strong> {props.recipeTitle}
-            </li>
-            <li>
-              <strong>Servings:</strong> {props.servings}
-            </li>
-            <li>
-              <strong>Ready in:</strong> {props.readyInMinutes} mins
+          </div>
+          <div className="content">
+            <ul>
+              <li>
+                <strong>Recipe Name:</strong> {this.props.recipeTitle}
+              </li>
+              <li>
+                <strong>Servings:</strong> {this.props.servings}
+              </li>
+              <li>
+                <strong>Ready in:</strong> {this.props.readyInMinutes} mins
           </li>
-
-            <a href="#">Add Favorite</a>
-
-
-          </ul>
-
-        </div>
-
-
-        <button className="groceries">
-          +
+              <a className="favorite" href="#"><i className="fa fa-heart"></i></a>
+            </ul>
+          </div>
+          <ButtonToolbar className="details">
+            <Button
+              variant='outline-light'
+              onClick={this.handleModal}
+            // onClick={()=> this.setState({addModalShow: true})}
+            >
+              <i className="fa fa-eye" aria-hidden="true"></i>
+            </Button>
+            <AddModal
+              show={this.state.addModalShow}
+              ingredients={this.state.ingredients}
+              instructions={this.state.instructions}
+              title={this.state.title}
+              onHide={addModalClose}
+            />
+          </ButtonToolbar>
+          <button className="groceries" onClick={() => this.props.addToGrocery(this.props.id)}>
+            <i className="fa fa-cart-plus" aria-hidden="true"></i>
           </button>
-      
-      <button className="groceries-1" onClick={() => props.addToGrocery(props.id)}>
-        My groceries
-      </button>
-
-      </div>
-
-      {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
+        </div>
+        {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
         x
       </button> */}
-      {/*  */}
-    </div>
-    
-  );
-}
+        {/*  */}
+      </div>
+    );
+  }
 
+}
 export default RecipeCard;
+
+
+
+
+
+
+
+
