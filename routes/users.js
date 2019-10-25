@@ -99,11 +99,11 @@ users.post('/login', (req, res) => {
                 res.send(token);
             }
             else{
-                res.json({error: "User does not exist 1"})
+                res.json({error: "Wrong password!"})
             }
 
         }else{
-            res.json({error: "User does not exist 2"})
+            res.json({error: "Email doesn't belong to any Account"})
         }
     })
     .catch(err =>{

@@ -80,15 +80,17 @@ router.get("/recipePhotos/:recipeId", (req, res) => {
 
 // Match the route to send a SMS to user
 
-router.get('/sendsms', (req, res) => {
+router.get('/sendsms/:phonenumber/:list', (req, res) => {
 
-  var query = '+1' + req.query;
+  //var query = '+1' + req.query;
+  var phone = req.params.phonenumber;
+  var list = req.params.list;
   const notificationOpts = {
     toBinding: JSON.stringify({
       binding_type: 'sms',
-      address: query,
+      address: "+1" + phone,
     }),
-    body: 'Hello from Chef Helper!!!',
+    body: list
   };
   
   client.notify
