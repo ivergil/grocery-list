@@ -41,7 +41,7 @@ function RecipeCard(props) {
 
         <button className="details">
 
-          <i className="fa fa-info"></i>
+        <i className="fa fa-plus" aria-hidden="true"></i>
 
         </button>
 
