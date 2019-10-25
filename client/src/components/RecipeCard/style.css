@@ -181,3 +181,19 @@ a:after {
   opacity: 0;
 }*/
 
+body {
+  background-color: #66655f;
+  color: white;
+  padding: 30px;
+  font-family: 'Happy Monkey', cursive;
+  font-size: 22px;
+  text-align: center;
+ }
+ a:hover {
+     background: lightgray;
+     text-decoration: underline;
+ }
+ h1 {
+  font-size: 85px;
+ }
+

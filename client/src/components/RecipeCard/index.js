@@ -7,7 +7,7 @@ import "./style.css";
 export class RecipeCard extends Component {
   constructor(props) {
     super(props);
-    this.state = { addModalShow: false, ingredients: [], instructions: '', title: '' }
+    this.state = { addModalShow: false, ingredients: [], instructions: '', title: ''}
   }
 
   handleModal = event => {
@@ -16,14 +16,22 @@ export class RecipeCard extends Component {
     API.recipeGroceryList(this.props.id)
       .then(res => {
         console.log(res.data)
-        
+
+        let ingredientsList = res.data.nutrition.ingredients
+
+        let ingredients = ingredientsList.map(ingredient =>{
+          ingredient.key = ingredient.amount + ingredient.unit + ingredient.name;
+          return ingredient
+        })
+
         // console.log(this.state.title);
         this.setState({ addModalShow: true });
-        this.setState({ ingredients: res.data.nutrition.ingredients })
+        this.setState({ ingredients: ingredients })
         this.setState({ instructions: res.data.instructions })
         this.setState({title: res.data.title})
         console.log(this.state.ingredients);
         console.log(this.state.title);
+    
       })
       .catch(err => console.log(err));
 
@@ -60,13 +68,19 @@ export class RecipeCard extends Component {
             >
               <i className="fa fa-eye" aria-hidden="true"></i>
             </Button>
-            <AddModal
+
+            <div key={this.props.id}>
+              
+            <AddModal     
+              id = {this.props.id}
               show={this.state.addModalShow}
               ingredients={this.state.ingredients}
               instructions={this.state.instructions}
               title={this.state.title}
               onHide={addModalClose}
             />
+            </div>
+            
           </ButtonToolbar>
           <button className="groceries" onClick={() => this.props.addToGrocery(this.props.id)}>
             <i className="fa fa-cart-plus" aria-hidden="true"></i>
