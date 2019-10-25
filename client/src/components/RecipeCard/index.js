@@ -1,57 +1,135 @@
-import React from "react";
-//import $ from 'jquery';
-//import "./style.css";
+import React, { Component } from 'react'
+import "./style.css";
+import jwt_decode from "jwt-decode";
+import API from "../../utils/API";
+import { decode } from 'punycode';
 
-function RecipeCard(props) {
+export default class RecipeCard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+    
+    };
+  }
 
-  // $(document).ready(function () {
+  componentDidMount() {}
 
-  //   $('a').click(function () {
+  // handleInputChange = event => {
+  //   const { name, value } = event.target;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
 
-  //     $(this).attr("class", "active")
-  //     $(this).text('LIKE')
-  //   })
+  
 
-  // })
 
-  return (
-    <div className="mb-4 mr-2 ml-2">
-    <div className="card" style={{width:300, height:400}} >
-      <div className="img-container" style={{height:220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${props.image})`}}>
-        {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
-        <img style={{: 'cover'}} src={ `https://spoonacular.com/recipeImages/${props.image}`} /> */}
-      </div>
-      <div className="content">
-        <ul>
-          <li>
-            <strong>Recipe Name:</strong> {props.recipeTitle}
-          </li>
-          <li>
-            <strong>Servings:</strong> {props.servings}
-          </li>
-          <li>
-            <strong>Ready in:</strong> {props.readyInMinutes} min
-          </li>
-          
-          <a href="#">Add Favorite</a>
+//   saveChanges = event => {
+//     event.preventDefault();
+//     this.props.handleIngredientUpdate(
+//       this.props.id,
+//       this.state.amount,
+//       this.state.unit
+//     );
+//   };
 
-        </ul>
+//   deleteIngredient = event => {
+//     event.preventDefault();
+//     this.setState({ display: false });
+//     this.props.handleIngredientDelete(this.props.id);
+//   };
 
-      </div>
-      <button className="groceries" onClick={() => props.addToGrocery(props.id)}>
-        My groceries
-      </button>
-      <button  className="remove">
-        x
-      </button>
-      
-      {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
-        x
-      </button> */}
+saveToFavorites = () => {
+  
+    const token = localStorage.usertoken
+    const decoded = jwt_decode(token)
+    console.log(decoded.email);
+    this.setState({email:decoded.email});
+    let id = decoded.email + this.props.id
+    let recipe={
+      spoonacularId: id,
+      recipeName:this.props.recipeTitle,
+      servings: this.props.servings,
+      img:this.props.image,
+      readyInMin:this.props.readyInMinutes
+     }
 
-    </div>
-    </div>
-  );
+    API.saveRecipe(recipe)
+    .then(res => {
+      console.log(res);
+      let data = res.data
+      console.log(data);
+      API.updateUser(decoded.email , data)
+      .then(res=>{
+        console.log(res)
+      }) .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err));
+    
+    
+
+    
 }
 
-export default RecipeCard;
+//updateUser = ()=> {
+
+//}
+
+  render() {
+    return (
+      <div >
+        <div className="card" style={{ width: 300, height: 430 }} >
+  
+          <div className="img-container" style={{ height: 220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
+            {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
+          <img style={{: 'cover'}} src={ `https://spoonacular.com/recipeImages/${props.image}`} /> */}
+          
+          </div>
+  
+  
+          <div className="content">
+  
+            <ul>
+              <li>
+                <strong>Recipe Name:</strong> {this.props.recipeTitle}
+              </li>
+              <li>
+                <strong>Servings:</strong> {this.props.servings}
+              </li>
+              <li>
+                <strong>Ready in:</strong> {this.props.readyInMinutes} mins
+            </li>
+  
+            <button className="favorite" href="#"onClick={this.saveToFavorites}> <i className="fa fa-heart"></i></button>
+  
+            </ul>
+  
+          </div>
+  
+  
+          <button className="details">
+  
+            <i className="fa fa-info"></i>
+  
+          </button>
+          {this.props.addToGrocery === false? "":(
+             <button className="groceries" onClick={() => this.props.addToGrocery(this.props.id)}>
+             <i className="fa fa-cart-plus" aria-hidden="true"></i>
+           </button>
+          )}
+         
+  
+  
+        </div>
+  
+        {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
+          x
+        </button> */}
+        {/*  */}
+      </div>
+  
+    );
+  }
+}
+

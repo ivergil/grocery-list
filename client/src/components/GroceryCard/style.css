@@ -1,0 +1,46 @@
+.card {
+    background: #fff;
+    border-radius: 2px;
+    height: 360px;
+    margin: 1rem;
+    position: relative;
+    width: 350px;
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    text-align: center;
+  }
+  
+  .card > .img-container {
+    /* height: 45%; */
+    overflow: hidden;
+    text-align: center;
+    background:#fff;
+  }
+  .card > .img-container > img {
+    width: 65%
+  }
+  
+  .img-container {
+    border-style: double;
+  }
+  
+  .card > .content {
+    /* padding-left: 1rem; */
+    /* padding-right: 10px; */
+    /* margin-right: 40px; */
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .recipeTittle {
+    font-size: 20px;
+  }
+
+
+  .card > .content > ul {
+    list-style-type: none;
+  }
+  
+  .card > .content > ul > li {
+    margin-top: 18px;
+
+  }

@@ -1,6 +1,6 @@
 .card {
   background: #fff;
-  border-radius: 2px;
+  border-radius: 20px;
   height: 360px;
   margin: 1rem;
   position: relative;
@@ -14,17 +14,18 @@
   overflow: hidden;
   text-align: center;
   background:#fff;
+  border-radius: 20px;
 }
 .card > .img-container > img {
   width: 45%
 }
 
 .img-container {
-  border-style: double;
+  border-style: hidden;
 }
 
 .card > .content {
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   padding-right: 1rem;
   font-size: 15px;
 }
@@ -37,7 +38,7 @@
   margin-top: 18px;
 }
 
-.card > .remove {
+/* .remove {
   color: #ff1744;
   font-size: 14px;
   position: absolute;
@@ -45,19 +46,73 @@
   right: 5px;
   cursor: pointer;
   font-weight: bolder;
+  padding-bottom: 4px;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px; 
+} */
+
+.card > .details {
+  
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  /* font-size: px; */
+  padding-bottom: 4px;
+  border-radius: 20px;
+  width: 35px;
+  height: 35px;
+  font-weight: bolder;
+  background: ;
+  border-style: none;
+}
+.fa-cart-plus {
+  font-size: 30px;
+  color: #fff
+}
+
+.fa-heart {
+  color: red;
+  font-size: 40px
+}
+
+.fa-plus {
+  padding-top: 5px;
+  font-size: 16px;
+  color: #0066ff
+}
+
+.fa-eye {
+  font-size: 20px;
+  color: #0066ff
 }
 
 .card > .groceries {
   position: absolute;
-  top: 305px;
-  right: 60px;
+  top: 370px;
+  right: 45px;
+  font-size:15px;
+  padding-bottom: 4px;
+  border-radius: 30px;
+  width: 75px;
+  height: 40px;
+  font-weight: bolder;
+  padding-top: 0px ;
+  padding-left: 5px;
+  background: green;
+  /* border-style: none; */
+  
 }
 
-.card > .remove:hover {
-  color: #d50000;
+.favorite {
+  position: absolute;
+  top: 370px;
+  right: 200px;
 }
 
-a {
+
+/*a {
+
   position: absolute;
   top: 50%;
   left: 25%;
@@ -72,12 +127,12 @@ a {
   color: #262626;
 }
 
-a.active {
+/*a.active {
 background: transparent;
 color: #fff;
 }
 
-a:before {
+/*a:before {
   
   content: '';
   position: absolute;
@@ -92,7 +147,7 @@ a:before {
   opacity: 0;
 }
 
-a.active:before {
+/*a.active:before {
   left: 10px;
   transform:  translateX(0) rotate(20deg);
   border-bottom-left-radius: 75px;
@@ -100,7 +155,7 @@ a.active:before {
   opacity: 1;
 }
 
-a:after {
+/*a:after {
   content: '';
   position: absolute;
   top: 0;
@@ -112,12 +167,31 @@ a:after {
   z-index: -1;
   transform:  translateX(50px) rotate(325deg);
   opacity: 0;
-}
+}*/
 
-a.active:after {
+/*a.active:after {
   right: 10px;
   transform:  translateX(0) rotate(-20deg);
   border-bottom-right-radius: 75px;
   border-top-right-radius: 75px; 
   opacity: 1;
+}*/
+
+body {
+  background-color: #66655f;
+  color: white;
+  padding: 30px;
+  font-family: 'Happy Monkey', cursive;
+  font-size: 22px;
+  text-align: center;
 }
+
+a:hover {
+	background: lightgray;
+	text-decoration: underline;
+}
+
+h1 {
+  font-size: 85px;
+}
+

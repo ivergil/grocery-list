@@ -1,32 +1,32 @@
-
 import React from "react";
 
+import "./style.css";
+
 function GroceryCard(props) {
-
-
   return (
-    <div className="col-6 mb-4 mr-2 ml-2">
-    <div className="card" style={{width:200, height:300}} >
-      <div className="img-container" style={{height:220, backgroundSize: "cover", backgroundImage: `url(${props.image})`}}>
-       
-      </div>
-      <div className="content">
-        <h6>{props.recipeTitle}</h6>
-            
+    <div className="mb-4 mr-2 ml-2">
+      <div className="card" style={{ width: 300, height: 250 }} >
+      <div className="img-container" style={{ height: 185, backgroundSize: "cover", backgroundImage: `url(${props.image})` }}>
+        </div>
+        <div className="content">
+          
+          <ul>
+          
+            <li className="recipeTittle">
+              <strong> {props.recipeTitle}</strong >
+            </li>
+          </ul>
+        </div>
         
 
+        {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
+       x
+     </button> */}
       </div>
-      <button  className="remove">
-        x
-      </button>
-      
-      {/* <button onClick={() => props.removeFriend(props.id)} className="remove">
-        x
-      </button> */}
+    </div>
 
-    </div>
-    </div>
-  );
+  )
 }
+
 
 export default GroceryCard;
