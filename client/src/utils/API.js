@@ -19,7 +19,7 @@ export default {
 
   sendGroceryList: function(phone, list){
     return axios.get('api/sendsms/'+ phone + "/" + list )
-  }
+  },
 
 //    // Gets books from the google books API
 //    getGoogleBookById: function(id){
@@ -40,8 +40,8 @@ export default {
 //   deleteBook: function(id) {
 //     return axios.delete("/api/books/" + id);
 //   },
-//   // Saves a book to the database
-//   saveBook: function(bookData) {
-//     return axios.post("/api/books", bookData);
-//   }
+  // Saves a checklist to the database
+  checklist: function(list) {
+    return axios.post("/api/checklist", list);
+  }
 };

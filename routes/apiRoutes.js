@@ -118,12 +118,13 @@ router.get('/sendsms/:phonenumber/:list', (req, res) => {
 //   .get(bookController.findAll)
 //   .post(bookController.create);
 
-// // Matches with "/api/books/:id"
-// router
-//   .route("/books/:id")
-//   .get(bookController.findById)
-//   .put(bookController.update)
-//   .delete(bookController.remove);
+// // Matches with "/api/checklist/:id"
+router
+  .route("/checklist")
+  .post(groceryListController.create)
+  .get(groceryListController.findAll)
+ // .put(bookController.update)
+  //.delete(bookController.remove);
 
 //exporting routes
 module.exports = router;

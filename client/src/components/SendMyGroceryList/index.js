@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Input, SearchBtn } from "../SearchBox"
+import React, { Component } from "react";
+import { Input, SearchBtn } from "../SearchBox";
 import API from "../../utils/API";
 
 export default class SendsMyGroceryList extends Component {
@@ -7,8 +7,10 @@ export default class SendsMyGroceryList extends Component {
     super(props);
     this.state = {
       phoneNumber: "Phone Number",
-      stringToSend: ""
-      
+      stringToSend: "",
+      grocery: {
+        list: ""
+      }
     };
   }
 
@@ -23,39 +25,52 @@ export default class SendsMyGroceryList extends Component {
 
   sendMessage = event => {
     event.preventDefault();
-    let array = []
-    const newIngredientListState = this.props.toSend.map(ingredient =>{
-       ingredient =  ingredient.finalAmountForUser + " " + ingredient.unit + " " + ingredient.name;
-        return ingredient
+
+    const newIngredientListState = this.props.toSend.map(ingredient => {
+      ingredient =
+        ingredient.finalAmountForUser +
+        " " +
+        ingredient.unit +
+        " " +
+        ingredient.name;
+      return ingredient;
     });
-    let stringToSend = newIngredientListState.join(", ")
-    API.sendGroceryList(this.state.phoneNumber , stringToSend )
-    .then(res => {
-        console.log(stringToSend);
-       
-      })
-      .catch(err => console.log(err));
-      alert("Message sent!");
-    
-  };
 
+    let grocery = {
+      list: newIngredientListState
+    };
 
+    //this.setState({ grocery.list: [newIngredientListState] })
+
+  //   API.checklist(grocery)
+  //     .then(res => {
+  //       console.log(res.data._id);
+  //       let yourUrl = "http://localhost:3000/yourchecklist/" + res.data._id + ""
+
+  //       //change url to match heroku when we deploy
+  //       API.sendGroceryList(this.state.phoneNumber , "app-friends-finder.herokuapp.com")
+  //         .then(res => {
+  //           console.log(yourUrl);
+  //         })
+  //         .catch(err => console.log(err));
+  //       alert("Message sent!");
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     return (
       <div>
-          <Input
+        <Input
           onChange={this.handleInputChange}
           value={this.state.phoneNumber}
           name="phoneNumber"
-          placeholder="Number"/>
+          placeholder="Number"
+        />
 
-          <SearchBtn
-          style={{ marginBottom: 10 }}
-          onClick={this.sendMessage}>
-              Text Me Grocery List
-          </SearchBtn>
-       
+        <SearchBtn style={{ marginBottom: 10 }} onClick={this.sendMessage}>
+          Text Me Grocery List
+        </SearchBtn>
       </div>
     );
   }
