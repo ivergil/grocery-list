@@ -24,9 +24,12 @@ export class AddModal extends Component {
                         <h5 id="ingredients" className= "mb-3"> Ingredients</h5>
                     
                         {this.props.ingredients.map(ing => (
-                            <p>
+                            <div key={ing.key}>
+                                <p>
                                 {ing.amount} {ing.unit} {ing.name}
-                            </p>
+                                </p>
+                            </div>
+                            
                         ))}
 
                         <h5 id="instructions"> Follow the Instructions</h5>
