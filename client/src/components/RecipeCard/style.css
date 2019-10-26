@@ -208,4 +208,7 @@ body {
   font-size: 85px;
  }
 
-
+.modal-text {
+  color: black;
+  text-align: center;
+}

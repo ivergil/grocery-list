@@ -59,5 +59,5 @@ favUser: function(userData) {
 //   checklist: function(list) {
 //     return axios.post("/api/checklist", list);
 //   }
-// };
+ };
 
