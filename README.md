@@ -1,27 +1,25 @@
-### Chef Helper
-This Application allows the user to find book's information (from authors's to a brief description, etc). The information comes from google books API. 
+# Chef Helper
+This Application allows the user to find recipes information, use the ingredients section from results to build a grocery list and lets the user to do changes to the list (edit/add/remove). Finally the user can send the list to any phone number so they can take use it later.  
 
 ## Deployment (Heroku)
 
 App has been deployed to heroku:
-[click here](Heroku link here)
+[click here](https://chef-helpers.herokuapp.com/)
 
 
-# Techinques applied:
+## Technology applied:
 
-React.js, Express, MongoDB, and Node.js 
+Main: React.js, Express, MongoDB, Mongoose, Bootsrapt, Bcrypt, JWT, Twillio, and Node.js, Spoonacular API.
 
-# Create React Express App - About This Boilerplate
+## Create React Express App - About This Boilerplate
 Used Create React Boilerplate and added to this structure Node.js, Express node package and Mongo (mongoose package) for the back end. 
 
 
-# Starting the app locally
+## Starting the app locally
 
 Start by installing front and backend dependencies. While in this directory, run the following command:
 
 npm install
-
-
 
 This should install node modules within the server and the client folder.
 
@@ -33,12 +31,12 @@ npm start
 
 Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-# Developer
+### Developers
 
 Ginna Campbell, 
 Natalie Solis Maravilla, 
-Bronson,
+Bronson Aviles,
 Iver Gil,
-Katsu
+Katsu Tanabe
 
 
