@@ -59,7 +59,7 @@ class Profile extends Component {
                 
                 <div size="md-4"key={recipe.spoonacularId}>
                   <RecipeCard
-                    id={recipe.spoonaculatId}   
+                    id={recipe.theId}   
                     addToGrocery = {false}
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.recipeName}
