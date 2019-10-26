@@ -59,7 +59,8 @@ saveToFavorites = () => {
       recipeName:this.props.recipeTitle,
       servings: this.props.servings,
       img:this.props.image,
-      readyInMin:this.props.readyInMinutes
+      readyInMin:this.props.readyInMinutes,
+      theId:this.props.id
      }
 
     API.saveRecipe(recipe)
