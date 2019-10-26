@@ -7,11 +7,10 @@ import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
-
-import SendMyGroceryList from "../components/SendMyGroceryList";
+import SendMyGroceryList from "../components/SendMyGroceryList"
+import Carousel from 'react-bootstrap/Carousel'
 import Footer from "../components/Footer";
 import "./style.css";
-
 
 
 class Home extends Component {
@@ -280,12 +279,85 @@ class Home extends Component {
 
 
         <LoginNavbar></LoginNavbar>
+        <br></br>
 
         <Container fluid>
-          <Jumbotron>
-            <h1>Chef Helper</h1>
-            <p>Your meal ideas virtual assistant app</p>
-          </Jumbotron>
+          {/* <Jumbotron> */}
+
+          <Carousel>
+            {/* image 1 */}
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="http://i.huffpost.com/gen/1431036/images/o-FALL-FOOD-facebook.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+            {/* image 2 */}
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ytimg.com/vi/akk4aG5nnoc/maxresdefault.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ytimg.com/vi/BnggSSaharc/maxresdefault.jpg"
+              // alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ytimg.com/vi/95SNbn340TE/maxresdefault.jpg"
+              // alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+
+
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://article.images.consumerreports.org/prod/content/dam/cro/news_articles/health/CR-Health-Crop-Food-Child-10-16"
+              // alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+                {/* <h3>Third slide label</h3>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+          {/* <h1>Chef Helper</h1>
+            <p>Your meal ideas virtual assistant app</p> */}
+
+          {/* </Jumbotron> */}
 
           <Box>
             <div className="container">
@@ -316,11 +388,11 @@ class Home extends Component {
             <h4 className="mb-4"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
-                <Col size="md-4" key={recipe.id}>
+
+                <Col size="lg-4 md-6 sm-12" key={recipe.id}>
                   <RecipeCard
                     id={recipe.id}
                     addToGrocery={this.addToGrocery}
-
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.title}
                     //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
