@@ -8,6 +8,7 @@ import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
 import SendMyGroceryList from "../components/SendMyGroceryList"
+import Carousel from 'react-bootstrap/Carousel'
 
 
 class Home extends Component {
@@ -260,12 +261,82 @@ class Home extends Component {
 
 
         <Container fluid>
-          <Jumbotron>
+          {/* <Jumbotron> */}
 
-            <h1>Chef Helper</h1>
-            <p>Your meal ideas virtual assistant app</p>
+          <Carousel>
+            {/* image 1 */}
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="http://i.huffpost.com/gen/1431036/images/o-FALL-FOOD-facebook.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
 
-          </Jumbotron>
+            {/* image 2 */}
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ytimg.com/vi/akk4aG5nnoc/maxresdefault.jpg"
+                alt="First slide"
+              />
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ytimg.com/vi/BnggSSaharc/maxresdefault.jpg"
+              // alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://i.ytimg.com/vi/95SNbn340TE/maxresdefault.jpg"
+              // alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+
+
+
+            <Carousel.Item>
+              <img
+                className="d-block w-100"
+                src="https://article.images.consumerreports.org/prod/content/dam/cro/news_articles/health/CR-Health-Crop-Food-Child-10-16"
+              // alt="Third slide"
+              />
+
+              <Carousel.Caption>
+                <h1>Chef Helper</h1>
+                <p>Your meal ideas virtual assistant app</p>
+                {/* <h3>Third slide label</h3>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+          {/* <h1>Chef Helper</h1>
+            <p>Your meal ideas virtual assistant app</p> */}
+
+          {/* </Jumbotron> */}
 
           <Box>
 
@@ -291,11 +362,11 @@ class Home extends Component {
             <h4 className="mb-4"> Results</h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
-                
-                <Col size="lg-4 md-6 sm-12"key={recipe.id}>
+
+                <Col size="lg-4 md-6 sm-12" key={recipe.id}>
                   <RecipeCard
-                    id={recipe.id}   
-                    addToGrocery = {this.addToGrocery}
+                    id={recipe.id}
+                    addToGrocery={this.addToGrocery}
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.title}
                     //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
@@ -394,36 +465,36 @@ class Home extends Component {
                     onClick={this.addItem}>
                     Add
           </SearchBtn>
-         </div>
-        )}
+                </div>
+              )}
 
-    {this.state.edit === false ? "":(<SearchBtn
-          style={{ marginBottom: 10 }}
-          onClick={this.showForm}>
-         {this.state.addNew===false?"+":"-"}
-        </SearchBtn>)}
-        
+              {this.state.edit === false ? "" : (<SearchBtn
+                style={{ marginBottom: 10 }}
+                onClick={this.showForm}>
+                {this.state.addNew === false ? "+" : "-"}
+              </SearchBtn>)}
 
-    
-    <SearchBtn
-      style={{ marginBottom: 10 }}
-      onClick={this.groceryListStatus}>
-         {this.state.edit===false?"Edit":"Done"}
-    </SearchBtn> 
 
-    {this.state.edit === false && this.state.groceryListArray.length > 0 ?(
-    <SendMyGroceryList
-    toSend = {this.state.groceryListArray}
-    />) : ""}
-                   
-        </div>
-        
 
-        </BoxOne>
+              <SearchBtn
+                style={{ marginBottom: 10 }}
+                onClick={this.groceryListStatus}>
+                {this.state.edit === false ? "Edit" : "Done"}
+              </SearchBtn>
 
-        
-    </Container>
-    
+              {this.state.edit === false && this.state.groceryListArray.length > 0 ? (
+                <SendMyGroceryList
+                  toSend={this.state.groceryListArray}
+                />) : ""}
+
+            </div>
+
+
+          </BoxOne>
+
+
+        </Container>
+
 
 
       </div>
