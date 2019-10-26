@@ -33,16 +33,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.3",
-<<<<<<< HEAD
-    "react-bootstrap": "^1.0.0-beta.14",
-=======
-
     "react-bootstrap": "^1.0.0-beta.14",
     "react-modal": "^3.10.1",
->>>>>>> 529eab5d0714ac91dacaead2ea2f026a4a17afbe
     "react-router-dom": "^5.1.2",
     "react-sticky-footer": "0.1.0-rc3",
-
     "twilio": "^3.36.0"
   }
 }

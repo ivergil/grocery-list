@@ -52,8 +52,8 @@ favUser: function(userData) {
 //     return axios.delete("/api/books/" + id);
 //   },
   // Saves a checklist to the database
-  checklist: function(list) {
-    return axios.post("/api/checklist", list);
-  }
-};
+//   checklist: function(list) {
+//     return axios.post("/api/checklist", list);
+//   }
+// };
 

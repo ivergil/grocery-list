@@ -279,6 +279,7 @@ class Home extends Component {
 
 
         <LoginNavbar></LoginNavbar>
+        <br></br>
 
         <Container fluid>
           {/* <Jumbotron> */}
