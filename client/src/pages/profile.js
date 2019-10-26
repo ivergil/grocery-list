@@ -4,6 +4,7 @@ import LoginNavbar from "../components/LoginNavbar";
 import jwt_decode from "jwt-decode"
 import API from "../utils/API";
 import RecipeCard from "../components/RecipeCard"
+import { Col, Row } from "../components/Grid";
 
 class Profile extends Component {
     constructor(){
@@ -43,6 +44,7 @@ class Profile extends Component {
 
     render(){
         return(
+            
             <div>
             <LoginNavbar></LoginNavbar>
             <div className="container">
@@ -53,52 +55,31 @@ class Profile extends Component {
                       </h1>  
                   </div>
                   
-                      
-
+                    
+            <Row>
             {this.state.myFavoriteRecipes.map(recipe => (
+            
                 
-                <div size="md-4"key={recipe.spoonacularId}>
+                <div className="col-6" key={recipe.spoonacularId}>
+                 <Col size="sm-12 md-12 lg-6" >   
                   <RecipeCard
-                    id={recipe.spoonaculatId}   
+                    id={recipe.theId}   
                     addToGrocery = {false}
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.recipeName}
                     //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
                     image={recipe.img}
                     servings={recipe.servings}
-                    readyInMinutes={recipe.readyInMin} />
+                    readyInMinutes={recipe.readyInMin} 
+                    />
+                 </Col>   
                 </div>
 
               ))}
-                   
+             </Row>      
 
               </div>
-              <div className="jumbotron mt-5">
-                  <div className = "col-sm-8 mx-auto">
-                      <h1 className= "text-center">
-                          Your Groceries List
-                      </h1>  
-                  </div>
-                  <table className="table col-md-6 mx-auto">
-                    <tbody>
-                        {/* <tr>
-                            <td>First Name</td>
-                            <td>{this.state.first_name}</td>
-                        </tr>
-                        <tr>
-                            <td>Last Name</td>
-                            <td>{this.state.last_name}</td>
-                        </tr>
-                        <tr>
-                            <td>Email</td>
-                            <td>{this.state.email}</td>
-                        </tr>  */}
-                         
-                       
-                    </tbody>
-                  </table>
-
-              </div>
+              
                 
             </div>
             </div>

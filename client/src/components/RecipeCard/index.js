@@ -59,7 +59,8 @@ saveToFavorites = () => {
       recipeName:this.props.recipeTitle,
       servings: this.props.servings,
       img:this.props.image,
-      readyInMin:this.props.readyInMinutes
+      readyInMin:this.props.readyInMinutes,
+      theId:this.props.id
      }
 
     API.saveRecipe(recipe)
@@ -87,7 +88,8 @@ saveToFavorites = () => {
     let addModalClose = () => this.setState({ addModalShow: false });
     return (
       <div >
-        <div className="card" style={{ width: 300, height: 430 }} >
+
+        <div className="card"  style={{ width: 300, height: 430 }} >
   
           <div className="img-container" style={{ height: 220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
             {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
