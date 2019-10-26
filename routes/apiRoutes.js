@@ -154,22 +154,22 @@ router.get('/sendsms/:phonenumber/:list', (req, res) => {
     // html: '<p>Click <a href="http://localhost:3003/get-review/' + groupId + ">here</a> to give us your review</p>"
   // };
 
-  transporter.sendMail(mailOptions, function (error, info) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
+  // transporter.sendMail(mailOptions, function (error, info) {
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     console.log('Email sent: ' + info.response);
+  //   }
+  // });
 
 });
 
-router.get('/sendemail/:email', (req, res) => {
+// router.get('/sendemail/:email', (req, res) => {
 
-  //var query = '+1' + req.query;
+//   //var query = '+1' + req.query;
 
 
-});
+// });
 
 
 //// routes to interact with mongo database --------
