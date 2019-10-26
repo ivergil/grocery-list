@@ -222,3 +222,29 @@ height:220px;
 }
  
 
+@media only screen and (max-width: 322px) {
+ 
+  body{
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .recipecard{
+    width: 230px;
+    height: 430px;
+    
+  }
+
+  .fav1{
+    position: absolute;
+    top: 370px;
+    right: 150px;
+  }
+
+  .fav2{
+    position: absolute;
+    top: 370px;
+    left: 130px;
+  }
+}
+

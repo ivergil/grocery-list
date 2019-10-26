@@ -316,7 +316,7 @@ class Home extends Component {
             <h4 className="mb-4"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
-                <Col size="md-4" key={recipe.id}>
+                <Col size="lg-4 md-6 sm-12" key={recipe.id}>
                   <RecipeCard
                     id={recipe.id}
                     addToGrocery={this.addToGrocery}
