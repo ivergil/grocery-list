@@ -32,7 +32,7 @@ const nodemailer = require('nodemailer');
 router.get('/recipesIds', (req, res) => {
   console.log("hello!");
   var query = req.query;
-  var url = `https://api.spoonacular.com/recipes/search?&number=6&apiKey=${spoonacularId}`;
+  var url = `https://api.spoonacular.com/recipes/search?&number=9&apiKey=${spoonacularId}`;
   axios.get(url + `&query=${query.q}`)
     .then(({ data }) => { res.json(data); console.log(query); })
     .catch(err => { console.log(err); res.status(422).json(err) });
