@@ -49,6 +49,7 @@ export default class List extends Component {
       <div>
       {this.state.display?(
       <div className="row">
+        <hr></hr>
         <div className="col-8">
         <div style={{ float:"left" }} > 
         <input className="ff form-control"

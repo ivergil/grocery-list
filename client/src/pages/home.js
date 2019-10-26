@@ -478,12 +478,11 @@ class Home extends Component {
 
               {/* //column right */}
               <div className="col-lg-6 col-md-6 col-sm-12">
-              <h6>My Grocery List...</h6>
+              <h5  className="mb-5 mt-3">My Grocery List...</h5>
                 {this.state.groceryListArray.map(item => (
-                  <div key={item.idUnit}>
+                  <div key={item.idUnit}  className="mb-4">
                   <List
                     id={item.idUnit}
-                    
                     name={item.name}
                     edit={this.state.edit}
                     //yourServings = {this.state.yourServings}
