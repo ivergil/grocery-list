@@ -79,12 +79,12 @@ class Navbar extends Component {
                     {localStorage.usertoken ? userLink : loginRegLink}
                 </div>
                 
-            </nav>
-        )
+            </nav> 
+        ) 
 
 
     }
 }
 
-export default withRouter(Navbar)
+export default withRouter(Navbar) 
 
