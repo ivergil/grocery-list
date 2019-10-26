@@ -419,7 +419,7 @@ class Home extends Component {
           <BoxOne>
            
            <div>
-              <h4 className="mb-4"> Grocery Calculator &nbsp; <i class="fab fa-nutritionix"></i></h4>
+              <h4 className="mb-4"> Grocery Calculator &nbsp; <i className="fab fa-nutritionix"></i></h4>
             
               <div className="boxOne"><p>1. Click on " <i className="fa fa-cart-plus" aria-hidden="true"></i> " to add a recipe</p></div>
             <Row>
