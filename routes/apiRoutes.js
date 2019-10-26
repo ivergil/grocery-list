@@ -19,6 +19,7 @@ const groceryListController = require("../controllers/groceryListController");
 const favRecipeController = require("../controllers/favRecipeController");
 const yourOrderController = require("../controllers/yourOrderController");
 const client = require('twilio')(accountSid, authToken);
+const nodemailer = require('nodemailer');
 
 ///////--------below routes will be edited to match the routes to be used for the chef helper app --------------------////////
 
@@ -115,6 +116,7 @@ router.get('/sendsms/:phonenumber/:list', (req, res) => {
 
   //var query = '+1' + req.query;
   var phone = req.params.phonenumber;
+  // console.log(req.params.email)
   var list = req.params.list;
   const notificationOpts = {
     toBinding: JSON.stringify({
@@ -123,12 +125,49 @@ router.get('/sendsms/:phonenumber/:list', (req, res) => {
     }),
     body: list
   };
-  
+
   client.notify
     .services(serviceId)
     .notifications.create(notificationOpts)
     .then(notification => console.log(notification.sid))
     .catch(error => console.log(error));
+
+  // var email = req.params.email;
+  // var list = req.params.list;
+  // var transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //     user: 'chefhelper.reply@gmail.com',
+  //     pass: 'Helper.chef*'
+  //   }
+  // });
+
+  // //change domain for current domain for code to not run 404 
+  // // var urlReview = "https://hungry-food-hunter.herokuapp.com/get-review/" + restaurantId;
+
+  // var mailOptions = {
+  //   from: 'chefhelper.reply@gmail.com',
+  //   to: email,
+  //   subject: 'Thanks for using Chef Helper',
+  //   text: "Here is your List",
+  //   html: '<h3>This is your list </h3> <p> ' + list + '"</p>'
+    // html: '<p>Click <a href="http://localhost:3003/get-review/' + groupId + ">here</a> to give us your review</p>"
+  // };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+});
+
+router.get('/sendemail/:email', (req, res) => {
+
+  //var query = '+1' + req.query;
+
 
 });
 
@@ -137,15 +176,15 @@ router.get('/sendsms/:phonenumber/:list', (req, res) => {
 
 // Matches with "/api/updateUser"
 router.route("/updateUser/:email")
-   .put(userController.update)
+  .put(userController.update)
 //   .get(bookController.findAll)
 //   .post(bookController.create);
 
 
 // // Matches with "/api/favoriteRecipe/"
 router
-.route("/favoriteRecipe")
-.post(favRecipeController.create);
+  .route("/favoriteRecipe")
+  .post(favRecipeController.create);
 //   .get(bookController.findById)
 //   .put(bookController.update)
 //   .delete(bookController.remove);
@@ -155,15 +194,15 @@ router
   .route("/checklist")
   .post(groceryListController.create)
   .get(groceryListController.findAll)
- // .put(bookController.update)
-  //.delete(bookController.remove);
+// .put(bookController.update)
+//.delete(bookController.remove);
 
 
 
 //populate favRecipes for user
 
 router.route("/yourSavedRecipes")
-.get(userController.findOne)
+  .get(userController.findOne)
 
 
 // app.post("/api/articles/:id", function(req, res) {

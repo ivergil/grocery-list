@@ -40,6 +40,7 @@ class Account extends Component {
                   <table className="table col-md-6 mx-auto">
                     <tbody>
                         <tr>
+                            
                             <td>First Name</td>
                             <td>{this.state.first_name}</td>
                         </tr>

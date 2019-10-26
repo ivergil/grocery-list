@@ -12,6 +12,10 @@
   text-align: left;
 }
 
+.mb-4 {
+  
+}
+
 .card > .img-container {
   height: 45%;
   overflow: hidden;
@@ -204,4 +208,7 @@ body {
   font-size: 85px;
  }
 
-
+.modal-text {
+  color: black;
+  text-align: center;
+}
