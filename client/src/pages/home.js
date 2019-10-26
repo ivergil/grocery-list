@@ -464,7 +464,7 @@ class Home extends Component {
 
               </div>
               
-              <div className="boxOne"><p>4. Send you the List</p></div>
+              <div className="boxOne mt-3"><p>4. Send you the List</p></div>
 
               {this.state.edit === false &&
               this.state.groceryListArray.length > 0 ? (
