@@ -8,9 +8,7 @@ const recipeSchema = new Schema({
   recipeName: {type:String, required: true},
   servings: {type:String, required: true},
   img: {type:String, required: true},
-  instructions: {type: String, required: true},
-  ingredientsList: { type: [String], required: true},
-  link: {type: String},
+  readyInMin: {type: String},
   date: { type: Date, default: Date.now }
 
 

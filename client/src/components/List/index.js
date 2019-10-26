@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {SearchBtn} from "../SearchBox";
+import "./style.css";
 
 export default class List extends Component {
   constructor(props) {
@@ -47,47 +48,60 @@ export default class List extends Component {
       {this.props.edit ?(
       <div>
       {this.state.display?(
-      <div>
-        <p> <input className="ff form-control" 
+      <div className="row">
+        <div className="col-8">
+        <div style={{ float:"left" }} > 
+        <input className="ff form-control"
+        //className="mr-2 ml-2" 
         id={this.props.id}
-        key={this.props.id}
-        style={{width:60}}
+       // key={this.props.id}
+        style={{width:60, marginRight:10, marginLeft:10}}
         value = {this.state.amount}
         onChange={this.handleInputChange}
         name="amount"
         placeholder="0"
-         />
-
+         /></div>
+         
+        <div style={{ float:"left" }}>
         <input className="ff form-control" 
+        //className="mr-2 ml-2"  
         id={this.props.id}
-        key={this.props.id}
-        style={{width:150}}
+        //key={this.props.id}
+        style={{width:150, marginRight:10, marginLeft:10}}
         value = {this.state.unit}
         onChange={this.handleInputChange}
         name="unit"
         placeholder="ounces"
          />
+        </div>
+        
 
-         <span> {this.props.name}</span></p>
-
+         <div style={{ float:"left" }}> {this.props.name} </div>
+         </div>
+        <div className="col-4">
          <SearchBtn
-            style={{ marginBottom: 10, backgroundColor: "white", color: "red" }}
+           
+            style={{ float:"left" }} 
+            style={{ marginBottom: 10, backgroundColor: "white", color: "red", marginRight: 10  }}
             onClick={this.deleteIngredient}>
             x
           </SearchBtn>
           <SearchBtn
+          
+            style={{ float:"left", marginLeft: 10 }} 
             style={{ marginBottom: 10, backgroundColor: "white", color: "red" }}
             onClick={this.saveChanges}>
             Save
           </SearchBtn>
-
-      
+          </div>   
+    
      </div>
       ):""
       }
       </div>
       ):(<p>{this.props.finalAmount} {this.props.unit} {this.props.name}</p>)}
     </div>
+
     );
   }
 }
