@@ -25,9 +25,9 @@ app.use(
 
 
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
+// if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
-}
+// }
 // Add routes, 2 APIs and the view 
 app.use(routes);
 
