@@ -4,12 +4,11 @@ import { Input, SearchBtn } from "../SearchBox";
 import API from "../../utils/API";
 import "./index.css";
 
-export default class SendsMyGroceryList extends Component {
+class SendsMyGroceryList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       phoneNumber: "",
-
       stringToSend: "",
       grocery: {
         list: ""
@@ -83,5 +82,7 @@ export default class SendsMyGroceryList extends Component {
 
       </div>
     );
-  }
-}
+  };
+};
+
+export default SendsMyGroceryList ;
