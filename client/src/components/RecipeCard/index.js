@@ -88,9 +88,9 @@ saveToFavorites = () => {
     let addModalClose = () => this.setState({ addModalShow: false });
     return (
       <div >
-        <div className="card" style={{ width: 300, height: 430 }} >
+        <div className="card recipecard"  >
   
-          <div className="img-container" style={{ height: 220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
+          <div className="img-container" style={{ backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
             {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
           <img style={{: 'cover'}} src={ `https://spoonacular.com/recipeImages/${props.image}`} /> */}
           

@@ -31,14 +31,10 @@
     .yourservingsinput, .yourservingbutton{
        margin-top: 5px;
     }
-  }
-
-
-@media only screen and (max-width: 770px) {
-  
     .titleJumbotron{
         font-size: 60px;
     }
   }
+
 
  
