@@ -48,8 +48,8 @@ favUser: function(userData) {
   // Saves a recipe to the database
   saveRecipe: function(recipeData) {
     return axios.post("/api/favoriteRecipe", recipeData);
-  }
-};
+  },
+
 
 //   // Deletes the saved book by the given id
 //   deleteBook: function(id) {
