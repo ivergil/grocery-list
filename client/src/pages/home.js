@@ -343,15 +343,12 @@ class Home extends Component {
               
               <Row>
               <div className="container w-100">
-              <p className="mr-3" style={{ fontStyle: "italic" }}>How many servings?</p>
+              <p className="yourservings mr-4" style={{ fontStyle: "" }}>How many servings?</p>
               <Input 
                 value={this.state.yourServings}
-                style={{ width: 100, marginLeft: 100, marginTop:10}}
                 onChange={this.handleInputChange}
                 name="yourServings"
-                placeholder="1"
-               
-              ></Input>
+                placeholder="1"></Input>
               </div>
               
               <SearchBtn
