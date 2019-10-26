@@ -1,20 +1,36 @@
 .navbar {
-    margin: -02% -03% -02% -03%;
+    margin: -03% -03% -03% -03%;
+    padding: 35px 40px 15px 40px;
+
     
+}
+
+@media only screen and (max-width: 1030px) {
+    .navbar {
+        margin: -03% -03% -03% -03%;
+    padding: 25px 40px 15px 40px;   
+    }
+    
+
 }
 
 
 @media only screen and (max-width: 770px) {
     .navbar {
-        margin: 0 0 0 0;
+        margin:-09% -03% -03% -03%;
+        padding: 55px 20px 20px 45px;
         
     }
     
 
 }
 
-@media only screen and (max-width: 400px) {
-  
+@media only screen and (max-width: 480px) {
+    .navbar {
+        margin:-09% -03% -03% -03%;
+        padding: 35px 25px 20px 5px;
+        
+    }
     
     .chefBrand{
         display: none
