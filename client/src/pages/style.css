@@ -26,6 +26,11 @@
    
  }
 
+ .searchbtn{
+    display: flex;
+    justify-content: flex-start;
+}
+
 @media only screen and (max-width: 770px) {
   
     .yourservingsinput, .yourservingbutton{
@@ -34,6 +39,8 @@
     .titleJumbotron{
         font-size: 60px;
     }
+    
+
   }
 
 

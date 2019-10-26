@@ -5,7 +5,7 @@ import "./style.css";
 function GroceryCard(props) {
   return (
     <div className="mb-4 mr-2 ml-2">
-      <div className="card" style={{ width: 300, height: 250 }} >
+      <div className="card" style={{ width:250, height: 230 }} >
       <div className="img-container" style={{ height: 185, backgroundSize: "cover", backgroundImage: `url(${props.image})` }}>
         </div>
         <div className="content">

@@ -353,14 +353,15 @@ class Home extends Component {
               <Row>
                 {this.state.recipesGroceryList.map(recipe => (
                   <div key={recipe.id}>
-                  <Col size="sm-12 md-12 lg-6" >
+
+                  <div className="groceryBox" size="sm-12 md-12 lg-6" >
                   
                    <GroceryCard
                      id={recipe.id}
                       recipeTitle={recipe.name}
                       image={recipe.image}
                     />
-                  </Col>
+                  </div>
                   </div>
                 
                
@@ -403,8 +404,9 @@ class Home extends Component {
           
           <div className="boxOne"><p>3. Edit and Add to your list</p></div>
 
-            <div className="">
-            
+            <div >
+
+              
               {this.state.addNew === false || this.state.edit === false ? (
                 ""
               ) : (
@@ -441,6 +443,7 @@ class Home extends Component {
                 </div>
               )}
 
+            <div className="searchbtn">
               {this.state.edit === false ? (
                 ""
               ) : (
@@ -451,18 +454,22 @@ class Home extends Component {
 
                {this.state.list === false? "":(
                   <SearchBtn
-                  style={{ marginBottom: 10, marginLeft:20 }}
+                  
+                  style={{ marginBottom: 10, marginLeft:20}}
                   onClick={this.groceryListStatus}
                 >
                   {this.state.edit === false ? "Edit" : "Done"}
                 </SearchBtn>
                )} 
+
+              </div>
               
               <div className="boxOne"><p>4. Send you the List</p></div>
 
               {this.state.edit === false &&
               this.state.groceryListArray.length > 0 ? (
-                <SendMyGroceryList toSend={this.state.groceryListArray} />
+                <SendMyGroceryList toSend={this.state.groceryListArray}>
+              </SendMyGroceryList>
               ) : (
                 ""
               )}
@@ -471,7 +478,7 @@ class Home extends Component {
 
               {/* //column right */}
               <div className="col-lg-6 col-md-6 col-sm-12">
-              <h5>My Grocery List...</h5>
+              <h6>My Grocery List...</h6>
                 {this.state.groceryListArray.map(item => (
                   <div key={item.idUnit}>
                   <List

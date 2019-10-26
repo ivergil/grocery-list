@@ -2,12 +2,13 @@
 import React, { Component } from "react";
 import { Input, SearchBtn } from "../SearchBox";
 import API from "../../utils/API";
+import "./index.css";
 
 export default class SendsMyGroceryList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phoneNumber: "Phone Number",
+      phoneNumber: "",
 
       stringToSend: "",
       grocery: {
@@ -63,17 +64,22 @@ export default class SendsMyGroceryList extends Component {
 
   render(){
     return (
-      <div>
+      <div className="containersendMessage">
+        <div>
+        
         <Input
           onChange={this.handleInputChange}
           value={this.state.phoneNumber}
           name="phoneNumber"
-          placeholder="Number"
+          placeholder="Phone Number"
+          style = {{width:200}}
         />
 
         <SearchBtn style={{ marginBottom: 10 }} onClick={this.sendMessage}>
           Text Me Grocery List
         </SearchBtn>
+
+        </div>
 
       </div>
     );
