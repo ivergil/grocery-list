@@ -112,7 +112,7 @@ router.get("/recipePhotos/:recipeId", (req, res) => {
 
 // Match the route to send a SMS to user
 
-router.get('/sendsms/:phonenumber/:email/:list', (req, res) => {
+router.get('/sendsms/:phonenumber/:list', (req, res) => {
 
   //var query = '+1' + req.query;
   var phone = req.params.phonenumber;
@@ -132,27 +132,27 @@ router.get('/sendsms/:phonenumber/:email/:list', (req, res) => {
     .then(notification => console.log(notification.sid))
     .catch(error => console.log(error));
 
-  var email = req.params.email;
-  var list = req.params.list;
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'chefhelper.reply@gmail.com',
-      pass: 'Helper.chef*'
-    }
-  });
+  // var email = req.params.email;
+  // var list = req.params.list;
+  // var transporter = nodemailer.createTransport({
+  //   service: 'gmail',
+  //   auth: {
+  //     user: 'chefhelper.reply@gmail.com',
+  //     pass: 'Helper.chef*'
+  //   }
+  // });
 
-  //change domain for current domain for code to not run 404 
-  // var urlReview = "https://hungry-food-hunter.herokuapp.com/get-review/" + restaurantId;
+  // //change domain for current domain for code to not run 404 
+  // // var urlReview = "https://hungry-food-hunter.herokuapp.com/get-review/" + restaurantId;
 
-  var mailOptions = {
-    from: 'chefhelper.reply@gmail.com',
-    to: email,
-    subject: 'Thanks for using Chef Helper',
-    text: "Here is your List",
-    html: '<h3>This is your list </h3> <p> ' + list + '"</p>'
+  // var mailOptions = {
+  //   from: 'chefhelper.reply@gmail.com',
+  //   to: email,
+  //   subject: 'Thanks for using Chef Helper',
+  //   text: "Here is your List",
+  //   html: '<h3>This is your list </h3> <p> ' + list + '"</p>'
     // html: '<p>Click <a href="http://localhost:3003/get-review/' + groupId + ">here</a> to give us your review</p>"
-  };
+  // };
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {

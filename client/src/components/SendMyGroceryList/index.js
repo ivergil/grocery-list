@@ -7,8 +7,8 @@ export default class SendsMyGroceryList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phoneNumber: "phoneNumber",
-      email: "",
+      phoneNumber: "",
+      // email: "",
       stringToSend: "",
       grocery: {
         list: ""
@@ -54,7 +54,7 @@ export default class SendsMyGroceryList extends Component {
     //       let yourUrl = "http://localhost:3000/yourchecklist/" + res.data._id + ""
 
     //       //change url to match heroku when we deploy
-    API.sendGroceryList(this.state.phoneNumber,this.state.email, grocery.list)
+    API.sendGroceryList(this.state.phoneNumber, grocery.list)
       .then(res => {
         //console.log(yourUrl);
       })
@@ -75,12 +75,12 @@ export default class SendsMyGroceryList extends Component {
           placeholder="Number"
         />
 
-        <Input
+        {/* <Input
           onChange={this.handleInputChange}
           value={this.state.email}
           name="email"
           placeholder="your@email.com"
-        />
+        /> */}
 
         <SearchBtn style={{ marginBottom: 10 }} onClick={this.sendMessage}>
           Send My Grocery List
