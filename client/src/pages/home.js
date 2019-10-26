@@ -7,6 +7,7 @@ import Jumbotron from "../components/Jumbotron";
 import GroceryCard from "../components/GroceryCard";
 import RecipeCard from "../components/RecipeCard";
 import List from "../components/List";
+
 import SendMyGroceryList from "../components/SendMyGroceryList";
 import Footer from "../components/Footer";
 import "./style.css";
@@ -24,15 +25,18 @@ class Home extends Component {
     toSaveGroceryListArray: [],
     edit: false,
     addNew: false,
+
     list: false,
     newName: "",
     newUnit: "",
     newAmount: ""
+
   };
 
   componentDidMount() {
     this.getRecipesIds();
   }
+
 
   getRecipesIds = () => {
     API.spoonacularId(this.state.title)
@@ -42,7 +46,9 @@ class Home extends Component {
         console.log(this.state.listOfResults);
       })
       .catch(err => console.log(err));
+
   };
+
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -55,9 +61,11 @@ class Home extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.getRecipesIds(this.state.title);
+
   };
 
 //method to calculate the grocery list 
+
   calculateGroceries = () => {
     let finalIngredientList = [];
     let idOfIngredientsList = [];
@@ -159,6 +167,7 @@ class Home extends Component {
       return recipe;
     });
 
+
     finalIngredientList.sort((a, b) => (a.name > b.name ? 1 : -1));
     separateIngredients.sort((a, b) => (a.name > b.name ? 1 : -1));
 
@@ -175,11 +184,13 @@ class Home extends Component {
 
   //method to add grocery to the state
   addToGrocery = id => {
+
     API.recipeGroceryList(id)
       .then(res => {
         console.log(res.data);
         const recipe = res.data;
         let recipeDetail = {};
+
         recipeDetail.id = recipe.id;
         recipeDetail.name = recipe.title;
         recipeDetail.image = recipe.image;
@@ -187,7 +198,9 @@ class Home extends Component {
         recipeDetail.servings = recipe.servings;
 
         this.setState({
+
           recipesGroceryList: [...this.state.recipesGroceryList, recipeDetail]
+
         });
       })
       .catch(err => console.log(err));
@@ -238,6 +251,7 @@ class Home extends Component {
     this.setState({ groceryListArray: items });
 
     console.log(this.state.groceryListArray);
+
   };
 
   //handle an update for a item of grocery list
@@ -251,15 +265,19 @@ class Home extends Component {
           ingredient.unit = unit;
         }
         return ingredient;
+
       }
     );
     this.setState({ groceryListArray: newIngredientListState });
+
   };
+
 
 //rendering below
   render() {
     return (
       <div>
+
 
         <LoginNavbar></LoginNavbar>
 
@@ -271,12 +289,14 @@ class Home extends Component {
 
           <Box>
             <div className="container">
+
             <h4 className="mb-4" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
             <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>
             <Input
               value={this.state.title}
               onChange={this.handleInputChange}
               name="title"
+
               placeholder="Chicken Teriyaki"
             ></Input>
 
@@ -300,11 +320,13 @@ class Home extends Component {
                   <RecipeCard
                     id={recipe.id}
                     addToGrocery={this.addToGrocery}
+
                     //saveABook = {this.saveABook}
                     recipeTitle={recipe.title}
                     //authors={book.volumeInfo.authors ? book.volumeInfo.authors.join(", "): "No Available Author"}
                     image={recipe.image}
                     servings={recipe.servings}
+
                     readyInMinutes={recipe.readyInMinutes}
                   />
                 </Col>
@@ -462,6 +484,7 @@ class Home extends Component {
           </BoxOne>
         </Container>
       </div>
+
     );
   }
 }

@@ -101,7 +101,7 @@ export default class List extends Component {
       </div>
       ):(<p>{this.props.finalAmount} {this.props.unit} {this.props.name}</p>)}
     </div>
-    
+
     );
   }
 }

@@ -21,10 +21,6 @@ export default {
     return axios.get('api/sendsms/'+ phone + "/" + list )
   },
 
-//    // Gets books from the google books API
-//    getGoogleBookById: function(id){
-//     return axios.get("/api/googlebook/" + id);
-//   },
   
 
 //   // Gets the book with the given id
@@ -36,6 +32,21 @@ export default {
 //   getBooks: function() {
 //     return axios.get("/api/books");
 //   },
+
+favUser: function(userData) {
+  return axios.get("/api/yourSavedRecipes", userData);
+},
+
+  // update the user by the given email
+  updateUser: function(email, recipeData) {
+    return axios.put("/api/updateUser/" + email, recipeData);
+  },
+  // Saves a recipe to the database
+  saveRecipe: function(recipeData) {
+    return axios.post("/api/favoriteRecipe", recipeData);
+  },
+
+
 //   // Deletes the saved book by the given id
 //   deleteBook: function(id) {
 //     return axios.delete("/api/books/" + id);
@@ -45,3 +56,4 @@ export default {
     return axios.post("/api/checklist", list);
   }
 };
+

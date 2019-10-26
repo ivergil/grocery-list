@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import { Input, SearchBtn } from "../SearchBox";
 import API from "../../utils/API";
@@ -7,6 +8,7 @@ export default class SendsMyGroceryList extends Component {
     super(props);
     this.state = {
       phoneNumber: "Phone Number",
+
       stringToSend: "",
       grocery: {
         list: ""
@@ -25,6 +27,7 @@ export default class SendsMyGroceryList extends Component {
 
   sendMessage = event => {
     event.preventDefault();
+
 
     const newIngredientListState = this.props.toSend.map(ingredient => {
       ingredient =
@@ -71,6 +74,7 @@ export default class SendsMyGroceryList extends Component {
         <SearchBtn style={{ marginBottom: 10 }} onClick={this.sendMessage}>
           Text Me Grocery List
         </SearchBtn>
+
       </div>
     );
   }
