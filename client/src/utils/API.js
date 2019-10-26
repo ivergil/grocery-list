@@ -17,9 +17,13 @@ export default {
     return axios.get("api/recipeInformation/" + recipeId)
   },
 
-  sendGroceryList: function(phone, list){
-    return axios.get('api/sendsms/'+ phone + "/" + list )
+  sendGroceryList: function(phone,email,list){
+    return axios.get('api/sendsms/'+ phone + "/" + email + "/" + list)
   },
+
+  // emailGroceryList: function(email, list){
+  //   return axios.get('api/sendemail/'+ email + "/" + list )
+  // },
 
   
 
@@ -55,5 +59,5 @@ favUser: function(userData) {
 //   checklist: function(list) {
 //     return axios.post("/api/checklist", list);
 //   }
-// };
+ };
 

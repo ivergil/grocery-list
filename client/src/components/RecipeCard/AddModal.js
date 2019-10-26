@@ -15,7 +15,7 @@ export class AddModal extends Component {
                 centered
             >
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">
+                    <Modal.Title className="contained-modal-title-vcenter modal-text">
                         <h1>{this.props.title}</h1>
                     </Modal.Title>
                 </Modal.Header>
@@ -25,7 +25,7 @@ export class AddModal extends Component {
                     
                         {this.props.ingredients.map(ing => (
                             <div key={ing.key}>
-                                <p>
+                                <p className="modal-text">
                                 {ing.amount} {ing.unit} {ing.name}
                                 </p>
                             </div>
