@@ -89,9 +89,10 @@ saveToFavorites = () => {
     return (
       <div >
 
-        <div className="card"  style={{ width: 300, height: 430 }} >
+        <div className="card recipecard"  >
+
   
-          <div className="img-container" style={{ height: 220, backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
+          <div className="img-container" style={{ backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
             {/* <img alt={props.recipeTitle} src={`https://spoonacular.com/recipeImages/${props.image}`} />
           <img style={{: 'cover'}} src={ `https://spoonacular.com/recipeImages/${props.image}`} /> */}
           
@@ -111,7 +112,7 @@ saveToFavorites = () => {
                 <strong>Ready in:</strong> {this.props.readyInMinutes} mins
             </li>
   
-            <button className="favorite" href="#" onClick={this.saveToFavorites}> <i className="fa fa-heart"></i></button>
+            <button className="favorite fav1" href="#" onClick={this.saveToFavorites}> <i className="fa fa-heart"></i></button>
   
             </ul>
   
@@ -141,7 +142,7 @@ saveToFavorites = () => {
           </ButtonToolbar>
 
           {this.props.addToGrocery === false? "":(
-             <button className="groceries" onClick={() => this.props.addToGrocery(this.props.id)}>
+             <button className="groceries fav2" onClick={() => this.props.addToGrocery(this.props.id)}>
              <i className="fa fa-cart-plus" aria-hidden="true"></i>
            </button>
           )}

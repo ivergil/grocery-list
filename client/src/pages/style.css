@@ -1,4 +1,53 @@
 
+.yourservings{
+    font-size:20px;
+    
+}
+
+.box{
+    width:100%;
+    justify-content: "flex-start";
+    display: flex; 
+    flex-direction: row
+}
+
+.boxOne{
+    width:100%;
+    justify-content: "flex-start";
+    display: flex; 
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+.editBtn{
+    display: flex;
+    justify-content: flex-start
+}
+.yourservingsinput, .yourservingbutton{
+    margin-top: -4px;
+   
+ }
+
+ .searchbtn{
+    display: flex;
+    justify-content: flex-start;
+}
+
+@media only screen and (max-width: 770px) {
+  
+    .yourservingsinput, .yourservingbutton{
+       margin-top: 5px;
+    }
+    .titleJumbotron{
+        font-size: 60px;
+    }
+    
+
+  }
+
+
+ 
+
+
 .jumbotron {
     margin: 04% 0% 04% 0%;
     

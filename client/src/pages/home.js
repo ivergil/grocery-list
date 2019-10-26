@@ -282,6 +282,12 @@ class Home extends Component {
         <br></br>
 
         <Container fluid>
+
+          {/*<Jumbotron>
+            <h1 className = "titleJumbotron">Chef Helper</h1>
+            <p>Your meal ideas virtual assistant app</p>
+          </Jumbotron>*/}
+
           {/* <Jumbotron> */}
 
           <Carousel>
@@ -293,7 +299,7 @@ class Home extends Component {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h1>Chef Helper</h1>
+                <h1 className = "titleJumbotron">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -306,7 +312,7 @@ class Home extends Component {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h1>Chef Helper</h1>
+                <h1 className = "titleJumbotron">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -332,7 +338,7 @@ class Home extends Component {
               />
 
               <Carousel.Caption>
-                <h1>Chef Helper</h1>
+                <h1 className = "titleJumbotron">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -347,7 +353,7 @@ class Home extends Component {
               />
 
               <Carousel.Caption>
-                <h1>Chef Helper</h1>
+                <h1 className = "titleJumbotron">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
                 {/* <h3>Third slide label</h3>
                   <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
@@ -358,6 +364,7 @@ class Home extends Component {
             <p>Your meal ideas virtual assistant app</p> */}
 
           {/* </Jumbotron> */}
+
 
           <Box>
             <div className="container">
@@ -413,48 +420,58 @@ class Home extends Component {
            
            <div>
               <h4 className="mb-4"> Grocery Calculator &nbsp; <i class="fab fa-nutritionix"></i></h4>
-
+            
+              <div className="boxOne"><p>1. Click on " <i className="fa fa-cart-plus" aria-hidden="true"></i> " to add a recipe</p></div>
             <Row>
               {/* //column left */}
+            
+            
+            <br></br>
 
-            <div className="col-6">
+            <div className="col-lg-6 col-md-6 col-sm-12">
               <Row>
                 {this.state.recipesGroceryList.map(recipe => (
-                   <div key={recipe.id}>
-                  <Col size="sm-12 md-12 lg-6" >
+                  <div key={recipe.id}>
+
+                  <div className="groceryBox" size="sm-12 md-12 lg-6" >
                   
                    <GroceryCard
                      id={recipe.id}
                       recipeTitle={recipe.name}
                       image={recipe.image}
                     />
-                    </Col>
-                   </div>
-                  
+                  </div>
+                  </div>
+                
+               
                 ))}
               </Row>
+             
             
+              <div className="boxOne"><p>2. Enter the number of servings</p></div>
               
               <Row>
-              <div className="container w-100">
-              <p className="mr-3" style={{ fontStyle: "italic" }}>How many servings?</p>
+              <div className="container box">
+              <p className="yourservings mr-4" style={{ fontStyle: "" }}>How many servings?</p>
               <Input 
+                className="yourservingsinput"
                 value={this.state.yourServings}
-                style={{ width: 100, marginLeft: 100, marginTop:10}}
                 onChange={this.handleInputChange}
                 name="yourServings"
-                placeholder="1"
-               
-              ></Input>
-              </div>
+                style={{ marginBottom: 10, width:80 }}
+                placeholder="1"></Input>
               
+              </div>
+
               <SearchBtn
+                className="yourservingbutton"
                 disabled={this.state.list? true:false} 
-                style={{ marginBottom: 20, marginLeft:97, marginTop: 10 }}
+                style={{marginLeft:30,  marginBottom: 40}}
                 onClick={this.calculateGroceries}
               >
                 Calculate Groceries
               </SearchBtn>
+              
               </Row>
               
             
@@ -464,8 +481,11 @@ class Home extends Component {
           do conditional to render good edit option 
           of grocerylist or render the not edit option */}
           
-             
+          <div className="boxOne"><p>3. Edit and Add to your list</p></div>
 
+            <div >
+
+              
               {this.state.addNew === false || this.state.edit === false ? (
                 ""
               ) : (
@@ -502,6 +522,7 @@ class Home extends Component {
                 </div>
               )}
 
+            <div className="searchbtn">
               {this.state.edit === false ? (
                 ""
               ) : (
@@ -512,30 +533,35 @@ class Home extends Component {
 
                {this.state.list === false? "":(
                   <SearchBtn
-                  style={{ marginBottom: 10 }}
+                  
+                  style={{ marginBottom: 10, marginLeft:20}}
                   onClick={this.groceryListStatus}
                 >
                   {this.state.edit === false ? "Edit" : "Done"}
                 </SearchBtn>
                )} 
+
+              </div>
               
+              <div className="boxOne mt-3"><p>4. Send you the List</p></div>
 
               {this.state.edit === false &&
               this.state.groceryListArray.length > 0 ? (
-                <SendMyGroceryList toSend={this.state.groceryListArray} />
+                <SendMyGroceryList toSend={this.state.groceryListArray}>
+              </SendMyGroceryList>
               ) : (
                 ""
               )}
                </div>
+            </div>
 
               {/* //column right */}
-              <div className="col-6">
-              <h6>My Grocery List...</h6>
+              <div className="col-lg-6 col-md-6 col-sm-12">
+              <h5  className="mb-5 mt-3">My Grocery List...</h5>
                 {this.state.groceryListArray.map(item => (
-                  <div key={item.idUnit}>
+                  <div key={item.idUnit}  className="mb-4">
                   <List
                     id={item.idUnit}
-                    
                     name={item.name}
                     edit={this.state.edit}
                     //yourServings = {this.state.yourServings}
