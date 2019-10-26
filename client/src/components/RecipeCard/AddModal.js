@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-// import "./style.css";
+import "./modalstyle.css";
 
 export class AddModal extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ export class AddModal extends Component {
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="container modal-text">
+                    <div className="container modal-text" >
                         <h5 className="mb-3 ingredients"> Ingredients</h5>
                         <hr></hr>
 
