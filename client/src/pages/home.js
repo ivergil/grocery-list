@@ -280,6 +280,7 @@ class Home extends Component {
 
         <LoginNavbar></LoginNavbar>
         <br></br>
+        <br></br>
 
         <Container fluid>
 
