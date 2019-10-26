@@ -124,7 +124,7 @@ saveToFavorites = () => {
               onClick={this.handleModal}
             // onClick={()=> this.setState({addModalShow: true})}
             >
-              <i className="fa fa-eye" aria-hidden="true"></i>
+              <i className="fa fa-eye details"></i>
             </Button>
 
             <div key={this.props.id}>
