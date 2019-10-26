@@ -17,8 +17,8 @@ export default {
     return axios.get("api/recipeInformation/" + recipeId)
   },
 
-  sendGroceryList: function(phone,email,list){
-    return axios.get('api/sendsms/'+ phone + "/" + email + "/" + list)
+  sendGroceryList: function(phone,list){
+    return axios.get('api/sendsms/'+ phone + "/" + list)
   },
 
   // emailGroceryList: function(email, list){
