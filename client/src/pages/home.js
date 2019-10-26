@@ -283,7 +283,7 @@ class Home extends Component {
 
         <Container fluid>
           <Jumbotron>
-            <h1>Chef Helper</h1>
+            <h1 className = "titleJumbotron">Chef Helper</h1>
             <p>Your meal ideas virtual assistant app</p>
           </Jumbotron>
 
@@ -341,14 +341,18 @@ class Home extends Component {
            
            <div>
               <h4 className="mb-4"> Grocery Calculator &nbsp; <i class="fab fa-nutritionix"></i></h4>
-
+            
+              <div className="boxOne"><p>1. Click on " <i className="fa fa-cart-plus" aria-hidden="true"></i> " to add a recipe</p></div>
             <Row>
               {/* //column left */}
+            
+            
+            <br></br>
 
-            <div className="col-6">
+            <div className="col-lg-6 col-md-6 col-sm-12">
               <Row>
                 {this.state.recipesGroceryList.map(recipe => (
-                   <div key={recipe.id}>
+                  <div key={recipe.id}>
                   <Col size="sm-12 md-12 lg-6" >
                   
                    <GroceryCard
@@ -356,30 +360,38 @@ class Home extends Component {
                       recipeTitle={recipe.name}
                       image={recipe.image}
                     />
-                    </Col>
-                   </div>
-                  
+                  </Col>
+                  </div>
+                
+               
                 ))}
               </Row>
+             
             
+              <div className="boxOne"><p>2. Enter the number of servings</p></div>
               
               <Row>
-              <div className="container w-100">
+              <div className="container box">
               <p className="yourservings mr-4" style={{ fontStyle: "" }}>How many servings?</p>
               <Input 
+                className="yourservingsinput"
                 value={this.state.yourServings}
                 onChange={this.handleInputChange}
                 name="yourServings"
+                style={{ marginBottom: 10, width:80 }}
                 placeholder="1"></Input>
-              </div>
               
+              </div>
+
               <SearchBtn
+                className="yourservingbutton"
                 disabled={this.state.list? true:false} 
-                style={{ marginBottom: 20, marginLeft:97, marginTop: 10 }}
+                style={{marginLeft:30,  marginBottom: 40}}
                 onClick={this.calculateGroceries}
               >
                 Calculate Groceries
               </SearchBtn>
+              
               </Row>
               
             
@@ -389,8 +401,10 @@ class Home extends Component {
           do conditional to render good edit option 
           of grocerylist or render the not edit option */}
           
-             
+          <div className="boxOne"><p>3. Edit and Add to your list</p></div>
 
+            <div className="">
+            
               {this.state.addNew === false || this.state.edit === false ? (
                 ""
               ) : (
@@ -437,13 +451,14 @@ class Home extends Component {
 
                {this.state.list === false? "":(
                   <SearchBtn
-                  style={{ marginBottom: 10 }}
+                  style={{ marginBottom: 10, marginLeft:20 }}
                   onClick={this.groceryListStatus}
                 >
                   {this.state.edit === false ? "Edit" : "Done"}
                 </SearchBtn>
                )} 
               
+              <div className="boxOne"><p>4. Send you the List</p></div>
 
               {this.state.edit === false &&
               this.state.groceryListArray.length > 0 ? (
@@ -452,10 +467,11 @@ class Home extends Component {
                 ""
               )}
                </div>
+            </div>
 
               {/* //column right */}
-              <div className="col-6">
-              <h6>My Grocery List...</h6>
+              <div className="col-lg-6 col-md-6 col-sm-12">
+              <h5>My Grocery List...</h5>
                 {this.state.groceryListArray.map(item => (
                   <div key={item.idUnit}>
                   <List
