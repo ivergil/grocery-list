@@ -9,6 +9,9 @@ class SendsMyGroceryList extends Component {
     super(props);
     this.state = {
       phoneNumber: "",
+
+      // email: "",
+
       stringToSend: "",
       grocery: {
         list: ""
@@ -16,14 +19,17 @@ class SendsMyGroceryList extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
+      
     });
+  console.log(event.target)
   };
+
 
   sendMessage = event => {
     event.preventDefault();
@@ -45,23 +51,24 @@ class SendsMyGroceryList extends Component {
 
     //this.setState({ grocery.list: [newIngredientListState] })
 
-  //   API.checklist(grocery)
-  //     .then(res => {
-  //       console.log(res.data._id);
-  //       let yourUrl = "http://localhost:3000/yourchecklist/" + res.data._id + ""
+    //   API.checklist(grocery)
+    //     .then(res => {
+    //       console.log(res.data._id);
+    //       let yourUrl = "http://localhost:3000/yourchecklist/" + res.data._id + ""
 
-  //       //change url to match heroku when we deploy
-        API.sendGroceryList(this.state.phoneNumber , grocery.list)
-          .then(res => {
-            //console.log(yourUrl);
-          })
-          .catch(err => console.log(err));
-        alert("Message sent!");
-  //     })
-  //     .catch(err => console.log(err));
-   };
+    //       //change url to match heroku when we deploy
+    API.sendGroceryList(this.state.phoneNumber, grocery.list)
+      .then(res => {
+        //console.log(yourUrl);
+      })
+      .catch(err => console.log(err));
+    alert("Message sent!");
+    //     })
+    //     .catch(err => console.log(err));
+    
+  };
 
-  render(){
+  render() {
     return (
       <div className="containersendMessage">
         <div>
@@ -74,11 +81,20 @@ class SendsMyGroceryList extends Component {
           style = {{width:200}}
         />
 
+        {/* <Input
+          onChange={this.handleInputChange}
+          value={this.state.email}
+          name="email"
+          placeholder="your@email.com"
+        /> */}
+
         <SearchBtn style={{ marginBottom: 10 }} onClick={this.sendMessage}>
-          Text Me Grocery List
+          Send My Grocery List
         </SearchBtn>
 
+
         </div>
+
 
       </div>
     );

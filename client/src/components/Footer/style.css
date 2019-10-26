@@ -8,3 +8,34 @@
     height: 60px;
     width: 100%;
 }
+
+/* @media screen and (max-width: 980px) {
+   footer {
+    width: 100%;
+    position: static;
+  }
+}
+@media screen and (max-width: 768px) {
+   footer {
+      width: 100%;
+      position: static;
+  }
+}
+@media screen and (max-width: 640px) {
+   footer {
+     width: 80%;
+     position: static;
+   } */
+
+@media (min-device-width: 576px) and (max-device-width: 1024px) and (orientation: landscape)  {
+  .footer {
+    position: static;
+  }
+}
+@media only screen and (max-width: 322px) {
+    .footer{
+      position: static;
+      padding-right: 0;
+      padding-left: 0;
+    }
+ }

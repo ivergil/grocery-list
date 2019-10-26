@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-// import "./style.css";
+import "./modalstyle.css";
 
 export class AddModal extends Component {
     constructor(props) {
@@ -15,24 +15,26 @@ export class AddModal extends Component {
                 centered
             >
                 <Modal.Header closeButton>
-                    <Modal.Title id="contained-modal-title-vcenter">
+                    <Modal.Title className="contained-modal-title-vcenter modal-text">
                         <h1>{this.props.title}</h1>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="container">
-                        <h5 id="ingredients" className= "mb-3"> Ingredients</h5>
-                    
+                    <div className="container modal-text" >
+                        <h5 className="mb-3 ingredients"> Ingredients</h5>
+                        <hr></hr>
+
                         {this.props.ingredients.map(ing => (
                             <div key={ing.key}>
                                 <p>
-                                {ing.amount} {ing.unit} {ing.name}
+                                    {ing.amount} {ing.unit} {ing.name}
                                 </p>
                             </div>
-                            
-                        ))}
 
-                        <h5 id="instructions"> Follow the Instructions</h5>
+                        ))}
+                        <hr></hr>
+                        <h5 className="mb-3 ingredients"> Follow the Instructions</h5>
+                        <hr></hr>
                         {this.props.instructions}
 
                     </div>
