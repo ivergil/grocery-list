@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 //app.use(express.json());
 
 //-------------trying to get login work //middleware.......
-app.use(bodyParser.json());""
+app.use(bodyParser.json());
 app.use(cors());
 app.use(
   bodyParser.urlencoded({

@@ -1,6 +1,8 @@
 .card {
   background: #fff;
+
   color: black;
+
   border-radius: 20px;
   height: 360px;
   margin: 1rem;
@@ -57,7 +59,9 @@
   
   position: absolute;
   top: 8px;
-  right: 5px;
+
+  right: 20px;
+
   /* font-size: px; */
   padding-bottom: 4px;
   border-radius: 20px;
@@ -83,8 +87,10 @@
 }
 
 .fa-eye {
-  font-size: 20px;
-  color: #0066ff
+
+  font-size: 25px;
+  color: black;
+
 }
 
 .card > .groceries {
@@ -102,6 +108,7 @@
   background: green;
   /* border-style: none; */
   
+
 }
 
 .favorite {
@@ -110,8 +117,20 @@
   right: 200px;
 }
 
+#ingredients{
+  overflow: scroll;
+}
 
-/*a {
+/* .modalTittle {
+  color:black;
+} */
+
+/* .remove:hover {
+  color: #d50000;
+} */
+
+
+/* a {
 
   position: absolute;
   top: 50%;
@@ -169,14 +188,6 @@ color: #fff;
   opacity: 0;
 }*/
 
-/*a.active:after {
-  right: 10px;
-  transform:  translateX(0) rotate(-20deg);
-  border-bottom-right-radius: 75px;
-  border-top-right-radius: 75px; 
-  opacity: 1;
-}*/
-
 body {
   background-color: #66655f;
   color: white;
@@ -184,14 +195,13 @@ body {
   font-family: 'Happy Monkey', cursive;
   font-size: 22px;
   text-align: center;
-}
-
-a:hover {
-	background: lightgray;
-	text-decoration: underline;
-}
-
-h1 {
+ }
+ a:hover {
+     background: lightgray;
+     text-decoration: underline;
+ }
+ h1 {
   font-size: 85px;
-}
+ }
+
 
