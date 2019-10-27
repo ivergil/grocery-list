@@ -360,7 +360,7 @@ class Home extends Component {
           <Box>
             <div className="container">
 
-            <h4 className="mb-4" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
+            <h4 className="mb-4 sectionTitle" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
             <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>
             <Input
               value={this.state.title}
@@ -383,7 +383,7 @@ class Home extends Component {
          </Box>
          <hr style={{borderColor: "#fff"}}></hr>
       <BoxOne>
-            <h4 className="mb-4"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
+            <h4 className="mb-5 sectionTitle"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
 
@@ -410,7 +410,7 @@ class Home extends Component {
           <BoxOne>
            
            <div>
-              <h4 className="mb-4"> Grocery Calculator &nbsp; <i className="fab fa-nutritionix"></i></h4>
+              <h4 className="mb-5 sectionTitle"> Grocery Calculator &nbsp; <i className="fab fa-nutritionix"></i></h4>
             
               <div className="boxOne"><p>1. Click on " <i className="fa fa-cart-plus" aria-hidden="true"></i> " to add a recipe</p></div>
             <Row>
