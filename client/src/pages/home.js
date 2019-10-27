@@ -24,7 +24,6 @@ class Home extends Component {
     toSaveGroceryListArray: [],
     edit: false,
     addNew: false,
-
     list: false,
     newName: "",
     newUnit: "",
@@ -276,20 +275,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-
-
         <LoginNavbar></LoginNavbar>
         <br></br>
         <br></br>
 
         <Container fluid>
-
-          {/*<Jumbotron>
-            <h1 className = "titleJumbotron">Chef Helper</h1>
-            <p>Your meal ideas virtual assistant app</p>
-          </Jumbotron>*/}
-
-          {/* <Jumbotron> */}
 
           <Carousel>
             {/* image 1 */}

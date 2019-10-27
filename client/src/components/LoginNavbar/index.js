@@ -1,10 +1,37 @@
 import React, {Component} from "react"
 import {Link, withRouter} from "react-router-dom"
 import "./style.css";
+import jwt_decode from "jwt-decode";
 
 class Navbar extends Component {
+    state = {
+     first_name:"",
+     last_name: "",
+     email: ""
+      };
+
+    componentDidMount(){
+        const token = localStorage.usertoken
+        if (token){
+            const decoded = jwt_decode(token)
+            this.setState({
+                first_name: decoded.first_name,
+                last_name: decoded.last_name,
+                email: decoded.email,
+            })
+        }
+       
+    }
+
+
+
     logOut(e){
-        e.preventDefault()
+        e.preventDefault();
+        this.setState({
+            first_name: "",
+            last_name: "",
+            email: "",
+        })
         localStorage.removeItem('usertoken')
         this.props.history.push("/")
     }
@@ -70,7 +97,13 @@ class Navbar extends Component {
 
                 <div className="collapse navbar-collapse justify-content-md-end" id="navbar1">
                     <ul className="navbar-nav">
-                        <li className="nav-item">
+                        {this.state.first_name !== "" ? (
+                        <li className = "nav-item">
+                            <Link to="/" className="nav-link">
+                             Hello {this.state.first_name} !
+                            </Link>
+                        </li>):""}
+                        <li className ="nav-item">
                             <Link to="/" className="nav-link">
                               Home
                             </Link>
