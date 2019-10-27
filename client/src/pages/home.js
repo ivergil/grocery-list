@@ -284,13 +284,6 @@ class Home extends Component {
 
         <Container fluid>
 
-          {/*<Jumbotron>
-            <h1 className = "titleJumbotron">Chef Helper</h1>
-            <p>Your meal ideas virtual assistant app</p>
-          </Jumbotron>*/}
-
-          {/* <Jumbotron> */}
-
           <Carousel>
             {/* image 1 */}
             <Carousel.Item>
