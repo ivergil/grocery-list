@@ -13,7 +13,7 @@ class Register extends Component {
         last_name: "",
         email: "",
         phone_number: "",
-        username: "",
+       // username: "",
         password: ""
     }
     this.onChange = this.onChange.bind(this)
@@ -33,7 +33,7 @@ class Register extends Component {
         last_name: this.state.last_name,
         email: this.state.email,
         phone_number: this.state.phone_number,
-        username: this.state.username,
+        //username: this.state.username,
         password: this.state.password
      }
 
@@ -50,8 +50,9 @@ class Register extends Component {
              <div className="row">
                  <div className="col-md-6 mt-5 mx-auto">
                         <form noValidate onSubmit={this.onSubmit} >
-                            <h1 className="h3 mb-3 ffont-weight-normal">
-                                Please sign in
+                            <h1 className="h3 mb-5 ffont-weight-normal"
+                            style={{fontSize: "50px"}}>                                
+                                Register
                             </h1>
                             <div className="form-group">
                                 <label htmlFor="first_name">First Name</label>
@@ -101,18 +102,7 @@ class Register extends Component {
 
                               
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="username">Username</label>
-                                <input 
-                                type="text"
-                                className="form-control"
-                                name="username"
-                                placeholder="Username"
-                                value={this.state.username}
-                                onChange={this.onChange}/>
-
-                              
-                            </div>
+                            
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
                                 <input 

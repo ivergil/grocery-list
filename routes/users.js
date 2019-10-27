@@ -20,7 +20,7 @@ users.post("/register", (req, res)=>{
         last_name: req.body.last_name,
         email: req.body.email,
         phone_number: req.body.phone_number,
-        username: req.body.username,
+       // username: req.body.username,
         password: req.body.password,
         date: today
         
@@ -80,7 +80,7 @@ users.post('/login', (req, res) => {
                     last_name: user.last_name,
                     email: user.email,
                     phone_number: user.phone_number,
-                    username: user.username,
+                   // username: user.username,
                     password: user.password
                 }
 
