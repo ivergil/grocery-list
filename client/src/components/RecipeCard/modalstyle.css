@@ -4,7 +4,13 @@
 .modal-dialog{
       overflow-y: initial !important
 }
-.modal-body{
+.modal-body {
   height: 250px;
+  width: 100%;
   overflow-y: auto;
+}
+
+.card-title {
+  font-weight: bolder;
+  color: steelblue;
 }
