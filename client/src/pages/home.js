@@ -24,7 +24,6 @@ class Home extends Component {
     toSaveGroceryListArray: [],
     edit: false,
     addNew: false,
-
     list: false,
     newName: "",
     newUnit: "",
@@ -276,8 +275,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-
-
         <LoginNavbar></LoginNavbar>
         <br></br>
         <br></br>
