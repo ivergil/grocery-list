@@ -16,7 +16,7 @@ export class AddModal extends Component {
             >
                 <Modal.Header closeButton>
                     <Modal.Title className="contained-modal-title-vcenter modal-text">
-                        <h1>{this.props.title}</h1>
+                        <h3 className="card-title">{this.props.title}</h3>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
