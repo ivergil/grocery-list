@@ -281,7 +281,7 @@ class Home extends Component {
 
         <Container fluid>
 
-          <Carousel>
+          <Carousel className="carouselDiv">
             {/* image 1 */}
             <Carousel.Item>
               <img
@@ -290,7 +290,7 @@ class Home extends Component {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -303,20 +303,20 @@ class Home extends Component {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className="d-block w-100 theJumboTitle"
                 src="https://i.ytimg.com/vi/BnggSSaharc/maxresdefault.jpg"
               // alt="Third slide"
               />
 
               <Carousel.Caption>
-                <h1>Chef Helper</h1>
+                <h1 className="theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -329,7 +329,7 @@ class Home extends Component {
               />
 
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -344,8 +344,8 @@ class Home extends Component {
               />
 
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
-                <p>Your meal ideas virtual assistant app</p>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
+                <p className="message">Your meal ideas virtual assistant app</p>
                 {/* <h3>Third slide label</h3>
                   <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
               </Carousel.Caption>
