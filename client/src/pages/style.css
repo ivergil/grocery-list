@@ -56,7 +56,10 @@
     background-size: cover;
   }
 
- 
+ .empty{
+    display: flex;
+    justify-content: flex-start;
+ }
 
 
 .jumbotron {

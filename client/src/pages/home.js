@@ -36,6 +36,24 @@ class Home extends Component {
   }
 
 
+  emptyList = ()=>{
+    this.setState({
+      recipesGroceryList: [],
+      groceryListArray: [],
+      idGroceryListArray: [],
+      yourServings: 0,
+      toSaveGroceryListArray: [],
+      edit: false,
+      addNew: false,
+      list: false,
+      newName: "",
+      newUnit: "",
+      newAmount: ""
+    })
+
+  }
+
+
   getRecipesIds = () => {
     API.spoonacularId(this.state.title)
       .then(res => {
@@ -437,6 +455,13 @@ class Home extends Component {
                
                 ))}
               </Row>
+
+              <div className="ml-4 mb-5 mt-3 empty" >
+                <SearchBtn
+                  onClick={this.emptyList}>
+                  Empty List
+                </SearchBtn>
+              </div>
              
             
               <div className="boxOne"><p>2. Enter the number of servings</p></div>
