@@ -88,11 +88,7 @@ class Home extends Component {
         if (unit === "serving" || unit === "" || unit === " ") {
           unit = "servings";
         }
-        if (
-          unit === "teaspoon" ||
-          unit === "tablespoon" ||
-          unit === "teaspoons"
-        ) {
+        if (unit === "teaspoon" || unit === "tablespoon" ||unit === "teaspoons") {
           unit = "tablespoons";
         }
         if (unit === "cup") {
@@ -103,6 +99,7 @@ class Home extends Component {
         console.log(idUnit);
         let amountPerServing = amount / servings;
         let yourServing = amountPerServing * this.state.yourServings;
+        
         if (yourServing >= 1) {
           yourServing = yourServing + 0.4;
         }
@@ -133,20 +130,22 @@ class Home extends Component {
           finalIngredientList.push(ingredient);
         } else {
           if (finalIngredientList[index].idUnit === ingredient.idUnit) {
-            finalIngredientList[index].amountPerServing =
-              finalIngredientList[index].amountPerServing +
-              ingredient.amountPerServing;
+            finalIngredientList[index].amountPerServing = 
+            finalIngredientList[index].amountPerServing + ingredient.amountPerServing;
+
             if (finalIngredientList[index].amountPerServing >= 1) {
-              finalIngredientList[index].amountPerServing =
-                finalIngredientList[index].amountPerServing + 0.4;
+              finalIngredientList[index].amountPerServing = 
+              finalIngredientList[index].amountPerServing + 0.4;
             }
+
             finalIngredientList[index].finalAmountForUser = Math.round(
               finalIngredientList[index].amountPerServing *
-                this.state.yourServings
-            );
+                this.state.yourServings);
+
             if (finalIngredientList[index].finalAmountForUser === 0) {
               finalIngredientList[index].finalAmountForUser = 1;
             }
+
           } else {
             console.log(finalIngredientList[index].unit);
             console.log(ingredient.unit);
@@ -173,6 +172,7 @@ class Home extends Component {
     console.log(separateIngredients);
     console.log(idOfIngredientsList);
     console.log(recipeArray);
+
     //setting state for grocery list array...
     this.setState({ groceryListArray: finalIngredientList });
     this.setState({ toSaveGroceryListArray: finalIngredientList });
@@ -196,9 +196,7 @@ class Home extends Component {
         recipeDetail.servings = recipe.servings;
 
         this.setState({
-
           recipesGroceryList: [...this.state.recipesGroceryList, recipeDetail]
-
         });
       })
       .catch(err => console.log(err));
@@ -208,7 +206,6 @@ class Home extends Component {
   addItem = event => {
     event.preventDefault();
     let newItemObject = {};
-
     newItemObject.idUnit = this.state.newName + this.state.newAmount;
     newItemObject.name = this.state.newName;
     newItemObject.finalAmountForUser = this.state.newAmount;
@@ -281,7 +278,9 @@ class Home extends Component {
 
         <Container fluid>
 
-          <Carousel className="carouselDiv">
+
+          <Carousel className="carouselStyle">
+
             {/* image 1 */}
             <Carousel.Item>
               <img
@@ -358,7 +357,7 @@ class Home extends Component {
 
 
           <Box>
-            <div className="container">
+            <div className="container mt-4">
 
             <h4 className="mb-4 sectionTitle" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
             <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>

@@ -16,13 +16,12 @@ function App() {
         {/* <LoginNavbar/>
         <Route exact path="/" component={Landing} /> */}
         <Route exact path="/" component={Home} />
-        <div className="container">
+        
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/account" component={Account} />
         {/* <Route exact path="/yourchecklist/:id" component={CheckList} /> */}
-        </div>
         
 
 

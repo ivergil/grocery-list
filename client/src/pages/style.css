@@ -41,6 +41,15 @@
     .yourservingsinput, .yourservingbutton{
        margin-top: 5px;
     }
+
+    .titleJumbotron{
+        font-size: 60px;
+    }
+/*     
+    .carouselStyle{
+        margin-left: 3.3%;
+    } */
+
     
     .theJumboTitle{
         font-size: 35px;
@@ -49,6 +58,7 @@
     .carouselDiv{
         margin-top: 10px;
     }
+
 
   }
 
