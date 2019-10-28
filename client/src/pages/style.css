@@ -32,11 +32,16 @@
     justify-content: flex-start;
 }
 
+.carouselDiv{
+    margin-top: 40px;
+}
+
 @media only screen and (max-width: 770px) {
   
     .yourservingsinput, .yourservingbutton{
        margin-top: 5px;
     }
+
     .titleJumbotron{
         font-size: 60px;
     }
@@ -44,8 +49,22 @@
     .carouselStyle{
         margin-left: 3.3%;
     } */
+
+    
+    .theJumboTitle{
+        font-size: 35px;
+    }
+
+    .carouselDiv{
+        margin-top: 10px;
+    }
+
+
   }
 
+  .board{
+    background-size: cover;
+  }
 
  
 
