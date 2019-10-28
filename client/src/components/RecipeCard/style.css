@@ -39,6 +39,10 @@
   margin-top: 18px;
 }
 
+.sectionTitle{
+  font-size: 28px;
+}
+
 
 .card >.details {
   
@@ -97,72 +101,11 @@
   overflow: scroll;
 }
 
-/* .modalTittle {
-  color:black;
-} */
-
-/* .remove:hover {
-  color: #d50000;
-} */
-
-
-/* a {
-
+.fav1{
   position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%,220%);
-  width: 100px;
-  height: 50px;
-  background: #6CADDC;
-  border-radius: 75px;
-  text-align: center;
-  line-height: 45px;
-  text-decoration: none;
-  color: #262626;
+  top: 361px;
+  right: 240px;
 }
-
-/*a.active {
-background: transparent;
-color: #fff;
-}
-
-/*a:before {
-  
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: red;
-  width: 50%;
-  height: 100%;
-  transition: 0.5s;
-  z-index: -1;
-  transform:  translateX(-50px) rotate(-325deg);
-  opacity: 0;
-}
-
-/*a.active:before {
-  left: 10px;
-  transform:  translateX(0) rotate(20deg);
-  border-bottom-left-radius: 75px;
-  border-top-left-radius: 75px; 
-  opacity: 1;
-}
-
-/*a:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: red;
-  width: 50%;
-  height: 100%;
-  transition: 0.5s;
-  z-index: -1;
-  transform:  translateX(50px) rotate(325deg);
-  opacity: 0;
-}*/
 
 body {
   background-color: #66655f;
@@ -182,7 +125,7 @@ body {
 
 
  .recipecard{
-  width: 300px;
+  width: 350px;
   height: 430px;
 }
 
@@ -190,12 +133,65 @@ body {
 height:220px;
 }
 
+@media only screen and (max-width: 1030px) {
+
+  .recipecard{
+    width: 270px;
+    height: 430px;
+    margin-right: 0;
+    
+  }
+  ul{
+    padding-left:10px
+  }
+
+  .fav1{
+    position: absolute;
+    top: 362px;
+    right: 160px;
+  }
+ 
+}
+
+
+
+
  @media only screen and (max-width: 770px) {
  
   body{
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 7px;
   }
+
+  .recipecard{
+    width: 320px;
+    height: 430px;
+    margin-right: 0;
+    
+  }
+
+  .fav1{
+    position: absolute;
+    top: 362px;
+    right: 200px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+  .recipecard{
+    width: 270px;
+    height: 430px;
+    margin-right: 0;
+    
+  }
+  .fav1{
+    position: absolute;
+    top: 365px;
+    right: 165px;
+  }
+
+ 
 }
  
 
@@ -209,13 +205,14 @@ height:220px;
   .recipecard{
     width: 230px;
     height: 430px;
+    margin-right: 0;
     
   }
 
   .fav1{
     position: absolute;
-    top: 370px;
-    right: 150px;
+    top: 365px;
+    right: 140px;
   }
 
   .fav2{

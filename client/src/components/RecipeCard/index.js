@@ -87,7 +87,7 @@ saveToFavorites = () => {
   render() {
     let addModalClose = () => this.setState({ addModalShow: false });
     return (
-      <div >
+      <div className="contDiv">
 
         <div className="card recipecard"  >
 

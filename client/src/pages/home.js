@@ -281,7 +281,7 @@ class Home extends Component {
 
         <Container fluid>
 
-          <Carousel>
+          <Carousel className="carouselDiv">
             {/* image 1 */}
             <Carousel.Item>
               <img
@@ -290,7 +290,7 @@ class Home extends Component {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -303,20 +303,20 @@ class Home extends Component {
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
 
             <Carousel.Item>
               <img
-                className="d-block w-100"
+                className="d-block w-100 theJumboTitle"
                 src="https://i.ytimg.com/vi/BnggSSaharc/maxresdefault.jpg"
               // alt="Third slide"
               />
 
               <Carousel.Caption>
-                <h1>Chef Helper</h1>
+                <h1 className="theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -329,7 +329,7 @@ class Home extends Component {
               />
 
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
                 <p>Your meal ideas virtual assistant app</p>
               </Carousel.Caption>
             </Carousel.Item>
@@ -344,8 +344,8 @@ class Home extends Component {
               />
 
               <Carousel.Caption>
-                <h1 className = "titleJumbotron">Chef Helper</h1>
-                <p>Your meal ideas virtual assistant app</p>
+                <h1 className = "titleJumbotron theJumboTitle">Chef Helper</h1>
+                <p className="message">Your meal ideas virtual assistant app</p>
                 {/* <h3>Third slide label</h3>
                   <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> */}
               </Carousel.Caption>
@@ -360,7 +360,7 @@ class Home extends Component {
           <Box>
             <div className="container">
 
-            <h4 className="mb-4" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
+            <h4 className="mb-4 sectionTitle" >Search Recipes &nbsp; <i className="fa fa-search"></i></h4>
             <p>Key Word: &nbsp; <i className="fa fa-comment"></i></p>
             <Input
               value={this.state.title}
@@ -383,7 +383,7 @@ class Home extends Component {
          </Box>
          <hr style={{borderColor: "#fff"}}></hr>
       <BoxOne>
-            <h4 className="mb-4"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
+            <h4 className="mb-5 sectionTitle"> Results &nbsp; <i className="far fa-hand-point-down"></i></h4>
             <Row>
               {this.state.listOfResults.map(recipe => (
 
@@ -410,7 +410,7 @@ class Home extends Component {
           <BoxOne>
            
            <div>
-              <h4 className="mb-4"> Grocery Calculator &nbsp; <i className="fab fa-nutritionix"></i></h4>
+              <h4 className="mb-5 sectionTitle"> Grocery Calculator &nbsp; <i className="fab fa-nutritionix"></i></h4>
             
               <div className="boxOne"><p>1. Click on " <i className="fa fa-cart-plus" aria-hidden="true"></i> " to add a recipe</p></div>
             <Row>
@@ -442,7 +442,7 @@ class Home extends Component {
               <div className="boxOne"><p>2. Enter the number of servings</p></div>
               
               <Row>
-              <div className="container box">
+              <div className="ml-4 container box">
               <p className="yourservings mr-4" style={{ fontStyle: "" }}>How many servings?</p>
               <Input 
                 className="yourservingsinput"
@@ -457,7 +457,7 @@ class Home extends Component {
               <SearchBtn
                 className="yourservingbutton"
                 disabled={this.state.list? true:false} 
-                style={{marginLeft:30,  marginBottom: 40}}
+                style={{marginLeft:45,  marginBottom: 40}}
                 onClick={this.calculateGroceries}
               >
                 Calculate Groceries
@@ -474,13 +474,13 @@ class Home extends Component {
           
           <div className="boxOne"><p>3. Edit and Add to your list</p></div>
 
-            <div >
+            <div>
 
               
               {this.state.addNew === false || this.state.edit === false ? (
                 ""
               ) : (
-                <div>
+                <div className="ml-4">
                   <h6 className="mt-3">Add item</h6>
 
                   <Input
@@ -513,7 +513,7 @@ class Home extends Component {
                 </div>
               )}
 
-            <div className="searchbtn">
+            <div className="searchbtn ml-4">
               {this.state.edit === false ? (
                 ""
               ) : (
@@ -535,20 +535,24 @@ class Home extends Component {
               </div>
               
               <div className="boxOne mt-3"><p>4. Send you the List</p></div>
-
-              {this.state.edit === false &&
-              this.state.groceryListArray.length > 0 ? (
-                <SendMyGroceryList toSend={this.state.groceryListArray}>
-              </SendMyGroceryList>
+              
+                <div className="ml-4">
+                  {this.state.edit === false &&
+                    this.state.groceryListArray.length > 0 ? (
+                      <SendMyGroceryList 
+                        toSend={this.state.groceryListArray}>
+                      </SendMyGroceryList>
               ) : (
                 ""
               )}
+                </div>
+              
                </div>
             </div>
 
               {/* //column right */}
-              <div className="col-lg-6 col-md-6 col-sm-12">
-              <h5  className="mb-5 mt-3">My Grocery List...</h5>
+              <div className="col-lg-6 col-md-6 col-sm-12 board" style={{backgroundImage: `url(${"https://i.pinimg.com/236x/2f/14/78/2f1478d8f279b3808992879134450277--kara-tahtalar-bluebirds.jpg"})`}}>
+              <h3 className="mb-5 mt-3" ><u>My Grocery List</u></h3>
                 {this.state.groceryListArray.map(item => (
                   <div key={item.idUnit}  className="mb-4">
                   <List
@@ -564,6 +568,8 @@ class Home extends Component {
                   /></div>
                   
                 ))}
+
+                <img alt="groceries-picture" style={{width:150, height:150, position:"absolute", bottom:10, right:10}} src="https://i.dlpng.com/static/png/144720_preview.webp"></img>
               </div>
 
               <Footer>
