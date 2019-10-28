@@ -85,14 +85,14 @@ export default class List extends Component {
             style={{ float:"left" }} 
             style={{ marginBottom: 10, backgroundColor: "white", color: "red", marginRight: 10  }}
             onClick={this.deleteIngredient}>
-            x
+           <i class="fas fa-times"></i>
           </SearchBtn>
           <SearchBtn
           
             style={{ float:"left", marginLeft: 10 }} 
             style={{ marginBottom: 10, backgroundColor: "white", color: "red" }}
             onClick={this.saveChanges}>
-            Save
+            <i class="fas fa-check"></i>
           </SearchBtn>
           </div>   
     

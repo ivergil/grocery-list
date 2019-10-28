@@ -110,7 +110,7 @@ saveToFavorites = () => {
               </li>
               <li>
                 <strong>Ready in:</strong> {this.props.readyInMinutes} mins
-            </li>
+            </li> 
   
             <button className="favorite fav1" href="#" onClick={this.saveToFavorites}> <i className="fa fa-heart"></i></button>
   
@@ -124,7 +124,7 @@ saveToFavorites = () => {
               onClick={this.handleModal}
             // onClick={()=> this.setState({addModalShow: true})}
             >
-              <i className="fa fa-eye details"></i>
+              <i className="fas fa-eye details"></i>
             </Button>
 
             <div key={this.props.id}>

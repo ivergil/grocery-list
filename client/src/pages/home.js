@@ -36,6 +36,24 @@ class Home extends Component {
   }
 
 
+  emptyList = ()=>{
+    this.setState({
+      recipesGroceryList: [],
+      groceryListArray: [],
+      idGroceryListArray: [],
+      yourServings: 0,
+      toSaveGroceryListArray: [],
+      edit: false,
+      addNew: false,
+      list: false,
+      newName: "",
+      newUnit: "",
+      newAmount: ""
+    })
+
+  }
+
+
   getRecipesIds = () => {
     API.spoonacularId(this.state.title)
       .then(res => {
@@ -436,6 +454,13 @@ class Home extends Component {
                
                 ))}
               </Row>
+
+              <div className="ml-4 mb-5 mt-3 empty" >
+                <SearchBtn
+                  onClick={this.emptyList}>
+                  Empty List
+                </SearchBtn>
+              </div>
              
             
               <div className="boxOne"><p>2. Enter the number of servings</p></div>
@@ -516,9 +541,9 @@ class Home extends Component {
               {this.state.edit === false ? (
                 ""
               ) : (
-                <SearchBtn style={{ marginBottom: 10 }} onClick={this.showForm}>
-                  {this.state.addNew === false ? "+" : "-"}
-                </SearchBtn>
+                  <SearchBtn style={{ marginBottom: 10 }} onClick={this.showForm}>
+                    {this.state.addNew === false ? "+" : "-"}
+                  </SearchBtn>
               )}
 
                {this.state.list === false? "":(
@@ -567,8 +592,9 @@ class Home extends Component {
                   /></div>
                   
                 ))}
+                <div style={{height:150}}></div>
 
-                <img alt="groceries-picture" style={{width:150, height:150, position:"absolute", bottom:10, right:10}} src="https://i.dlpng.com/static/png/144720_preview.webp"></img>
+                <img alt="groceries-picture" style={{ width:150, height:150, position:"absolute", bottom:10, right:10}} src="https://i.dlpng.com/static/png/144720_preview.webp"></img>
               </div>
 
               <Footer>
