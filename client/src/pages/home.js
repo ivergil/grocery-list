@@ -517,9 +517,9 @@ class Home extends Component {
               {this.state.edit === false ? (
                 ""
               ) : (
-                <SearchBtn style={{ marginBottom: 10 }} onClick={this.showForm}>
-                  {this.state.addNew === false ? "+" : "-"}
-                </SearchBtn>
+                  <SearchBtn style={{ marginBottom: 10 }} onClick={this.showForm}>
+                    {this.state.addNew === false ? "+" : "-"}
+                  </SearchBtn>
               )}
 
                {this.state.list === false? "":(
