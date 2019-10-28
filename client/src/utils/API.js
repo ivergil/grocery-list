@@ -17,8 +17,8 @@ export default {
     return axios.get("api/recipeInformation/" + recipeId)
   },
 
-  sendGroceryList: function(phone,list){
-    return axios.get('api/sendsms/'+ phone + "/" + list)
+  sendGroceryList: function(phone,listId){
+    return axios.get('api/sendsms/'+ phone + "/" + listId)
   },
 
   // emailGroceryList: function(email, list){
@@ -56,8 +56,8 @@ favUser: function(userData) {
 //     return axios.delete("/api/books/" + id);
 //   },
   // Saves a checklist to the database
-//   checklist: function(list) {
-//     return axios.post("/api/checklist", list);
-//   }
+  checklist: function(grocery) {
+    return axios.post("/api/checklist", grocery);
+  }
  };
 
