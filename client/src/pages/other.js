@@ -5,24 +5,63 @@ import { Container, Box, BoxOne } from "../components/Grid";
 class CheckList extends Component {
     state = {
       list: [],
-      id: ""
+      id: "",
+      storedList: []
+
     };
 
   componentDidMount() {
-    //get the list id coming from url
+   //run the get list method
     this.getList();
   }
 
+  //using the id params get the id list details to render in page
   getList = () => {
     API.getList(this.props.match.params.id)
       .then(res => {
         console.log(res);
-        console.log(res.data);
+        console.log(res.data.list);
+        let newList = res.data.list;
 
-        // this.setState({ book: res.data, volumeInfo:res.data.volumeInfo, imageGallery: res.data.volumeInfo.imageLinks, 
-        //   authors:res.data.volumeInfo.authors, });
-        // console.log(this.state.book);
-        // console.log(this.state.volumeInfo);
+        console.log(newList);
+        //map to change values of newList to make then objects
+          let newArrayList = newList.map(item =>{
+            item = {
+              value: item,
+              checked: false
+            }
+
+            return item
+          }) 
+
+          console.log(newArrayList);
+          //figure out if there is changes...
+          let stored = localStorage.getItem(res.data._id)
+            //if changes...
+            if(stored){
+
+              let array =  JSON.parse(stored); 
+
+              this.setState({ id:res.data._id, list:newArrayList, 
+              storedList:array });
+
+              console.log(this.state)
+            }
+            //if not changes
+             //set state and store in localstorage
+            else{
+
+              let theNewArrayList =  JSON.stringify(newArrayList)
+
+              localStorage.setItem(res.data._id , theNewArrayList );
+
+              let theArray = localStorage.getItem(res.data._id);
+              let array =  JSON.parse(theArray); 
+
+              this.setState({ id:res.data._id, list:newArrayList, 
+                storedList: array});
+                console.log(this.state)
+            }
       })
       .catch(err => console.log(err));
   };
@@ -43,25 +82,18 @@ class CheckList extends Component {
     return (
       <div>
 
-        hello!!!
-         {/* <LoginNavbar></LoginNavbar> */}
-    
-
-        {/* <BoxOne> */}
-          {/* {this.state.friends.map(friend => ( */}
-          {/* <RecipeCard */}
-
-          {/* // removeFriend={this.removeFriend}
-          // id={friend.id}
-          // key={friend.id}
-          // name={friend.name}
-          // image={friend.image}
-          // occupation={friend.occupation}
-          // location={friend.location}
-
-          /> */}
-          {/* ))} */}
-        {/* </BoxOne> */}
+        <h2>Your CheckList:</h2>
+       
+        <BoxOne> 
+          <div>
+           {this.state.storedList.map(item => (
+             <div key={item.value}>
+              <p>{item.value}</p>
+             </div>
+         
+           ))} 
+           </div>
+        </BoxOne>
 
         {/* <Nav 
        search = {this.state.search} 
