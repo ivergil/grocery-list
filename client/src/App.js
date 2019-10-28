@@ -5,6 +5,7 @@ import Login from "./components/Login"
 import Register from "./components/Register"
 import Profile from "./pages/profile"
 import Account from "./pages/account"
+import CheckList from "./pages/other"
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/account" component={Account} />
-        {/* <Route exact path="/yourchecklist/:id" component={CheckList} /> */}
+        <Route exact path="/checklist/:id" component={CheckList} />
         
 
 

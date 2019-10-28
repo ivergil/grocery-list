@@ -51,6 +51,8 @@ favUser: function(userData) {
   },
 
 
+
+
 //   // Deletes the saved book by the given id
 //   deleteBook: function(id) {
 //     return axios.delete("/api/books/" + id);
@@ -58,6 +60,11 @@ favUser: function(userData) {
   // Saves a checklist to the database
   checklist: function(grocery) {
     return axios.post("/api/checklist", grocery);
+  },
+
+  getList: function(id) {
+    return axios.get("/api/checklist/"+ id);
   }
+
  };
 

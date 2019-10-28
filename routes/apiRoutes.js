@@ -123,7 +123,7 @@ router.get('/sendsms/:phonenumber/:listId', (req, res) => {
       binding_type: 'sms',
       address: "+1" + phone,
     }),
-    body: "http://localhost:3000/" + listId
+    body: "http://localhost:3000/checklist/" + listId
   };
 
   client.notify
@@ -189,13 +189,18 @@ router
 //   .put(bookController.update)
 //   .delete(bookController.remove);
 
-// Matches with "/api/checklist/:id"
+// Matches with "/api/checklist"
 router
   .route("/checklist")
   .post(groceryListController.create)
-  .get(groceryListController.findAll)
 // .put(bookController.update)
 //.delete(bookController.remove);
+
+
+// Matches with "/api/checklist/:id"
+router
+  .route("/checklist/:id")
+  .get(groceryListController.findById)
 
 
 

@@ -1,55 +1,57 @@
 import React, { Component } from "react";
-
+import API from "../utils/API";
 import { Container, Box, BoxOne } from "../components/Grid";
 
-
-
-class Profile extends Component {
+class CheckList extends Component {
     state = {
-      books: [],
-      search: false,
-      saved: true
+      list: [],
+      id: ""
     };
 
   componentDidMount() {
-    // this.loadSavedBooks();
+    //get the list id coming from url
+    this.getList();
   }
 
-  //   loadSavedBooks = () => {
-  //     API.getBooks()
-  //       .then(res => {
-  //         this.setState({ books: res.data});
-  //         console.log(this.state.books);
-  //       })
-  //       .catch(err => console.log(err));
-  //   };
-
-
-  deleteABook = id => {
-    API.deleteBook(id)
+  getList = () => {
+    API.getList(this.props.match.params.id)
       .then(res => {
         console.log(res);
-        this.loadSavedBooks()
+        console.log(res.data);
+
+        // this.setState({ book: res.data, volumeInfo:res.data.volumeInfo, imageGallery: res.data.volumeInfo.imageLinks, 
+        //   authors:res.data.volumeInfo.authors, });
+        // console.log(this.state.book);
+        // console.log(this.state.volumeInfo);
       })
       .catch(err => console.log(err));
   };
+
+
+  // deleteABook = id => {
+  //   API.deleteBook(id)
+  //     .then(res => {
+  //       console.log(res);
+  //       this.loadSavedBooks()
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
 
 
   render() {
     return (
       <div>
-         <LoginNavbar></LoginNavbar>
-        {/* <Jumbotron>
-          <h1>Chef Helper</h1>
-          <p>..........................</p>
-        </Jumbotron> */}
 
-        <BoxOne>
+        hello!!!
+         {/* <LoginNavbar></LoginNavbar> */}
+    
+
+        {/* <BoxOne> */}
           {/* {this.state.friends.map(friend => ( */}
-          <RecipeCard
+          {/* <RecipeCard */}
 
-          // removeFriend={this.removeFriend}
+          {/* // removeFriend={this.removeFriend}
           // id={friend.id}
           // key={friend.id}
           // name={friend.name}
@@ -57,9 +59,9 @@ class Profile extends Component {
           // occupation={friend.occupation}
           // location={friend.location}
 
-          />
+          /> */}
           {/* ))} */}
-        </BoxOne>
+        {/* </BoxOne> */}
 
         {/* <Nav 
        search = {this.state.search} 
@@ -93,4 +95,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default CheckList;
