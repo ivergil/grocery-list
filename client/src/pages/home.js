@@ -442,7 +442,7 @@ class Home extends Component {
               <div className="boxOne"><p>2. Enter the number of servings</p></div>
               
               <Row>
-              <div className="container box">
+              <div className="ml-4 container box">
               <p className="yourservings mr-4" style={{ fontStyle: "" }}>How many servings?</p>
               <Input 
                 className="yourservingsinput"
@@ -457,7 +457,7 @@ class Home extends Component {
               <SearchBtn
                 className="yourservingbutton"
                 disabled={this.state.list? true:false} 
-                style={{marginLeft:30,  marginBottom: 40}}
+                style={{marginLeft:45,  marginBottom: 40}}
                 onClick={this.calculateGroceries}
               >
                 Calculate Groceries
@@ -474,13 +474,13 @@ class Home extends Component {
           
           <div className="boxOne"><p>3. Edit and Add to your list</p></div>
 
-            <div >
+            <div>
 
               
               {this.state.addNew === false || this.state.edit === false ? (
                 ""
               ) : (
-                <div>
+                <div className="ml-4">
                   <h6 className="mt-3">Add item</h6>
 
                   <Input
@@ -513,7 +513,7 @@ class Home extends Component {
                 </div>
               )}
 
-            <div className="searchbtn">
+            <div className="searchbtn ml-4">
               {this.state.edit === false ? (
                 ""
               ) : (
@@ -535,20 +535,24 @@ class Home extends Component {
               </div>
               
               <div className="boxOne mt-3"><p>4. Send you the List</p></div>
-
-              {this.state.edit === false &&
-              this.state.groceryListArray.length > 0 ? (
-                <SendMyGroceryList toSend={this.state.groceryListArray}>
-              </SendMyGroceryList>
+              
+                <div className="ml-4">
+                  {this.state.edit === false &&
+                    this.state.groceryListArray.length > 0 ? (
+                      <SendMyGroceryList 
+                        toSend={this.state.groceryListArray}>
+                      </SendMyGroceryList>
               ) : (
                 ""
               )}
+                </div>
+              
                </div>
             </div>
 
               {/* //column right */}
-              <div className="col-lg-6 col-md-6 col-sm-12">
-              <h5  className="mb-5 mt-3">My Grocery List...</h5>
+              <div className="col-lg-6 col-md-6 col-sm-12 board" style={{backgroundImage: `url(${"https://i.pinimg.com/236x/2f/14/78/2f1478d8f279b3808992879134450277--kara-tahtalar-bluebirds.jpg"})`}}>
+              <h3 className="mb-5 mt-3" ><u>My Grocery List</u></h3>
                 {this.state.groceryListArray.map(item => (
                   <div key={item.idUnit}  className="mb-4">
                   <List
@@ -564,6 +568,8 @@ class Home extends Component {
                   /></div>
                   
                 ))}
+
+                <img alt="groceries-picture" style={{width:150, height:150, position:"absolute", bottom:10, right:10}} src="https://i.dlpng.com/static/png/144720_preview.webp"></img>
               </div>
 
               <Footer>
