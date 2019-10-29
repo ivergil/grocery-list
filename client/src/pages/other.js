@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Container, Box, BoxOne } from "../components/Grid";
+import {SearchBtn} from "../components/SearchBox";
+import LoginNavbar from "../components/LoginNavbar";
 
 class CheckList extends Component {
     state = {
@@ -66,62 +68,64 @@ class CheckList extends Component {
       .catch(err => console.log(err));
   };
 
+  checkItem = (value) =>{
+    let listArray = this.state.storedList.map(item => {
 
-  // deleteABook = id => {
-  //   API.deleteBook(id)
-  //     .then(res => {
-  //       console.log(res);
-  //       this.loadSavedBooks()
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+      if(item.value === value){
+         if(item.checked === false){
+           item.checked = true
+         }else{
+           item.checked = false
+         }
+      }
+      return item
+    });
+
+    this.setState({storedList: listArray});
+    //remove old dated stored data
+    localStorage.removeItem(this.state.id);
+    //stringify the listArray data
+    let theNewList =  JSON.stringify(listArray)
+
+    localStorage.setItem(this.state.id, theNewList);
+
+
+  }
+
 
 
 
   render() {
     return (
       <div>
+      <LoginNavbar></LoginNavbar>
+        <br></br>
+        <br></br>
 
         <h2>Your CheckList:</h2>
        
         <BoxOne> 
-          <div>
+          <div className="container">
            {this.state.storedList.map(item => (
-             <div key={item.value}>
-              <p>{item.value}</p>
+             <div key={item.value}  className="row" >
+              <div className="col-lg-10 col-md-8 col-sm-12">
+                <p>{item.value}</p>
+              </div>
+              <div className="col-lg-2 col-md-4 col-sm-12">
+              <SearchBtn
+                style={{ float:"left", marginLeft: 10 }} 
+                style={{ marginBottom: 10, backgroundColor: "white", color: "blue" }}
+                onClick={()=>this.checkItem(item.value)}>
+                {item.checked === false ? (<div style={{height:20, width:15}}></div>):(<i className="fas fa-check"></i>)}    
+              </SearchBtn>
+              </div>
+
              </div>
          
            ))} 
            </div>
         </BoxOne>
 
-        {/* <Nav 
-       search = {this.state.search} 
-       saved = {this.state.saved}/>
-      <Container fluid>
-     <Jumbotron>
-      <h1>(React) Google Book Search</h1>
-      <p>Search for and Save Books of your Interest</p>
-     </Jumbotron>
-
-      <BoxOne>
-      <h4 className="mb-4">Saved Books</h4>
-     {this.state.books.map(book => (
-            <SavedCards
-              id={book._id}
-              key={book._id} 
-              title ={book.title}
-              bookId = {book.bookId}
-              deleteABook = {this.deleteABook}
-              authors = {book.authors[0]}
-              image = {book.image}
-              link ={book.link}
-              description = {book.description}
-             />
-     ))}
-
-      </BoxOne>
-     </Container> */}
       </div>
     );
   }
