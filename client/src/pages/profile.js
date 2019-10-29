@@ -26,21 +26,43 @@ class Profile extends Component {
             first_name: decoded.first_name,
             last_name: decoded.last_name,
             email: decoded.email,
+            id: decoded._id
         })
-
-        this.getSavedRecipes();
+        console.log(this.state);
+        //this.getSavedRecipes(decoded.email);
+        this.findUsersRecipes(decoded._id);
     }
 
-
-    getSavedRecipes = () => {
-        API.favUser({email:this.state.email})
+    findUsersRecipes = (id) => {
+        console.log(this.state.id);
+        console.log(id);
+        API.findUsersRecipes(id)
           .then(res => {
+            console.log(res)
             console.log(res.data.favRecipes);
             this.setState({ myFavoriteRecipes:res.data.favRecipes});
              console.log(this.state.myFavoriteRecipes);
           })
           .catch(err => console.log(err));
       }
+
+
+
+    // getSavedRecipes = (em) => {
+    //     console.log(this.state.email);
+    //     console.log(em);
+    //     let email ={
+    //         email: em
+    //     }
+    //     API.favUser(email)
+    //       .then(res => {
+    //         console.log(res)
+    //         console.log(res.data.favRecipes);
+    //         this.setState({ myFavoriteRecipes:res.data.favRecipes});
+    //          console.log(this.state.myFavoriteRecipes);
+    //       })
+    //       .catch(err => console.log(err));
+    //   }
 
 
     render(){

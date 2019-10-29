@@ -202,13 +202,17 @@ router
   .route("/checklist/:id")
   .get(groceryListController.findById)
 
+//
+
+router
+  .route("/findUsersRecipes/:id")
+  .get(userController.findByIdPopulate)
 
 
 //populate favRecipes for user
 
 router.route("/yourSavedRecipes")
   .get(userController.findOne)
-
 
 // app.post("/api/articles/:id", function(req, res) {
 //   //
