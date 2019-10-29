@@ -101,8 +101,15 @@ class CheckList extends Component {
       <LoginNavbar></LoginNavbar>
         <br></br>
         <br></br>
-
-        <h2>Your CheckList:</h2>
+      <div>
+      <div className="row" >
+        <div className="mt-5 col-lg-10 col-md-8 col-sm-12">
+          <u><h2 style={{ marginLeft: 40, fontSize:40}}>Your CheckList:</h2></u>
+        </div>
+      </div>
+      </div>
+      
+        
        
         <BoxOne> 
           <div className="container">
