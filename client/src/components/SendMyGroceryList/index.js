@@ -9,7 +9,7 @@ class SendsMyGroceryList extends Component {
     super(props);
     this.state = {
       phoneNumber: "",
-
+      listId: "",
       // email: "",
 
       stringToSend: "",
@@ -36,12 +36,12 @@ class SendsMyGroceryList extends Component {
 
 
     const newIngredientListState = this.props.toSend.map(ingredient => {
-      ingredient =
-        ingredient.finalAmountForUser +
-        " " +
-        ingredient.unit +
-        " " +
-        ingredient.name;
+      ingredient = 
+      ingredient.finalAmountForUser +
+        " " + ingredient.unit + " " + ingredient.name
+        // checked: false
+      
+        
       return ingredient;
     });
 
@@ -49,24 +49,42 @@ class SendsMyGroceryList extends Component {
       list: newIngredientListState
     };
 
-    //this.setState({ grocery.list: [newIngredientListState] })
+      API.checklist(grocery)
+        .then(res => {
+          console.log(res.data._id);
+          let listId = res.data._id;
+          console.log(listId);
+          this.setState({listId: res.data._id}); 
+          // setTimeout(() => {            
+          // }, 1000);
+          this.sendTextMessage()
+          })
 
-    //   API.checklist(grocery)
-    //     .then(res => {
-    //       console.log(res.data._id);
-    //       let yourUrl = "http://localhost:3000/yourchecklist/" + res.data._id + ""
-
-    //       //change url to match heroku when we deploy
-    API.sendGroceryList(this.state.phoneNumber, grocery.list)
-      .then(res => {
-        //console.log(yourUrl);
-      })
-      .catch(err => console.log(err));
-    alert("Message sent!");
-    //     })
-    //     .catch(err => console.log(err));
+          
+        .catch(err => console.log(err));
     
   };
+
+
+  sendTextMessage = () => {
+    //event.preventDefault();
+
+    console.log(this.state.listId);
+    //change url to match heroku when we deploy
+    API.sendGroceryList(this.state.phoneNumber, this.state.listId)
+    .then(res => {
+      //console.log(yourUrl);
+    })
+    .catch(err => console.log(err));
+      alert("Message sent!");
+
+    
+    
+
+
+  }
+
+
 
   render() {
     return (

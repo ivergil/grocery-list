@@ -50,6 +50,7 @@ export default class RecipeCard extends Component {
 saveToFavorites = () => {
   
     const token = localStorage.usertoken
+    if(token){
     const decoded = jwt_decode(token)
     console.log(decoded.email);
     this.setState({email:decoded.email});
@@ -74,7 +75,9 @@ saveToFavorites = () => {
       }) .catch(err => console.log(err))
     })
     .catch(err => console.log(err));
-    
+  }else{
+  alert("Sorry, you have to login to be able to save a recipe!")
+  }
     
 
     
@@ -89,7 +92,7 @@ saveToFavorites = () => {
     return (
       <div className="contDiv">
 
-        <div className="card recipecard"  >
+        <div className="card recipecard"  style={this.props.addToGrocery === false? {height:300}:{height:430}}>
 
   
           <div className="img-container" style={{ backgroundSize: "cover", backgroundImage: `url(https://spoonacular.com/recipeImages/${this.props.image})` }}>
@@ -99,7 +102,7 @@ saveToFavorites = () => {
           </div>
   
   
-          <div className="content">
+          <div className="content" >
   
             <ul>
               <li>
@@ -111,8 +114,8 @@ saveToFavorites = () => {
               <li>
                 <strong>Ready in:</strong> {this.props.readyInMinutes} mins
             </li> 
-  
-            <button className="favorite fav1" href="#" onClick={this.saveToFavorites}> <i className="fa fa-heart"></i></button>
+            {this.props.addToGrocery === false? "":(
+            <button className="favorite fav1" href="#" onClick={this.saveToFavorites}> <i className="fa fa-heart"></i></button>)}
   
             </ul>
   

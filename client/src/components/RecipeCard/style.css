@@ -108,7 +108,9 @@
 }
 
 body {
-  background-color: #66655f;
+  /* background-color: #66655f; */
+  background-image: url("https://busites_www.s3.amazonaws.com/mvresortgrandcayman/2017/03/blue-wood-background.jpg");
+ 
   color: white;
   padding: 30px;
   font-family: 'Happy Monkey', cursive;
@@ -131,6 +133,10 @@ body {
 
 .img-container{
 height:220px;
+}
+
+ul{
+  padding-left:15px
 }
 
 @media only screen and (max-width: 1030px) {
