@@ -72,6 +72,7 @@ saveToFavorites = () => {
       API.updateUser(decoded.email , data)
       .then(res=>{
         console.log(res)
+        alert("Recipe saved in your profile!")
       }) .catch(err => console.log(err))
     })
     .catch(err => console.log(err));

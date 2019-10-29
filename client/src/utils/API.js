@@ -38,7 +38,7 @@ export default {
 //   },
 
 favUser: function(userData) {
-  return axios.get("/api/yourSavedRecipes", userData);
+  return axios.get("/api/yourSavedRecipes" , userData);
 },
 
   // update the user by the given email
@@ -64,7 +64,10 @@ favUser: function(userData) {
 
   getList: function(id) {
     return axios.get("/api/checklist/"+ id);
-  }
+  },
 
+  findUsersRecipes: function(id){
+   return axios.get("/api/findUsersRecipes/" + id);
+  }
  };
 
