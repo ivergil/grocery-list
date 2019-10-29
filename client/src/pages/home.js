@@ -594,7 +594,7 @@ class Home extends Component {
                 ))}
                 <div style={{height:150}}></div>
 
-                <img alt="groceries-picture" style={{ width:150, height:150, position:"absolute", bottom:10, right:10}} src="https://i.dlpng.com/static/png/144720_preview.png"></img>
+                <img alt="groceries-picture" style={{ width:150, height:150, position:"absolute", bottom:10, right:10}} src="http://www.pngmart.com/files/7/Groceries-Transparent-Images-PNG.png"></img>
               </div>
 
               <Footer>

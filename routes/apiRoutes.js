@@ -123,7 +123,7 @@ router.get('/sendsms/:phonenumber/:listId', (req, res) => {
       binding_type: 'sms',
       address: "+1" + phone,
     }),
-    body: "http://localhost:3000/checklist/" + listId
+    body: "https://chef-helpers.herokuapp.com/checklist/" + listId
   };
 
   client.notify

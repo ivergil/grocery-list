@@ -50,6 +50,7 @@ export default class RecipeCard extends Component {
 saveToFavorites = () => {
   
     const token = localStorage.usertoken
+    if(token){
     const decoded = jwt_decode(token)
     console.log(decoded.email);
     this.setState({email:decoded.email});
@@ -74,7 +75,9 @@ saveToFavorites = () => {
       }) .catch(err => console.log(err))
     })
     .catch(err => console.log(err));
-    
+  }else{
+  alert("Sorry, you have to login to be able to save a recipe!")
+  }
     
 
     
