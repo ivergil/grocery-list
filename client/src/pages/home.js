@@ -35,10 +35,24 @@ class Home extends Component {
     this.getRecipesIds();
   }
 
+  emptyGroceryCalculator=()=>{
+    this.setState({
+      recipesGroceryList: [],
+      groceryListArray: [],
+      idGroceryListArray: [],
+      yourServings: 0,
+      toSaveGroceryListArray: [],
+      edit: false,
+      addNew: false,
+      list: false,
+      newName: "",
+      newUnit: "",
+      newAmount: ""
+    })
+  }
 
   emptyList = ()=>{
     this.setState({
-      recipesGroceryList: [],
       groceryListArray: [],
       idGroceryListArray: [],
       yourServings: 0,
@@ -456,10 +470,18 @@ class Home extends Component {
               </Row>
 
               <div className="ml-4 mb-5 mt-3 empty" >
+
+              <SearchBtn
+                  onClick={this.emptyGroceryCalculator}>
+                  Empty All
+                </SearchBtn>
+
                 <SearchBtn
+                style={{marginLeft:40}}
                   onClick={this.emptyList}>
                   Empty List
                 </SearchBtn>
+
               </div>
              
             
