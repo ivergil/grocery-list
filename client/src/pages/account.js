@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import LoginNavbar from "../components/LoginNavbar";
 import jwt_decode from "jwt-decode"
 //import API from "../utils/API";
+import "./style.css";
 
 class Account extends Component {
     constructor(){
@@ -30,8 +31,8 @@ class Account extends Component {
         return(
             <div>
             <LoginNavbar></LoginNavbar>
-            <div className="container">
-              <div className="jumbotron mt-5">
+            <div className="container" style={{marginTop:100}}>
+              <div className="jumbotron mt-5 board" style={{backgroundImage: `url(${"https://i.pinimg.com/236x/2f/14/78/2f1478d8f279b3808992879134450277--kara-tahtalar-bluebirds.jpg"})`}}>
                   <div className = "col-sm-8 mx-auto">
                       <h1 className= "text-center">
                           Account

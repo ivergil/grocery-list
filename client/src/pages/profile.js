@@ -5,6 +5,7 @@ import jwt_decode from "jwt-decode"
 import API from "../utils/API";
 import RecipeCard from "../components/RecipeCard"
 import { Col, Row } from "../components/Grid";
+import "./style.css";
 
 class Profile extends Component {
     constructor(){
@@ -47,8 +48,8 @@ class Profile extends Component {
             
             <div>
             <LoginNavbar></LoginNavbar>
-            <div className="container">
-              <div className="jumbotron mt-5">
+            <div className="container" style={{marginTop:100}}>
+              <div className="jumbotron mt-5 board" style={{backgroundImage: `url(${"https://i.pinimg.com/236x/2f/14/78/2f1478d8f279b3808992879134450277--kara-tahtalar-bluebirds.jpg"})`}}>
                   <div className = "col-sm-8 mx-auto">
                       <h1 className= "text-center">
                           Saved Recipes
@@ -60,7 +61,7 @@ class Profile extends Component {
             {this.state.myFavoriteRecipes.map(recipe => (
             
                 
-                <div className="col-6" key={recipe.spoonacularId}>
+                <div className="col-sm-12 col-md-6 col-lg-6" key={recipe.spoonacularId}>
                  <Col size="sm-12 md-12 lg-6" >   
                   <RecipeCard
                     id={recipe.theId}   
